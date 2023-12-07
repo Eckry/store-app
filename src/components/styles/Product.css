@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.product-container {
+  width: 175px;
+  max-height: 235px;
+  border: 2px solid black;
+  background-color: white;
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.product-information {
+  width: 100%;
+  height: 50px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  place-items: center;
+  overflow: hidden;
+  padding: 0 3px;
+  background-color: rgb(207, 207, 207);
+}
+
+.product-name {
+  border-top: 2px solid black;
+}
+
+.product-price {
+  color: rgb(79, 129, 4);
+}
