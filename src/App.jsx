@@ -2,33 +2,21 @@ import { useState } from "react";
 import "./App.css";
 import { ShoppingCartIcon } from "./Components/Icons";
 import { Product } from "./components/Product";
-import { useEffect } from "react";
 import CheckBox from "./components/CheckBox";
 import RangeInput from "./components/RangeInput";
 import products from "./products.json";
 import categories from "./categories.json";
 
-let searchedCategories = {};
+let categoriesMap = {};
 categories.forEach((category) => {
-  searchedCategories[category] = true;
+  categoriesMap[category] = true;
 });
 
 function App() {
   const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(Infinity);
+  const [maxPrice, setMaxPrice] = useState(1000);
   const [filteredProducts, setFilteredProducts] = useState(products);
-
-  function handleOnChange(event) {
-    let counter = 0
-    Object.keys(searchedCategories).map((category) => {
-      if (category === event.target.value) {
-        searchedCategories[category] = !searchedCategories[category];
-      }
-      if(searchedCategories[category]) counter++
-    });
-    if(counter != 4) setFilteredProducts(products.filter((product) => !searchedCategories[product.category]))
-    if(counter === 4) setFilteredProducts(products)
-  }
+  const [searchedCategories, setSearchedCategories] = useState(categoriesMap);
 
   return (
     <>
@@ -50,16 +38,30 @@ function App() {
       <div className="filters">
         <h3 className="filters-title">Price range</h3>
         <div className="price-range-container">
-          <RangeInput id="min" />
-          <RangeInput id="max" />
+          <RangeInput
+            id="min"
+            value={minPrice}
+            onChange={setMinPrice}
+            setFilteredProducts={setFilteredProducts}
+          />
+          <RangeInput
+            id="max"
+            value={maxPrice}
+            onChange={setMaxPrice}
+            setFilteredProducts={setFilteredProducts}
+          />
         </div>
         <h3 className="filters-title">Category</h3>
         <div className="checkboxes-container">
           {Object.keys(searchedCategories).map((category) => (
             <CheckBox
               category={category}
-              onChange={handleOnChange}
+              setFilteredProducts={setFilteredProducts}
+              setSearchedCategories={setSearchedCategories}
+              searchedCategories={searchedCategories}
               categories={categories}
+              minPrice={minPrice}
+              maxPrice={maxPrice}
             />
           ))}
         </div>
