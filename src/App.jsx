@@ -3,32 +3,32 @@ import "./App.css";
 import { ShoppingCartIcon } from "./Components/Icons";
 import { Product } from "./components/Product";
 import { useEffect } from "react";
+import CheckBox from "./components/CheckBox";
+import RangeInput from "./components/RangeInput";
+import products from "./products.json";
+import categories from "./categories.json";
+
+let searchedCategories = {};
+categories.forEach((category) => {
+  searchedCategories[category] = true;
+});
+
 function App() {
-  const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState({});
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(Infinity);
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
-  useEffect(() => {
-    async function getProducts() {
-      const res = await fetch("https://fakestoreapi.com/products");
-      const products = await res.json();
-      setProducts(products);
-    }
-
-    async function getCategories() {
-      const res = await fetch("https://fakestoreapi.com/products/categories");
-      const categories = await res.json();
-      let categoriesMap = {};
-      for (let category of categories) {
-        categoriesMap[category] = true;
+  function handleOnChange(event) {
+    let counter = 0
+    Object.keys(searchedCategories).map((category) => {
+      if (category === event.target.value) {
+        searchedCategories[category] = !searchedCategories[category];
       }
-      setCategories(categoriesMap);
-    }
-
-    getProducts();
-    getCategories();
-  }, []);
+      if(searchedCategories[category]) counter++
+    });
+    if(counter != 4) setFilteredProducts(products.filter((product) => !searchedCategories[product.category]))
+    if(counter === 4) setFilteredProducts(products)
+  }
 
   return (
     <>
@@ -37,7 +37,7 @@ function App() {
       </header>
       <main className="container">
         <div className="grid">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <Product
               key={product.id}
               name={product.title}
@@ -48,24 +48,19 @@ function App() {
         </div>
       </main>
       <div className="filters">
-        <h3>Price range</h3>
+        <h3 className="filters-title">Price range</h3>
         <div className="price-range-container">
-          <div className="range-container">
-            <input id="min" />
-            <label htmlFor="min">min</label>
-          </div>
-          <div className="range-container">
-            <input id="max" />
-            <label htmlFor="max">max</label>
-          </div>
+          <RangeInput id="min" />
+          <RangeInput id="max" />
         </div>
-        <h3>Category</h3>
-        <div>
-          {Object.entries(categories).map((category, checked) => (
-            <div>
-              <input type="checkbox" />
-              <label>{category}</label>
-            </div>
+        <h3 className="filters-title">Category</h3>
+        <div className="checkboxes-container">
+          {Object.keys(searchedCategories).map((category) => (
+            <CheckBox
+              category={category}
+              onChange={handleOnChange}
+              categories={categories}
+            />
           ))}
         </div>
       </div>

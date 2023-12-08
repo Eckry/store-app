@@ -57,6 +57,11 @@ body {
   text-align: center;
 }
 
+
+.filters-title:nth-of-type(2) {
+  margin-top: 2rem;
+}
+
 .price-range-container {
   display: flex;
   justify-content: space-around;
@@ -64,18 +69,11 @@ body {
   margin-top: 1rem;
 }
 
-.range-container {
+.checkboxes-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  gap: 1rem;
+  margin-top: 1rem;
 }
-
-.range-container > input {
-  width: 60px;
-  text-align: center;
-  border: 3px solid var(--highlight-color);
-  border-radius: 5px;
-  padding: 2px;
-}
-

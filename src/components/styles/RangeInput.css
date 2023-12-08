@@ -1,0 +1,15 @@
+.range-container > input {
+  width: 60px;
+  text-align: center;
+  border: 3px solid var(--highlight-color);
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.range-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
