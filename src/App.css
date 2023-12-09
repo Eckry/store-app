@@ -67,6 +67,7 @@ body {
   justify-content: space-around;
   align-items: center;
   margin-top: 1rem;
+  position: relative
 }
 
 .checkboxes-container {

@@ -13,8 +13,7 @@ categories.forEach((category) => {
 });
 
 function App() {
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(1000);
+  const [price, setPrice] = useState({min: 0, max: 1000});
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [searchedCategories, setSearchedCategories] = useState(categoriesMap);
 
@@ -40,15 +39,9 @@ function App() {
         <div className="price-range-container">
           <RangeInput
             id="min"
-            value={minPrice}
-            onChange={setMinPrice}
+            onChange={setPrice}
             setFilteredProducts={setFilteredProducts}
-          />
-          <RangeInput
-            id="max"
-            value={maxPrice}
-            onChange={setMaxPrice}
-            setFilteredProducts={setFilteredProducts}
+            price={price}
           />
         </div>
         <h3 className="filters-title">Category</h3>
@@ -60,8 +53,7 @@ function App() {
               setSearchedCategories={setSearchedCategories}
               searchedCategories={searchedCategories}
               categories={categories}
-              minPrice={minPrice}
-              maxPrice={maxPrice}
+              key={category}
             />
           ))}
         </div>
