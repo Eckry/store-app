@@ -30,7 +30,8 @@ body {
 }
 
 .container { 
-  width: 42%;
+  width: 90%;
+  max-width: 650px;
   margin: 100px auto 0 auto;
   min-height: 650px;
   background-color: var(--secondary-color);
@@ -46,12 +47,12 @@ body {
 }
 
 .filters {
-  width: 13vw;
+  width: 200px;
   background-color: var(--secondary-color);
   position: fixed;
-  top: 25%;
-  right: 12vw;
-  height: 500px;
+  top: 33vh;
+  right: 1vw;
+  height: auto;
   border-radius: 1rem;
   padding: 1rem;
   text-align: center;
@@ -77,4 +78,16 @@ body {
   align-items: start;
   gap: 1rem;
   margin-top: 1rem;
+}
+
+@media (max-width: 1080px) {
+
+  .container {
+    margin: 100px 0 0 15px;
+  }
+
+  .filters {
+    margin: auto;
+    width: 230px;
+  }
 }

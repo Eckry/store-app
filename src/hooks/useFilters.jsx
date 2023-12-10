@@ -35,8 +35,8 @@ function reducer(state, action) {
     payload.event.preventDefault();
     const newPrice =
       payload.id === "min"
-        ? Math.min(payload.event.target.value, state.price.max - 200)
-        : Math.max(payload.event.target.value, state.price.min + 200);
+        ? Math.min(payload.event.target.value, state.price.max - 300)
+        : Math.max(payload.event.target.value, state.price.min + 300);
     return {
       ...state,
       price:

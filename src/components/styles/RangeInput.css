@@ -91,3 +91,24 @@
   border: 0 none;
   cursor: grab;
 }
+
+.information-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+} 
+
+.price-information-container {
+  margin-top: 1.5rem;
+  width: 90%;
+  position: relative;
+}
+
+.price {
+  text-align: center;
+  width: 35px;
+  display: inline;
+  position: absolute;
+  font-size: small;
+  border: 1px solid black;
+}
