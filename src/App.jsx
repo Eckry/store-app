@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { ShoppingCartIcon } from "./Components/Icons";
 import { Product } from "./components/Product";
@@ -6,6 +6,7 @@ import CheckBox from "./components/CheckBox";
 import RangeInput from "./components/RangeInput";
 import products from "./products.json";
 import categories from "./categories.json";
+import useFilters from "./hooks/useFilters";
 
 let categoriesMap = {};
 categories.forEach((category) => {
@@ -13,9 +14,18 @@ categories.forEach((category) => {
 });
 
 function App() {
-  const [price, setPrice] = useState({min: 0, max: 1000});
-  const [filteredProducts, setFilteredProducts] = useState(products);
-  const [searchedCategories, setSearchedCategories] = useState(categoriesMap);
+  const {
+    price,
+    searchedCategories,
+    filteredProducts,
+    setFilteredProducts,
+    setPriceFilter,
+    setSearchedCategories,
+  } = useFilters();
+
+  useEffect(() => {
+    setFilteredProducts();
+  }, [price, searchedCategories])
 
   return (
     <>
@@ -38,9 +48,7 @@ function App() {
         <h3 className="filters-title">Price range</h3>
         <div className="price-range-container">
           <RangeInput
-            id="min"
-            onChange={setPrice}
-            setFilteredProducts={setFilteredProducts}
+            onChange={setPriceFilter}
             price={price}
           />
         </div>
@@ -49,10 +57,7 @@ function App() {
           {Object.keys(searchedCategories).map((category) => (
             <CheckBox
               category={category}
-              setFilteredProducts={setFilteredProducts}
               setSearchedCategories={setSearchedCategories}
-              searchedCategories={searchedCategories}
-              categories={categories}
               key={category}
             />
           ))}

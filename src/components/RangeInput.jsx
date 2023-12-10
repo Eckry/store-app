@@ -1,33 +1,12 @@
 import "./styles/RangeInput.css";
-import products from "../products.json";
-import useDebounce from "../hooks/useDebounce";
 
-export default function RangeInput({ setFilteredProducts, price, onChange }) {
-
-  const debouncedMinPrice = useDebounce(price.min, 20);
-  const debouncedMaxPrice = useDebounce(price.max, 20);
-
-  function filterProducts() {
-    const newFilteredProducts = products.filter((product) => {
-      return product.price >= price.min && product.price <= price.max;
-    });
-    setFilteredProducts(newFilteredProducts);
-  }
-
+export default function RangeInput({ price, onChange }) {
   function handleMinChange(e) {
-    e.preventDefault();
-    const newMinPrice = Math.min(e.target.value, price.max - 200);
-    onChange(state => {return { min: newMinPrice, max: state.max }});
-
-    filterProducts();
+    onChange({ id: "min", event: e });
   }
 
   function handleMaxChange(e) {
-    e.preventDefault();
-    const newMaxPrice = Math.max(e.target.value, price.min + 200);
-    onChange(state => {return { min: state.min, max: newMaxPrice }});
-
-    filterProducts();
+    onChange({ id: "max", event: e });
   }
 
   const minPos = (price.min / 1000) * 100;
@@ -39,7 +18,7 @@ export default function RangeInput({ setFilteredProducts, price, onChange }) {
         <input
           className="input"
           onChange={handleMinChange}
-          value={debouncedMinPrice}
+          value={price.min}
           type="range"
           min={0}
           max={1000}
@@ -47,7 +26,7 @@ export default function RangeInput({ setFilteredProducts, price, onChange }) {
         <input
           className="input"
           onChange={handleMaxChange}
-          value={debouncedMaxPrice}
+          value={price.max}
           type="range"
           min={0}
           max={1000}
