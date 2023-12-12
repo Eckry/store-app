@@ -1,19 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import ShoppingCartIcon from "./components/Icons";
 import Product from "./components/Product";
 import CheckBox from "./components/CheckBox";
 import RangeInput from "./components/RangeInput";
+import PageButton from "./components/PageButton";
+import CarouselItem from "./components/CarouselItem";
 import useFilters from "./hooks/useFilters";
 
 function App() {
   const {
+    currentPage,
     price,
     searchedCategories,
     filteredProducts,
     setFilteredProducts,
     setPriceFilter,
     setSearchedCategories,
+    setNextPage,
+    setPrevPage,
+    setPageNumber,
   } = useFilters();
 
   useEffect(() => {
@@ -25,18 +31,40 @@ function App() {
       <header className="header">
         <ShoppingCartIcon />
       </header>
-      <main className="container">
-        <div className="grid">
-          {filteredProducts.map((product) => (
-            <Product
-              key={product.id}
-              name={product.title}
-              link={product.image}
-              price={product.price}
-            />
+      <div className="bar">
+        <main className="container">
+          {filteredProducts.map((products, idx) => (
+            <CarouselItem key={idx} currentPage={currentPage}>
+              {products.map((product) => (
+                <Product
+                  key={product.id}
+                  name={product.title}
+                  link={product.image}
+                  price={product.price}
+                />
+              ))}
+            </CarouselItem>
           ))}
+        </main>
+        <div className="carousel-buttons">
+          <PageButton onClick={setPrevPage} value={""}>
+            {"<-"}
+          </PageButton>
+          {filteredProducts.map((_, idx) => (
+            <PageButton
+              value={idx}
+              currentPage={currentPage}
+              onClick={setPageNumber}
+              key={idx}
+            >
+              {idx + 1}
+            </PageButton>
+          ))}
+          <PageButton onClick={setNextPage} value={""}>
+            {"->"}
+          </PageButton>
         </div>
-      </main>
+      </div>
       <div className="filters">
         <h3 className="filters-title">Price range</h3>
         <div className="price-range-container">
@@ -52,7 +80,7 @@ function App() {
             />
           ))}
         </div>
-      </div>
+      </div>{" "}
     </>
   );
 }

@@ -7,10 +7,21 @@ categories.forEach((category) => {
   categoriesMap[category] = true;
 });
 
+const getCarousel = (products) => {
+  const carouselProducts = [];
+  for (let i = 0; i < products.length; i += 9) {
+    carouselProducts.push(products.slice(i, i + 9));
+  }
+  return carouselProducts;
+};
+
+const initialCarousel = getCarousel(products);
+
 const initialState = {
   price: { min: 0, max: 1000 },
   searchedCategories: categoriesMap,
-  filteredProducts: products,
+  filteredProducts: initialCarousel,
+  currentPage: 0,
 };
 
 function reducer(state, action) {
@@ -24,9 +35,18 @@ function reducer(state, action) {
         (!state.searchedCategories[product.category] ||
           !Object.values(state.searchedCategories).some((boolean) => !boolean))
     );
+
+    const filteredCarousel = getCarousel(filteredProducts);
+    let newCurrentPage = 0;
+    
+    if (filteredCarousel.length - 1 < state.currentPage)
+      newCurrentPage = filteredCarousel.length - 1;
+    else newCurrentPage = state.currentPage;
+
     return {
       ...state,
-      filteredProducts: filteredProducts,
+      filteredProducts: filteredCarousel,
+      currentPage: newCurrentPage,
     };
   }
 
@@ -48,20 +68,47 @@ function reducer(state, action) {
 
   if (type === "SET_SEARCHED_CATEGORIES") {
     const { payload } = action;
-    const newSearchedCategories = {}
-    for(let category in state.searchedCategories){
-      if(category === payload) newSearchedCategories[category] = !state.searchedCategories[category]
-      else newSearchedCategories[category] = state.searchedCategories[category]
+    const newSearchedCategories = {};
+    for (let category in state.searchedCategories) {
+      if (category === payload)
+        newSearchedCategories[category] = !state.searchedCategories[category];
+      else newSearchedCategories[category] = state.searchedCategories[category];
     }
-    return {...state, searchedCategories: newSearchedCategories};
+    return { ...state, searchedCategories: newSearchedCategories };
+  }
+
+  if (type === "SET_NEXT_PAGE") {
+    if (state.currentPage == state.filteredProducts.length - 1) return state;
+    return {
+      ...state,
+      currentPage: state.currentPage + 1,
+    };
+  }
+
+  if (type === "SET_PREV_PAGE") {
+    if (state.currentPage === 0) return state;
+    return {
+      ...state,
+      currentPage: state.currentPage - 1,
+    };
+  }
+
+  if (type === "SET_PAGE_NUMBER") {
+    const { payload } = action;
+    return {
+      ...state,
+      currentPage: parseInt(payload.target.value),
+    };
   }
 
   return state;
 }
 
 export default function useFilters() {
-  const [{ price, searchedCategories, filteredProducts }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { price, searchedCategories, filteredProducts, currentPage },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   const setFilteredProducts = () => {
     dispatch({ type: "SET_FILTERED_PRODUCTS" });
@@ -75,10 +122,26 @@ export default function useFilters() {
     dispatch({ type: "SET_SEARCHED_CATEGORIES", payload });
   };
 
+  const setNextPage = () => {
+    dispatch({ type: "SET_NEXT_PAGE" });
+  };
+
+  const setPrevPage = () => {
+    dispatch({ type: "SET_PREV_PAGE" });
+  };
+
+  const setPageNumber = (payload) => {
+    dispatch({ type: "SET_PAGE_NUMBER", payload });
+  };
+
   return {
+    currentPage,
     price,
     searchedCategories,
     filteredProducts,
+    setPrevPage,
+    setPageNumber,
+    setNextPage,
     setFilteredProducts,
     setPriceFilter,
     setSearchedCategories,

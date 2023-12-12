@@ -1,6 +1,6 @@
 import "./styles/Product.css";
 
-export default function Product({ name, price, link }) {
+export default function Product({ name, price, link}) {
   return (
     <div className="product-container">
       <img src={link} className="product-image" />

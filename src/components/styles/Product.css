@@ -1,13 +1,14 @@
 .product-container {
-  width: 175px;
-  max-height: 235px;
+  width: 150px;
+  max-height: 190px;
   border: 2px solid black;
+  overflow: hidden;
   background-color: white;
 }
 
 .product-image {
   width: 100%;
-  aspect-ratio: 1;
+  height: 130px;
 }
 
 .product-information {
@@ -19,6 +20,7 @@
   overflow: hidden;
   padding: 0 3px;
   background-color: rgb(207, 207, 207);
+  font-size: small;
 }
 
 .product-name {
