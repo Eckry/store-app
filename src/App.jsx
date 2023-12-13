@@ -6,7 +6,8 @@ import CheckBox from "./components/CheckBox";
 import RangeInput from "./components/RangeInput";
 import PageButton from "./components/PageButton";
 import CarouselItem from "./components/CarouselItem";
-import useFilters from "./hooks/useFilters";
+import useStore from "./hooks/useStore";
+import Preview from "./components/Preview";
 
 function App() {
   const {
@@ -14,13 +15,15 @@ function App() {
     price,
     searchedCategories,
     filteredProducts,
+    currentPreview,
+    setCurrentPreview,
     setFilteredProducts,
     setPriceFilter,
     setSearchedCategories,
     setNextPage,
     setPrevPage,
     setPageNumber,
-  } = useFilters();
+  } = useStore();
 
   useEffect(() => {
     setFilteredProducts();
@@ -38,9 +41,8 @@ function App() {
               {products.map((product) => (
                 <Product
                   key={product.id}
-                  name={product.title}
-                  link={product.image}
-                  price={product.price}
+                  product={product}
+                  onClick={setCurrentPreview}
                 />
               ))}
             </CarouselItem>
@@ -81,6 +83,7 @@ function App() {
           ))}
         </div>
       </div>{" "}
+      {Object.keys(currentPreview).length && <Preview product={currentPreview}/>}
     </>
   );
 }

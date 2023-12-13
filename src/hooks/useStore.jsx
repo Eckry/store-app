@@ -22,6 +22,7 @@ const initialState = {
   searchedCategories: categoriesMap,
   filteredProducts: initialCarousel,
   currentPage: 0,
+  currentPreview: {},
 };
 
 function reducer(state, action) {
@@ -101,12 +102,20 @@ function reducer(state, action) {
     };
   }
 
+  if(type === "SET_CURRENT_PREVIEW"){
+    const { payload } = action
+    return {
+      ...state,
+      currentPreview: payload
+    }
+  }
+
   return state;
 }
 
-export default function useFilters() {
+export default function useStore() {
   const [
-    { price, searchedCategories, filteredProducts, currentPage },
+    { price, searchedCategories, filteredProducts, currentPage, currentPreview },
     dispatch,
   ] = useReducer(reducer, initialState);
 
@@ -134,11 +143,17 @@ export default function useFilters() {
     dispatch({ type: "SET_PAGE_NUMBER", payload });
   };
 
+  const setCurrentPreview = (payload) => {
+    dispatch({type: "SET_CURRENT_PREVIEW", payload});
+  } 
+
   return {
     currentPage,
     price,
     searchedCategories,
     filteredProducts,
+    currentPreview,
+    setCurrentPreview,
     setPrevPage,
     setPageNumber,
     setNextPage,

@@ -43,7 +43,6 @@ body {
   justify-content: flex-start;
   gap: 1rem;
   padding: 1rem;
-  position: relative;
 }
 
 .filters {
