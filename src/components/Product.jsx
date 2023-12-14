@@ -1,17 +1,26 @@
 import "./styles/Product.css";
 
-export default function Product({ product, onClick}) {
+export default function Product({ product, setCurrentPreview, addProductToShoppingCart }) {
+  function handleOnClickToViewProduct() {
+    setCurrentPreview(product);
+  }
 
-  function handleOnClick(){
-    onClick(product);
+  function handleOnClickToBuyProduct(){
+    addProductToShoppingCart(product);
   }
 
   return (
-    <div className="product-container" onClick={handleOnClick}>
+    <div className="product-container" >
       <img src={product.image} className="product-image" />
       <div className="product-information">
-        <p className="product-price">{product.price} $</p>
-        <p className="product-name">{product.title.split("").slice(0, 15)}...</p>
+        <div className="important-information">
+          <button className="preview-button" onClick={handleOnClickToViewProduct}>WATCH</button>
+          <p className="product-price">{product.price} $</p>
+          <button onClick={handleOnClickToBuyProduct}>BUY</button>
+        </div>
+        <p className="product-name">
+          {product.title.split("").slice(0, 15)}...
+        </p>
       </div>
     </div>
   );

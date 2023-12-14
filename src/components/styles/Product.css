@@ -2,8 +2,7 @@
   width: 150px;
   max-height: 190px;
   border: 2px solid black;
-  overflow: hidden;
-  cursor: pointer;
+  position: relative;
 }
 
 .product-image {
@@ -29,4 +28,17 @@
 
 .product-price {
   color: rgb(79, 129, 4);
+}
+
+.important-information {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview-button {
+  background-color: aqua;
+  cursor: pointer;
+  outline: none;
+  border: none;
 }

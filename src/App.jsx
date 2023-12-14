@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import ShoppingCartIcon from "./components/Icons";
 import Product from "./components/Product";
@@ -8,6 +8,8 @@ import PageButton from "./components/PageButton";
 import CarouselItem from "./components/CarouselItem";
 import useStore from "./hooks/useStore";
 import Preview from "./components/Preview";
+import Header from "./components/Header";
+import Cart from "./components/Cart"
 
 function App() {
   const {
@@ -16,6 +18,10 @@ function App() {
     searchedCategories,
     filteredProducts,
     currentPreview,
+    shoppingCart,
+    showCart,
+    interchangeShowCart,
+    addProductToShoppingCart,
     setCurrentPreview,
     setFilteredProducts,
     setPriceFilter,
@@ -31,9 +37,9 @@ function App() {
 
   return (
     <>
-      <header className="header">
+      <Header shoppingCart={shoppingCart} onClick={interchangeShowCart}>
         <ShoppingCartIcon />
-      </header>
+      </Header>
       <div className="bar">
         <main className="container">
           {filteredProducts.map((products, idx) => (
@@ -42,7 +48,8 @@ function App() {
                 <Product
                   key={product.id}
                   product={product}
-                  onClick={setCurrentPreview}
+                  setCurrentPreview={setCurrentPreview}
+                  addProductToShoppingCart={addProductToShoppingCart}
                 />
               ))}
             </CarouselItem>
@@ -83,7 +90,10 @@ function App() {
           ))}
         </div>
       </div>{" "}
-      {Object.keys(currentPreview).length && <Preview product={currentPreview}/>}
+      {Object.keys(currentPreview).length ? (
+        <Preview product={currentPreview} />
+      ) : null}
+      {showCart && <Cart products={shoppingCart} />}
     </>
   );
 }

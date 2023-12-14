@@ -23,6 +23,9 @@ const initialState = {
   filteredProducts: initialCarousel,
   currentPage: 0,
   currentPreview: {},
+  shoppingCart: [],
+  showCart: false,
+  productSelectedInCart: {},
 };
 
 function reducer(state, action) {
@@ -39,7 +42,7 @@ function reducer(state, action) {
 
     const filteredCarousel = getCarousel(filteredProducts);
     let newCurrentPage = 0;
-    
+
     if (filteredCarousel.length - 1 < state.currentPage)
       newCurrentPage = filteredCarousel.length - 1;
     else newCurrentPage = state.currentPage;
@@ -102,12 +105,44 @@ function reducer(state, action) {
     };
   }
 
-  if(type === "SET_CURRENT_PREVIEW"){
-    const { payload } = action
+  if (type === "SET_CURRENT_PREVIEW") {
+    const { payload } = action;
     return {
       ...state,
-      currentPreview: payload
-    }
+      currentPreview: payload,
+    };
+  }
+
+  if (type === "ADD_PRODUCT_TO_SHOPPING_CART") {
+    const { payload } = action;
+
+    const productDoesntExist = !state.shoppingCart.some(
+      (product) => product.id === payload.id
+    );
+
+    if (productDoesntExist)
+      return {
+        ...state,
+        shoppingCart: [...state.shoppingCart, { ...payload, quantity: 1 }],
+      };
+
+    const newShoppingCart = state.shoppingCart.map((product) => {
+      if (product.id === payload.id)
+        return { ...product, quantity: product.quantity + 1 };
+      else return product;
+    });
+
+    return {
+      ...state,
+      shoppingCart: newShoppingCart,
+    };
+  }
+
+  if (type === "INTERCHANGE_SHOW_CART") {
+    return {
+      ...state,
+      showCart: !state.showCart,
+    };
   }
 
   return state;
@@ -115,7 +150,15 @@ function reducer(state, action) {
 
 export default function useStore() {
   const [
-    { price, searchedCategories, filteredProducts, currentPage, currentPreview },
+    {
+      price,
+      searchedCategories,
+      filteredProducts,
+      currentPage,
+      currentPreview,
+      shoppingCart,
+      showCart,
+    },
     dispatch,
   ] = useReducer(reducer, initialState);
 
@@ -144,8 +187,16 @@ export default function useStore() {
   };
 
   const setCurrentPreview = (payload) => {
-    dispatch({type: "SET_CURRENT_PREVIEW", payload});
-  } 
+    dispatch({ type: "SET_CURRENT_PREVIEW", payload });
+  };
+
+  const addProductToShoppingCart = (payload) => {
+    dispatch({ type: "ADD_PRODUCT_TO_SHOPPING_CART", payload });
+  };
+
+  const interchangeShowCart = () => {
+    dispatch({ type: "INTERCHANGE_SHOW_CART" });
+  };
 
   return {
     currentPage,
@@ -153,6 +204,10 @@ export default function useStore() {
     searchedCategories,
     filteredProducts,
     currentPreview,
+    shoppingCart,
+    showCart,
+    interchangeShowCart,
+    addProductToShoppingCart,
     setCurrentPreview,
     setPrevPage,
     setPageNumber,
