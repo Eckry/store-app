@@ -29,6 +29,15 @@ const initialState = {
 };
 
 function reducer(state, action) {
+  const updateQuantity = (number, payload) => {
+    const newShoppingCart = state.shoppingCart.map((product) => {
+      if (product.id === payload.id)
+        return { ...product, quantity: product.quantity + number };
+      else return product;
+    });
+    return newShoppingCart;
+  };
+
   const { type } = action;
 
   if (type === "SET_FILTERED_PRODUCTS") {
@@ -116,25 +125,26 @@ function reducer(state, action) {
   if (type === "ADD_PRODUCT_TO_SHOPPING_CART") {
     const { payload } = action;
 
-    const productDoesntExist = !state.shoppingCart.some(
+    const productToAdd = state.shoppingCart.find(
       (product) => product.id === payload.id
     );
 
-    if (productDoesntExist)
+    if (!productToAdd)
       return {
         ...state,
         shoppingCart: [...state.shoppingCart, { ...payload, quantity: 1 }],
+        productSelectedInCart: { ...payload, quantity: 1 },
       };
 
-    const newShoppingCart = state.shoppingCart.map((product) => {
-      if (product.id === payload.id)
-        return { ...product, quantity: product.quantity + 1 };
-      else return product;
-    });
+    const newShoppingCart = updateQuantity(1, payload);
 
     return {
       ...state,
       shoppingCart: newShoppingCart,
+      productSelectedInCart: {
+        ...productToAdd,
+        quantity: productToAdd.quantity + 1,
+      },
     };
   }
 
@@ -142,6 +152,25 @@ function reducer(state, action) {
     return {
       ...state,
       showCart: !state.showCart,
+    };
+  }
+
+  if (type === "SET_PRODUCT_SELECTED_IN_CART") {
+    const { payload } = action;
+    return {
+      ...state,
+      productSelectedInCart: payload,
+    };
+  }
+
+  if (type === "UPDATE_QUANTITY") {
+    const { number, product } = action.payload;
+    if(product.quantity + number <= 0) return state
+    const newShoppingCart = updateQuantity(number, product);
+    return {
+      ...state,
+      shoppingCart: newShoppingCart,
+      productSelectedInCart: { ...product, quantity: product.quantity + number },
     };
   }
 
@@ -158,6 +187,7 @@ export default function useStore() {
       currentPreview,
       shoppingCart,
       showCart,
+      productSelectedInCart,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -198,6 +228,14 @@ export default function useStore() {
     dispatch({ type: "INTERCHANGE_SHOW_CART" });
   };
 
+  const setProductSelectedInCart = (payload) => {
+    dispatch({ type: "SET_PRODUCT_SELECTED_IN_CART", payload });
+  };
+
+  const updateQuantity = (payload) => {
+    dispatch({ type: "UPDATE_QUANTITY", payload });
+  };
+
   return {
     currentPage,
     price,
@@ -206,6 +244,9 @@ export default function useStore() {
     currentPreview,
     shoppingCart,
     showCart,
+    productSelectedInCart,
+    updateQuantity,
+    setProductSelectedInCart,
     interchangeShowCart,
     addProductToShoppingCart,
     setCurrentPreview,

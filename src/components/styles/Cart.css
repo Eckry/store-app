@@ -7,8 +7,41 @@
   position: absolute;
   top: 0;
   padding: 1.5rem;
+  border-radius: 1.5rem;
 }
 
 .other-products-image {
   width: 50px;
+}
+
+.product-selected-container {
+  background-color: white;
+  display: flex;
+  gap: 1rem;
+}
+
+.product-selected-image {
+  width: 200px;
+  object-fit:contain;
+  border: 2px black solid;
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-title {
+  font-size: 150px;
+  color: rgba(0, 0, 0, 0.167);
+  user-select: none;
+}
+
+.sell-button {
+  width: 20px;
+}
+
+.buy-button {
+  width: 20px;
 }

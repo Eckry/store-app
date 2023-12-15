@@ -1,23 +1,62 @@
 import "./styles/Cart.css";
 
-export default function Cart({ products }) {
+export default function Cart({
+  products,
+  productSelectedInCart,
+  setProductSelectedInCart,
+  updateQuantity
+}) {
+  function handleChangeProductSelectedInCart(productId) {
+    const newProductSelectedInCart = products.find(
+      (product) => product.id == productId
+    );
+    setProductSelectedInCart(newProductSelectedInCart);
+  }
+
+  function handleAddOneToQuantity (){
+    updateQuantity({product: productSelectedInCart, number: 1})
+  }
+
+  function handleRemoveOneToQuantity(){
+    updateQuantity({product: productSelectedInCart, number: -1});
+  }
+  if (!products.length)
+    return (
+      <div className="cart-container empty">
+        <h1 className="empty-title">Empty</h1>
+      </div>
+    );
   return (
     <div className="cart-container">
-      <div>
-        <img src="" alt="" />
+      <div className="product-selected-container">
+        <img
+          className="product-selected-image"
+          src={productSelectedInCart.image}
+          alt=""
+        />
         <div>
-          <h1></h1>
-          <p></p>
-          <p></p>
+          <h1>{productSelectedInCart.title}</h1>
+          <p>{productSelectedInCart.description}</p>
+          <p>{productSelectedInCart.category}</p>
           <div>
-            <p></p>
-            <p></p>
+            <p>{productSelectedInCart.price}</p>
+            <p>{productSelectedInCart.rate}</p>
+            <button onClick={handleRemoveOneToQuantity} className="sell-button">-</button>
+            <p>total: {productSelectedInCart.quantity}</p>
+            <button onClick={handleAddOneToQuantity} className="buy-button">+</button>
           </div>
         </div>
       </div>
       <div>
         {products.map((product) => {
-          return <img src={product.image} className="other-products-image" />;
+          return (
+            <img
+              id={product.id}
+              onClick={(e) => handleChangeProductSelectedInCart(e.target.id)}
+              src={product.image}
+              className="other-products-image"
+            />
+          );
         })}
       </div>
     </div>

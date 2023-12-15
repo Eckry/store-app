@@ -20,6 +20,9 @@ function App() {
     currentPreview,
     shoppingCart,
     showCart,
+    productSelectedInCart,
+    updateQuantity,
+    setProductSelectedInCart,
     interchangeShowCart,
     addProductToShoppingCart,
     setCurrentPreview,
@@ -93,7 +96,7 @@ function App() {
       {Object.keys(currentPreview).length ? (
         <Preview product={currentPreview} />
       ) : null}
-      {showCart && <Cart products={shoppingCart} />}
+      {showCart && <Cart updateQuantity={updateQuantity} setProductSelectedInCart={setProductSelectedInCart} products={shoppingCart} productSelectedInCart={productSelectedInCart}/>}
     </>
   );
 }
