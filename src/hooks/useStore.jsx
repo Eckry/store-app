@@ -26,6 +26,7 @@ const initialState = {
   shoppingCart: [],
   showCart: false,
   productSelectedInCart: {},
+  notification: false,
 };
 
 function reducer(state, action) {
@@ -132,7 +133,8 @@ function reducer(state, action) {
     if (!productToAdd)
       return {
         ...state,
-        shoppingCart: [...state.shoppingCart, { ...payload, quantity: 1 }],
+      notification: true,
+      shoppingCart: [...state.shoppingCart, { ...payload, quantity: 1 }],
         productSelectedInCart: { ...payload, quantity: 1 },
       };
 
@@ -140,6 +142,7 @@ function reducer(state, action) {
 
     return {
       ...state,
+      notification: true,
       shoppingCart: newShoppingCart,
       productSelectedInCart: {
         ...productToAdd,
@@ -151,6 +154,7 @@ function reducer(state, action) {
   if (type === "INTERCHANGE_SHOW_CART") {
     return {
       ...state,
+      notification: false,
       showCart: !state.showCart,
     };
   }
@@ -165,12 +169,33 @@ function reducer(state, action) {
 
   if (type === "UPDATE_QUANTITY") {
     const { number, product } = action.payload;
-    if(product.quantity + number <= 0) return state
+    if (product.quantity + number <= 0) return state;
     const newShoppingCart = updateQuantity(number, product);
     return {
       ...state,
       shoppingCart: newShoppingCart,
-      productSelectedInCart: { ...product, quantity: product.quantity + number },
+      productSelectedInCart: {
+        ...product,
+        quantity: product.quantity + number,
+      },
+    };
+  }
+
+  if (type === "DELETE_FROM_SHOPPING_CART") {
+    const newShoppingCart = state.shoppingCart.filter(
+      (product) => product.id !== state.productSelectedInCart.id
+    );
+    let newProductSelectedIndex = state.shoppingCart.findIndex(
+      (product) => product.id === state.productSelectedInCart.id
+    );
+
+    if (newProductSelectedIndex === 0) newProductSelectedIndex += 1;
+    else newProductSelectedIndex -= 1;
+
+    return {
+      ...state,
+      shoppingCart: newShoppingCart,
+      productSelectedInCart: state.shoppingCart[newProductSelectedIndex],
     };
   }
 
@@ -188,6 +213,7 @@ export default function useStore() {
       shoppingCart,
       showCart,
       productSelectedInCart,
+      notification
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -236,6 +262,10 @@ export default function useStore() {
     dispatch({ type: "UPDATE_QUANTITY", payload });
   };
 
+  const deleteFromShoppingCart = () => {
+    dispatch({ type: "DELETE_FROM_SHOPPING_CART" });
+  };
+
   return {
     currentPage,
     price,
@@ -245,6 +275,8 @@ export default function useStore() {
     shoppingCart,
     showCart,
     productSelectedInCart,
+    notification,
+    deleteFromShoppingCart,
     updateQuantity,
     setProductSelectedInCart,
     interchangeShowCart,

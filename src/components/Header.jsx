@@ -1,19 +1,21 @@
 import "./styles/Header.css";
 
-export default function Header({ children, shoppingCart, onClick }) {
+export default function Header({ children, shoppingCart, onClick, notification, showCart }) {
 
   function handleOnClick(){
     onClick();
   }
 
+  const style = { display: notification ? "flex" : "none"}
+
   return (
     <header className="header">
-      <div className="shopping-cart-container" onClick={handleOnClick}>
+      <button className="shopping-cart-container" onClick={handleOnClick}>
         {children}
-        {shoppingCart.length ? <div className="number-of-products-container">
-          {shoppingCart.length}
-        </div> : null}
-      </div>
+        {shoppingCart.length ? <span style={style} className="number-of-products-container">
+          !
+        </span> : null}
+      </button>
     </header>
   );
 }

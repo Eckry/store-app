@@ -4,7 +4,8 @@ export default function Cart({
   products,
   productSelectedInCart,
   setProductSelectedInCart,
-  updateQuantity
+  updateQuantity,
+  deleteFromShoppingCart,
 }) {
   function handleChangeProductSelectedInCart(productId) {
     const newProductSelectedInCart = products.find(
@@ -19,6 +20,10 @@ export default function Cart({
 
   function handleRemoveOneToQuantity(){
     updateQuantity({product: productSelectedInCart, number: -1});
+  }
+
+  function handleDeleteFromShoppingCart(){
+    deleteFromShoppingCart();
   }
   if (!products.length)
     return (
@@ -44,6 +49,7 @@ export default function Cart({
             <button onClick={handleRemoveOneToQuantity} className="sell-button">-</button>
             <p>total: {productSelectedInCart.quantity}</p>
             <button onClick={handleAddOneToQuantity} className="buy-button">+</button>
+            <button onClick={handleDeleteFromShoppingCart}>TRASH</button>
           </div>
         </div>
       </div>
