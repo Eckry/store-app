@@ -9,8 +9,8 @@ categories.forEach((category) => {
 
 const getCarousel = (products) => {
   const carouselProducts = [];
-  for (let i = 0; i < products.length; i += 9) {
-    carouselProducts.push(products.slice(i, i + 9));
+  for (let i = 0; i < products.length; i += 6) {
+    carouselProducts.push(products.slice(i, i + 6));
   }
   return carouselProducts;
 };

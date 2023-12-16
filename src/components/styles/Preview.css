@@ -49,6 +49,7 @@
   border: 2px solid black;
   width: 50%;
   aspect-ratio: 1;
+  object-fit: contain;
 }
 
 .rating-container {
