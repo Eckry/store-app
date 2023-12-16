@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./App.css";
-import ShoppingCartIcon from "./components/Icons";
+import { ShoppingCartIcon, ShoppingCartIconRed } from "./components/Icons";
 import Product from "./components/Product";
 import CheckBox from "./components/CheckBox";
 import RangeInput from "./components/RangeInput";
@@ -9,7 +9,7 @@ import CarouselItem from "./components/CarouselItem";
 import useStore from "./hooks/useStore";
 import Preview from "./components/Preview";
 import Header from "./components/Header";
-import Cart from "./components/Cart"
+import Cart from "./components/Cart";
 
 function App() {
   const {
@@ -21,6 +21,8 @@ function App() {
     shoppingCart,
     showCart,
     productSelectedInCart,
+    notification,
+    deleteFromShoppingCart,
     updateQuantity,
     setProductSelectedInCart,
     interchangeShowCart,
@@ -40,8 +42,13 @@ function App() {
 
   return (
     <>
-      <Header shoppingCart={shoppingCart} onClick={interchangeShowCart}>
-        <ShoppingCartIcon />
+      <Header
+        shoppingCart={shoppingCart}
+        onClick={interchangeShowCart}
+        notification={notification}
+        showCart={showCart}
+      >
+        {showCart ? <ShoppingCartIconRed /> : <ShoppingCartIcon />}
       </Header>
       <div className="bar">
         <main className="container">
@@ -96,7 +103,15 @@ function App() {
       {Object.keys(currentPreview).length ? (
         <Preview product={currentPreview} />
       ) : null}
-      {showCart && <Cart updateQuantity={updateQuantity} setProductSelectedInCart={setProductSelectedInCart} products={shoppingCart} productSelectedInCart={productSelectedInCart}/>}
+      {showCart && (
+        <Cart
+          deleteFromShoppingCart={deleteFromShoppingCart}
+          updateQuantity={updateQuantity}
+          setProductSelectedInCart={setProductSelectedInCart}
+          products={shoppingCart}
+          productSelectedInCart={productSelectedInCart}
+        />
+      )}
     </>
   );
 }
