@@ -1,7 +1,7 @@
 {
   "name": "store-app",
   "private": true,
-  "homepage": "http://eckry.github.io/store-app",
+  "homepage": "https://eckry.github.io/store-app",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
