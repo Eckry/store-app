@@ -53,7 +53,7 @@ function reducer(state, action) {
     const filteredCarousel = getCarousel(filteredProducts);
     let newCurrentPage = 0;
 
-    if (filteredCarousel.length - 1 < state.currentPage)
+    if (filteredCarousel.length - 1 < state.currentPage && filteredCarousel.length !== 0)
       newCurrentPage = filteredCarousel.length - 1;
     else newCurrentPage = state.currentPage;
 

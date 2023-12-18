@@ -19,16 +19,11 @@ body {
   width: 90%;
   max-width: 800px;
   margin: 100px auto 0 auto;
-  height: 630px;
   background-color: var(--secondary-color);
   border-radius: 1rem;
   overflow: hidden;
   display: flex;
-  flex-wrap: nowrap;
-  align-items: start;
-  justify-content: flex-start;
-  gap: 1rem;
-  padding: 1rem;
+  min-height: 630px;
 }
 
 .filters {
@@ -76,7 +71,12 @@ body {
   margin: 0.7rem 0;
 }
 
-
+.container-if-no-products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
 @media (max-width: 1080px) {
 

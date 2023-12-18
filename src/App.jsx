@@ -52,7 +52,7 @@ function App() {
       </Header>
       <div className="bar">
         <main className="container">
-          {filteredProducts.map((products, idx) => (
+          {filteredProducts.length ? filteredProducts.map((products, idx) => (
             <CarouselItem key={idx} currentPage={currentPage}>
               {products.map((product) => (
                 <Product
@@ -63,7 +63,7 @@ function App() {
                 />
               ))}
             </CarouselItem>
-          ))}
+          )) : <div className="container-if-no-products"><h1 className="empty-title">Empty</h1></div>}
         </main>
         <div className="carousel-buttons">
           <PageButton onClick={setPrevPage} value={""}>
