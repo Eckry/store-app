@@ -6,17 +6,18 @@
 
 .preview-container {
   position: relative;
-  max-height: 500px;
   border-radius: 1rem;
-  top: 23%;
+  height: 630px;
+  top: 13%;
   background-color: white;
   position: fixed;
   margin-left: 1rem;
-  width: 31%;
+  width: 22%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem;
+  overflow-y: scroll;
 }
 
 .description-container {
@@ -24,7 +25,6 @@
 }
 
 .title-container {
-  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -40,14 +40,11 @@
 .description, .category {
   margin: 0.5rem 0 0 0.5rem;
   font-size: small;
-  overflow-y: scroll;
-  max-height: 100px;
   padding:  10px 10px 10px 0;
 }
 
 .preview-image {
   border: 2px solid black;
-  width: 50%;
   aspect-ratio: 1;
   object-fit: contain;
 }
