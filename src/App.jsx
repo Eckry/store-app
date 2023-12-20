@@ -22,6 +22,8 @@ function App() {
     showCart,
     productSelectedInCart,
     notification,
+    showPrev,
+    showNext,
     deleteFromShoppingCart,
     updateQuantity,
     setProductSelectedInCart,
@@ -34,6 +36,8 @@ function App() {
     setNextPage,
     setPrevPage,
     setPageNumber,
+    goPrevPreview,
+    goNextPreview
   } = useStore();
 
   useEffect(() => {
@@ -51,20 +55,38 @@ function App() {
         {showCart ? <ShoppingCartIconRed /> : <ShoppingCartIcon />}
       </Header>
       <div className="bar">
-        <main className="container">
-          {filteredProducts.length ? filteredProducts.map((products, idx) => (
-            <CarouselItem key={idx} currentPage={currentPage}>
-              {products.map((product) => (
-                <Product
-                  key={product.id}
-                  product={product}
-                  setCurrentPreview={setCurrentPreview}
-                  addProductToShoppingCart={addProductToShoppingCart}
-                />
-              ))}
-            </CarouselItem>
-          )) : <div className="container-if-no-products"><h1 className="empty-title">Empty</h1></div>}
-        </main>
+        {Object.keys(currentPreview).length ? (
+          <Preview
+            product={currentPreview}
+            addProductToShoppingCart={addProductToShoppingCart}
+            setCurrentPreview={setCurrentPreview}
+            goPrevPreview={goPrevPreview}
+            goNextPreview={goNextPreview}
+            showPrev={showPrev}
+            showNext={showNext}
+          />
+        ) : (
+          <main className="container">
+            {filteredProducts.length ? (
+              filteredProducts.map((products, idx) => (
+                <CarouselItem key={idx} currentPage={currentPage}>
+                  {products.map((product) => (
+                    <Product
+                      key={product.id}
+                      product={product}
+                      setCurrentPreview={setCurrentPreview}
+                      addProductToShoppingCart={addProductToShoppingCart}
+                    />
+                  ))}
+                </CarouselItem>
+              ))
+            ) : (
+              <div className="container-if-no-products">
+                <h1 className="empty-title">Empty</h1>
+              </div>
+            )}
+          </main>
+        )}
         <div className="carousel-buttons">
           <PageButton onClick={setPrevPage} value={""}>
             {"<-"}
@@ -100,9 +122,9 @@ function App() {
           ))}
         </div>
       </div>{" "}
-      {Object.keys(currentPreview).length ? (
+      {/* {Object.keys(currentPreview).length ? (
         <Preview product={currentPreview} />
-      ) : null}
+      ) : null} */}
       {showCart && (
         <Cart
           deleteFromShoppingCart={deleteFromShoppingCart}

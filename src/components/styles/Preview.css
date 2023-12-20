@@ -12,12 +12,24 @@
   background-color: white;
   position: fixed;
   margin-left: 1rem;
-  width: 22%;
+  width: 90%;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem;
   overflow-y: scroll;
+}
+
+.image-description-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .description-container {
@@ -44,9 +56,9 @@
 }
 
 .preview-image {
-  border: 2px solid black;
   aspect-ratio: 1;
   object-fit: contain;
+  width: 300px;
 }
 
 .rating-container {
@@ -54,4 +66,8 @@
   justify-content: space-around;
   align-items: center;
   height: 33%;
+}
+
+.return-button {
+  position: absolute;
 }

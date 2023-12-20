@@ -27,6 +27,8 @@ const initialState = {
   showCart: false,
   productSelectedInCart: {},
   notification: false,
+  showPrev: true,
+  showNext: true,
 };
 
 function reducer(state, action) {
@@ -37,6 +39,58 @@ function reducer(state, action) {
       else return product;
     });
     return newShoppingCart;
+  };
+
+  const getPrevAndNext = (payload) => {
+    let prev = -1;
+    let indexOfCarrousel = -1;
+    let next = -1;
+    let indexOfPreview = -1;
+
+    for (let i = 0; i < state.filteredProducts.length; i++) {
+      indexOfPreview = state.filteredProducts[i].indexOf(payload);
+      indexOfCarrousel = i;
+      if (indexOfPreview !== -1) break;
+    }
+    prev = indexOfPreview - 1;
+    next = indexOfPreview + 1;
+
+    if (indexOfPreview === 0 && indexOfCarrousel > 0) {
+      prev = state.filteredProducts[indexOfCarrousel - 1].length - 1;
+      next = indexOfPreview + 1;
+    }
+
+    if (
+      indexOfPreview === state.filteredProducts[indexOfCarrousel].length - 1 &&
+      indexOfCarrousel !== state.filteredProducts.length - 1
+    ) {
+      prev = indexOfPreview - 1;
+      next = 0;
+    }
+
+    return [prev, next, indexOfCarrousel];
+  };
+
+  const getPrev = (payload) => {
+    let [prev, next, indexOfCarrousel] = getPrevAndNext(payload);
+    let indexOfNewPreviewCarrousel = indexOfCarrousel;
+    if (
+      indexOfNewPreviewCarrousel !== 0 &&
+      prev === state.filteredProducts[indexOfNewPreviewCarrousel - 1].length - 1
+    ) {
+      indexOfNewPreviewCarrousel -= 1;
+    }
+    return [prev, indexOfNewPreviewCarrousel];
+  };
+
+  const getNext = (payload) => {
+    let [prev, next, indexOfCarrousel] = getPrevAndNext(payload);
+    let indexOfNewPreviewCarrousel = indexOfCarrousel;
+    if (next === 0) {
+      indexOfNewPreviewCarrousel++;
+    }
+
+    return [next, indexOfNewPreviewCarrousel];
   };
 
   const { type } = action;
@@ -53,7 +107,10 @@ function reducer(state, action) {
     const filteredCarousel = getCarousel(filteredProducts);
     let newCurrentPage = 0;
 
-    if (filteredCarousel.length - 1 < state.currentPage && filteredCarousel.length !== 0)
+    if (
+      filteredCarousel.length - 1 < state.currentPage &&
+      filteredCarousel.length !== 0
+    )
       newCurrentPage = filteredCarousel.length - 1;
     else newCurrentPage = state.currentPage;
 
@@ -117,9 +174,14 @@ function reducer(state, action) {
 
   if (type === "SET_CURRENT_PREVIEW") {
     const { payload } = action;
+    if (Object.keys(payload).length === 0)
+      return { ...state, currentPreview: payload };
+    const [prev, next, indexOfCarrousel] = getPrevAndNext(payload);
     return {
       ...state,
       currentPreview: payload,
+      showPrev: prev !== -1,
+      showNext: next !== state.filteredProducts[indexOfCarrousel].length,
     };
   }
 
@@ -133,8 +195,8 @@ function reducer(state, action) {
     if (!productToAdd)
       return {
         ...state,
-      notification: true,
-      shoppingCart: [...state.shoppingCart, { ...payload, quantity: 1 }],
+        notification: true,
+        shoppingCart: [...state.shoppingCart, { ...payload, quantity: 1 }],
         productSelectedInCart: { ...payload, quantity: 1 },
       };
 
@@ -199,6 +261,31 @@ function reducer(state, action) {
     };
   }
 
+  if (type === "GO_PREV_PREVIEW") {
+    const { payload } = action;
+    const [prev, indexOfNewPreviewCarrousel] = getPrev(payload);
+    return {
+      ...state,
+      currentPreview: state.filteredProducts[indexOfNewPreviewCarrousel][prev],
+      showPrev: prev !== 0 || indexOfNewPreviewCarrousel > 0,
+      showNext: true,
+    };
+  }
+
+  if (type === "GO_NEXT_PREVIEW") {
+    const { payload } = action;
+    const [next, indexOfNewPreviewCarrousel] = getNext(payload);
+    return {
+      ...state,
+      currentPreview: state.filteredProducts[indexOfNewPreviewCarrousel][next],
+      showPrev: true,
+      showNext:
+        next !==
+          state.filteredProducts[indexOfNewPreviewCarrousel].length - 1 ||
+        indexOfNewPreviewCarrousel < state.filteredProducts.length - 1,
+    };
+  }
+
   return state;
 }
 
@@ -213,7 +300,9 @@ export default function useStore() {
       shoppingCart,
       showCart,
       productSelectedInCart,
-      notification
+      showPrev,
+      showNext,
+      notification,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -266,6 +355,14 @@ export default function useStore() {
     dispatch({ type: "DELETE_FROM_SHOPPING_CART" });
   };
 
+  const goPrevPreview = (payload) => {
+    dispatch({ type: "GO_PREV_PREVIEW", payload });
+  };
+
+  const goNextPreview = (payload) => {
+    dispatch({ type: "GO_NEXT_PREVIEW", payload });
+  };
+
   return {
     currentPage,
     price,
@@ -276,6 +373,8 @@ export default function useStore() {
     showCart,
     productSelectedInCart,
     notification,
+    showPrev,
+    showNext,
     deleteFromShoppingCart,
     updateQuantity,
     setProductSelectedInCart,
@@ -288,5 +387,7 @@ export default function useStore() {
     setFilteredProducts,
     setPriceFilter,
     setSearchedCategories,
+    goPrevPreview,
+    goNextPreview,
   };
 }
