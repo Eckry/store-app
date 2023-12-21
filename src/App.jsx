@@ -11,6 +11,109 @@ import Preview from "./components/Preview";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 
+function MainContent({
+  currentPreview,
+  addProductToShoppingCart,
+  setCurrentPreview,
+  goPrevPreview,
+  goNextPreview,
+  showPrev,
+  showNext,
+  filteredProducts,
+  currentPage,
+}) {
+  if (Object.keys(currentPreview).length)
+    return (
+      <Preview
+        product={currentPreview}
+        addProductToShoppingCart={addProductToShoppingCart}
+        setCurrentPreview={setCurrentPreview}
+        goPrevPreview={goPrevPreview}
+        goNextPreview={goNextPreview}
+        showPrev={showPrev}
+        showNext={showNext}
+      />
+    );
+
+  return (
+    <main className="container">
+      {filteredProducts.length ? (
+        filteredProducts.map((products, idx) => (
+          <CarouselItem key={idx} currentPage={currentPage}>
+            {products.map((product) => (
+              <Product
+                key={product.id}
+                product={product}
+                setCurrentPreview={setCurrentPreview}
+                addProductToShoppingCart={addProductToShoppingCart}
+              />
+            ))}
+          </CarouselItem>
+        ))
+      ) : (
+        <div className="container-if-no-products">
+          <h1 className="empty-title">Empty</h1>
+        </div>
+      )}
+    </main>
+  );
+}
+
+function CarouselButtons({
+  setPrevPage,
+  currentPage,
+  setPageNumber,
+  filteredProducts,
+  setNextPage,
+}) {
+  return (
+    <div className="carousel-buttons">
+      <PageButton onClick={setPrevPage} value="">
+        {"<-"}
+      </PageButton>
+      {filteredProducts.map((_, idx) => (
+        <PageButton
+          value={idx}
+          currentPage={currentPage}
+          onClick={setPageNumber}
+          key={idx}
+        >
+          {idx + 1}
+        </PageButton>
+      ))}
+      <PageButton onClick={setNextPage} value="">
+        {"->"}
+      </PageButton>
+    </div>
+  );
+}
+
+function Filters({
+  setPriceFilter,
+  price,
+  searchedCategories,
+  setSearchedCategories,
+}) {
+  return (
+    <div className="filters">
+      <h3 className="filters-title">Price range</h3>
+      <div className="price-range-container">
+        <RangeInput onChange={setPriceFilter} price={price} />
+      </div>
+      <h3 className="filters-title">Category</h3>
+      <div className="checkboxes-container">
+        {Object.keys(searchedCategories).map((category) => (
+          <CheckBox
+            category={category}
+            setSearchedCategories={setSearchedCategories}
+            key={category}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const {
     currentPage,
@@ -37,7 +140,7 @@ function App() {
     setPrevPage,
     setPageNumber,
     goPrevPreview,
-    goNextPreview
+    goNextPreview,
   } = useStore();
 
   useEffect(() => {
@@ -55,77 +158,32 @@ function App() {
         {showCart ? <ShoppingCartIconRed /> : <ShoppingCartIcon />}
       </Header>
       <div className="bar">
-        {Object.keys(currentPreview).length ? (
-          <Preview
-            product={currentPreview}
-            addProductToShoppingCart={addProductToShoppingCart}
-            setCurrentPreview={setCurrentPreview}
-            goPrevPreview={goPrevPreview}
-            goNextPreview={goNextPreview}
-            showPrev={showPrev}
-            showNext={showNext}
-          />
-        ) : (
-          <main className="container">
-            {filteredProducts.length ? (
-              filteredProducts.map((products, idx) => (
-                <CarouselItem key={idx} currentPage={currentPage}>
-                  {products.map((product) => (
-                    <Product
-                      key={product.id}
-                      product={product}
-                      setCurrentPreview={setCurrentPreview}
-                      addProductToShoppingCart={addProductToShoppingCart}
-                    />
-                  ))}
-                </CarouselItem>
-              ))
-            ) : (
-              <div className="container-if-no-products">
-                <h1 className="empty-title">Empty</h1>
-              </div>
-            )}
-          </main>
-        )}
-        <div className="carousel-buttons">
-          <PageButton onClick={setPrevPage} value={""}>
-            {"<-"}
-          </PageButton>
-          {filteredProducts.map((_, idx) => (
-            <PageButton
-              value={idx}
-              currentPage={currentPage}
-              onClick={setPageNumber}
-              key={idx}
-            >
-              {idx + 1}
-            </PageButton>
-          ))}
-          <PageButton onClick={setNextPage} value={""}>
-            {"->"}
-          </PageButton>
-        </div>
+        <MainContent
+          currentPreview={currentPreview}
+          addProductToShoppingCart={addProductToShoppingCart}
+          setCurrentPreview={setCurrentPreview}
+          goPrevPreview={goPrevPreview}
+          goNextPreview={goNextPreview}
+          showPrev={showPrev}
+          showNext={showNext}
+          filteredProducts={filteredProducts}
+          currentPage={currentPage}
+        />
+        <CarouselButtons
+          setPrevPage={setPrevPage}
+          currentPage={currentPage}
+          setPageNumber={setPageNumber}
+          filteredProducts={filteredProducts}
+          setNextPage={setNextPage}
+        />
       </div>
-      <div className="filters">
-        <h3 className="filters-title">Price range</h3>
-        <div className="price-range-container">
-          <RangeInput onChange={setPriceFilter} price={price} />
-        </div>
-        <h3 className="filters-title">Category</h3>
-        <div className="checkboxes-container">
-          {Object.keys(searchedCategories).map((category) => (
-            <CheckBox
-              category={category}
-              setSearchedCategories={setSearchedCategories}
-              key={category}
-            />
-          ))}
-        </div>
-      </div>{" "}
-      {/* {Object.keys(currentPreview).length ? (
-        <Preview product={currentPreview} />
-      ) : null} */}
-      {showCart && (
+      <Filters
+        setPriceFilter={setPriceFilter}
+        price={price}
+        searchedCategories={searchedCategories}
+        setSearchedCategories={setSearchedCategories}
+      />
+      {showCart ? (
         <Cart
           deleteFromShoppingCart={deleteFromShoppingCart}
           updateQuantity={updateQuantity}
@@ -133,7 +191,7 @@ function App() {
           products={shoppingCart}
           productSelectedInCart={productSelectedInCart}
         />
-      )}
+      ) : null}
     </>
   );
 }

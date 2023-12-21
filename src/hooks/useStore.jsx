@@ -2,10 +2,58 @@ import products from "../products.json";
 import categories from "../categories.json";
 import { useReducer } from "react";
 
-const categoriesMap = {};
-categories.forEach((category) => {
-  categoriesMap[category] = true;
-});
+const updateQuantity = (number, payload, state) => {
+  const newShoppingCart = state.shoppingCart.map((product) => {
+    if (product.id === payload.id)
+      return { ...product, quantity: product.quantity + number };
+    else return product;
+  });
+  return newShoppingCart;
+};
+
+const getPrevAndNext = (payload, state) => {
+  let carouselIndex = state.filteredProducts.findIndex((carousel) =>
+    carousel.includes(payload)
+  );
+  const previewIndex = state.filteredProducts[carouselIndex].indexOf(payload);
+
+  let prev = previewIndex - 1;
+
+  if (previewIndex === 0 && carouselIndex > 0) {
+    prev = state.filteredProducts[carouselIndex - 1].length - 1;
+  }
+
+  let next = previewIndex + 1;
+
+  if (
+    previewIndex === state.filteredProducts[carouselIndex].length - 1 &&
+    carouselIndex < state.filteredProducts.length - 1
+  ) {
+    next = 0;
+  }
+
+  return [prev, next, carouselIndex];
+};
+
+const getPrev = (payload, state) => {
+  let [prev, , carouselIndex] = getPrevAndNext(payload, state);
+  if (
+    carouselIndex > 0 &&
+    prev >= state.filteredProducts[carouselIndex - 1].length - 1
+  ) {
+    carouselIndex--;
+  }
+  return [prev, carouselIndex];
+};
+
+const getNext = (payload,state) => {
+  let [, next, carouselIndex] = getPrevAndNext(payload, state);
+  if (next === 0) {
+    carouselIndex++;
+  }
+
+  return [next, carouselIndex];
+};
 
 const getCarousel = (products) => {
   const carouselProducts = [];
@@ -14,6 +62,11 @@ const getCarousel = (products) => {
   }
   return carouselProducts;
 };
+
+const categoriesMap = {};
+categories.forEach((category) => {
+  categoriesMap[category] = true;
+});
 
 const initialCarousel = getCarousel(products);
 
@@ -32,67 +85,6 @@ const initialState = {
 };
 
 function reducer(state, action) {
-  const updateQuantity = (number, payload) => {
-    const newShoppingCart = state.shoppingCart.map((product) => {
-      if (product.id === payload.id)
-        return { ...product, quantity: product.quantity + number };
-      else return product;
-    });
-    return newShoppingCart;
-  };
-
-  const getPrevAndNext = (payload) => {
-    let prev = -1;
-    let indexOfCarrousel = -1;
-    let next = -1;
-    let indexOfPreview = -1;
-
-    for (let i = 0; i < state.filteredProducts.length; i++) {
-      indexOfPreview = state.filteredProducts[i].indexOf(payload);
-      indexOfCarrousel = i;
-      if (indexOfPreview !== -1) break;
-    }
-    prev = indexOfPreview - 1;
-    next = indexOfPreview + 1;
-
-    if (indexOfPreview === 0 && indexOfCarrousel > 0) {
-      prev = state.filteredProducts[indexOfCarrousel - 1].length - 1;
-      next = indexOfPreview + 1;
-    }
-
-    if (
-      indexOfPreview === state.filteredProducts[indexOfCarrousel].length - 1 &&
-      indexOfCarrousel !== state.filteredProducts.length - 1
-    ) {
-      prev = indexOfPreview - 1;
-      next = 0;
-    }
-
-    return [prev, next, indexOfCarrousel];
-  };
-
-  const getPrev = (payload) => {
-    let [prev, next, indexOfCarrousel] = getPrevAndNext(payload);
-    let indexOfNewPreviewCarrousel = indexOfCarrousel;
-    if (
-      indexOfNewPreviewCarrousel !== 0 &&
-      prev === state.filteredProducts[indexOfNewPreviewCarrousel - 1].length - 1
-    ) {
-      indexOfNewPreviewCarrousel -= 1;
-    }
-    return [prev, indexOfNewPreviewCarrousel];
-  };
-
-  const getNext = (payload) => {
-    let [prev, next, indexOfCarrousel] = getPrevAndNext(payload);
-    let indexOfNewPreviewCarrousel = indexOfCarrousel;
-    if (next === 0) {
-      indexOfNewPreviewCarrousel++;
-    }
-
-    return [next, indexOfNewPreviewCarrousel];
-  };
-
   const { type } = action;
 
   if (type === "SET_FILTERED_PRODUCTS") {
@@ -122,16 +114,16 @@ function reducer(state, action) {
   }
 
   if (type === "SET_PRICE_FILTER") {
-    const { payload } = action;
-    payload.event.preventDefault();
+    const { event, id } = action.payload;
+    event.preventDefault();
     const newPrice =
-      payload.id === "min"
-        ? Math.min(payload.event.target.value, state.price.max - 300)
-        : Math.max(payload.event.target.value, state.price.min + 300);
+      id === "min"
+        ? Math.min(event.target.value, state.price.max - 300)
+        : Math.max(event.target.value, state.price.min + 300);
     return {
       ...state,
       price:
-        payload.id === "min"
+        id === "min"
           ? { min: newPrice, max: state.price.max }
           : { min: state.price.min, max: newPrice },
     };
@@ -176,12 +168,12 @@ function reducer(state, action) {
     const { payload } = action;
     if (Object.keys(payload).length === 0)
       return { ...state, currentPreview: payload };
-    const [prev, next, indexOfCarrousel] = getPrevAndNext(payload);
+    const [prev, next, carouselIndex] = getPrevAndNext(payload, state);
     return {
       ...state,
       currentPreview: payload,
       showPrev: prev !== -1,
-      showNext: next !== state.filteredProducts[indexOfCarrousel].length,
+      showNext: next !== state.filteredProducts[carouselIndex].length,
     };
   }
 
@@ -200,7 +192,7 @@ function reducer(state, action) {
         productSelectedInCart: { ...payload, quantity: 1 },
       };
 
-    const newShoppingCart = updateQuantity(1, payload);
+    const newShoppingCart = updateQuantity(1, payload, state);
 
     return {
       ...state,
@@ -232,7 +224,7 @@ function reducer(state, action) {
   if (type === "UPDATE_QUANTITY") {
     const { number, product } = action.payload;
     if (product.quantity + number <= 0) return state;
-    const newShoppingCart = updateQuantity(number, product);
+    const newShoppingCart = updateQuantity(number, product, state);
     return {
       ...state,
       shoppingCart: newShoppingCart,
@@ -263,26 +255,25 @@ function reducer(state, action) {
 
   if (type === "GO_PREV_PREVIEW") {
     const { payload } = action;
-    const [prev, indexOfNewPreviewCarrousel] = getPrev(payload);
+    const [prev, newPreviewCarouselIndex] = getPrev(payload, state);
     return {
       ...state,
-      currentPreview: state.filteredProducts[indexOfNewPreviewCarrousel][prev],
-      showPrev: prev !== 0 || indexOfNewPreviewCarrousel > 0,
+      currentPreview: state.filteredProducts[newPreviewCarouselIndex][prev],
+      showPrev: prev !== 0 || newPreviewCarouselIndex > 0,
       showNext: true,
     };
   }
 
   if (type === "GO_NEXT_PREVIEW") {
     const { payload } = action;
-    const [next, indexOfNewPreviewCarrousel] = getNext(payload);
+    const [next, newPreviewCarouselIndex] = getNext(payload,state);
     return {
       ...state,
-      currentPreview: state.filteredProducts[indexOfNewPreviewCarrousel][next],
+      currentPreview: state.filteredProducts[newPreviewCarouselIndex][next],
       showPrev: true,
       showNext:
-        next !==
-          state.filteredProducts[indexOfNewPreviewCarrousel].length - 1 ||
-        indexOfNewPreviewCarrousel < state.filteredProducts.length - 1,
+        next !== state.filteredProducts[newPreviewCarouselIndex].length - 1 ||
+        newPreviewCarouselIndex < state.filteredProducts.length - 1,
     };
   }
 
