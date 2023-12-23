@@ -45,14 +45,14 @@ function reducer(state, action) {
           (state.searchedCategories.includes(product.category) ||
             state.searchedCategories.length === 0)
       );
-
-      let newCurrentPage = state.currentPage;
-      if (newCurrentPage === state.numberOfPages && newCurrentPage > 0) {
-        newCurrentPage = state.numberOfPages - 1;
-      }
       const newNumberOfPages = Math.ceil(
         newFilteredProducts.length / NUMBER_OF_PRODUCTS_PER_PAGE
       );
+
+      let newCurrentPage = state.currentPage;
+      if (newCurrentPage >= newNumberOfPages && newCurrentPage > 0) {
+        newCurrentPage = newNumberOfPages - 1;
+      }
 
       return {
         ...state,
@@ -92,7 +92,8 @@ function reducer(state, action) {
     }
 
     case actionTypes.SET_NEXT_PAGE: {
-      if (state.currentPage >= state.numberOfPages - 1) return {...state, currentPage: state.numberOfPages - 1};
+      if (state.currentPage >= state.numberOfPages - 1)
+        return { ...state, currentPage: state.numberOfPages - 1 };
       return {
         ...state,
         currentPage: state.currentPage + 1,
@@ -100,7 +101,7 @@ function reducer(state, action) {
     }
 
     case actionTypes.SET_PREV_PAGE: {
-      if (state.currentPage <= 0) return {...state, currentPage: 0};
+      if (state.currentPage <= 0) return { ...state, currentPage: 0 };
       return {
         ...state,
         currentPage: state.currentPage - 1,
@@ -217,8 +218,7 @@ function reducer(state, action) {
         showNext: true,
       };
     }
-
-    case actionTypes.goNextPreview: {
+    case actionTypes.GO_NEXT_PREVIEW: {
       const { payload } = action;
 
       const [, next] = getPrevAndNext(payload, state);

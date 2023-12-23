@@ -10,7 +10,7 @@ import Preview from "./components/Preview";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import { NUMBER_OF_PRODUCTS_PER_PAGE } from "./constants.json";
-import categories from "./categories.json"
+import categories from "./categories.json";
 
 function MainContent({
   currentPreview,
@@ -36,27 +36,29 @@ function MainContent({
       />
     );
 
+  if (!filteredProducts.length) {
+    return (
+      <main className="container-if-no-products">
+        <h1 className="empty-title">Empty</h1>
+      </main>
+    );
+  }
+
   return (
     <main className="container">
-      {filteredProducts.length ? (
-        filteredProducts
-          .slice(
-            NUMBER_OF_PRODUCTS_PER_PAGE * currentPage,
-            NUMBER_OF_PRODUCTS_PER_PAGE * (currentPage + 1)
-          )
-          .map((product) => (
-            <Product
-              key={product.id}
-              product={product}
-              setCurrentPreview={setCurrentPreview}
-              addProductToShoppingCart={addProductToShoppingCart}
-            />
-          ))
-      ) : (
-        <div className="container-if-no-products">
-          <h1 className="empty-title">Empty</h1>
-        </div>
-      )}
+      {filteredProducts
+        .slice(
+          NUMBER_OF_PRODUCTS_PER_PAGE * currentPage,
+          NUMBER_OF_PRODUCTS_PER_PAGE * (currentPage + 1)
+        )
+        .map((product) => (
+          <Product
+            key={product.id}
+            product={product}
+            setCurrentPreview={setCurrentPreview}
+            addProductToShoppingCart={addProductToShoppingCart}
+          />
+        ))}
     </main>
   );
 }
@@ -68,10 +70,10 @@ function CarouselButtons({
   setNextPage,
   numberOfPages,
 }) {
-  if(numberOfPages <= 0){
+  if (numberOfPages <= 0) {
     return;
   }
-  
+
   return (
     <div className="carousel-buttons">
       <PageButton onClick={setPrevPage} value="">

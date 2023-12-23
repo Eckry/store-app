@@ -16,14 +16,17 @@ body {
 }
 
 .container { 
+  position: relative;
   width: 90%;
   max-width: 800px;
   margin: 100px auto 0 auto;
   background-color: var(--secondary-color);
   border-radius: 1rem;
-  overflow: hidden;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   min-height: 630px;
+  padding: 1rem;
+  gap: 1rem;
 }
 
 .filters {
@@ -72,10 +75,16 @@ body {
 }
 
 .container-if-no-products {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 100px auto 0 auto;
+  background-color: var(--secondary-color);
+  border-radius: 1rem;
+  min-height: 630px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
 }
 
 @media (max-width: 1080px) {
