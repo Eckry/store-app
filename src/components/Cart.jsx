@@ -9,7 +9,7 @@ export default function Cart({
 }) {
   function handleChangeProductSelectedInCart(productId) {
     const newProductSelectedInCart = products.find(
-      (product) => product.id == productId
+      (product) => product.id === parseInt(productId)
     );
     setProductSelectedInCart(newProductSelectedInCart);
   }
@@ -31,6 +31,7 @@ export default function Cart({
         <h1 className="empty-title">Empty</h1>
       </div>
     );
+    
   return (
     <div className="cart-container">
       <div className="product-selected-container">
@@ -61,6 +62,7 @@ export default function Cart({
               onClick={(e) => handleChangeProductSelectedInCart(e.target.id)}
               src={product.image}
               className="other-products-image"
+              key={product.id}
             />
           );
         })}

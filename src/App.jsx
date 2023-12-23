@@ -5,11 +5,12 @@ import Product from "./components/Product";
 import CheckBox from "./components/CheckBox";
 import RangeInput from "./components/RangeInput";
 import PageButton from "./components/PageButton";
-import CarouselItem from "./components/CarouselItem";
 import useStore from "./hooks/useStore";
 import Preview from "./components/Preview";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
+import { NUMBER_OF_PRODUCTS_PER_PAGE } from "./constants.json";
+import categories from "./categories.json"
 
 function MainContent({
   currentPreview,
@@ -38,18 +39,19 @@ function MainContent({
   return (
     <main className="container">
       {filteredProducts.length ? (
-        filteredProducts.map((products, idx) => (
-          <CarouselItem key={idx} currentPage={currentPage}>
-            {products.map((product) => (
-              <Product
-                key={product.id}
-                product={product}
-                setCurrentPreview={setCurrentPreview}
-                addProductToShoppingCart={addProductToShoppingCart}
-              />
-            ))}
-          </CarouselItem>
-        ))
+        filteredProducts
+          .slice(
+            NUMBER_OF_PRODUCTS_PER_PAGE * currentPage,
+            NUMBER_OF_PRODUCTS_PER_PAGE * (currentPage + 1)
+          )
+          .map((product) => (
+            <Product
+              key={product.id}
+              product={product}
+              setCurrentPreview={setCurrentPreview}
+              addProductToShoppingCart={addProductToShoppingCart}
+            />
+          ))
       ) : (
         <div className="container-if-no-products">
           <h1 className="empty-title">Empty</h1>
@@ -63,24 +65,29 @@ function CarouselButtons({
   setPrevPage,
   currentPage,
   setPageNumber,
-  filteredProducts,
   setNextPage,
+  numberOfPages,
 }) {
+  if(numberOfPages <= 0){
+    return;
+  }
+  
   return (
     <div className="carousel-buttons">
       <PageButton onClick={setPrevPage} value="">
         {"<-"}
       </PageButton>
-      {filteredProducts.map((_, idx) => (
-        <PageButton
-          value={idx}
-          currentPage={currentPage}
-          onClick={setPageNumber}
-          key={idx}
-        >
-          {idx + 1}
-        </PageButton>
-      ))}
+      {Array(numberOfPages)
+        .fill(0)
+        .map((_, idx) => (
+          <PageButton
+            onClick={setPageNumber}
+            currentPage={currentPage}
+            value={idx}
+          >
+            {idx + 1}
+          </PageButton>
+        ))}
       <PageButton onClick={setNextPage} value="">
         {"->"}
       </PageButton>
@@ -102,7 +109,7 @@ function Filters({
       </div>
       <h3 className="filters-title">Category</h3>
       <div className="checkboxes-container">
-        {Object.keys(searchedCategories).map((category) => (
+        {categories.map((category) => (
           <CheckBox
             category={category}
             setSearchedCategories={setSearchedCategories}
@@ -127,6 +134,7 @@ function App() {
     notification,
     showPrev,
     showNext,
+    numberOfPages,
     deleteFromShoppingCart,
     updateQuantity,
     setProductSelectedInCart,
@@ -175,6 +183,7 @@ function App() {
           setPageNumber={setPageNumber}
           filteredProducts={filteredProducts}
           setNextPage={setNextPage}
+          numberOfPages={numberOfPages}
         />
       </div>
       <Filters
