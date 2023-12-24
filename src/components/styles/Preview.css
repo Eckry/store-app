@@ -71,3 +71,21 @@
 .return-button {
   position: absolute;
 }
+
+.rating {
+  overflow: hidden;
+}
+
+.star {
+  font-size: 32px;
+  color: rgb(221, 198, 22);
+}
+
+.gray-star {
+  font-size: 32px;
+  color: gray;
+}
+
+.stars-container {
+  position: absolute;
+}

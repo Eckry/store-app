@@ -86,6 +86,7 @@ function CarouselButtons({
             onClick={setPageNumber}
             currentPage={currentPage}
             value={idx}
+            key={idx}
           >
             {idx + 1}
           </PageButton>
