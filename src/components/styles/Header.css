@@ -7,8 +7,7 @@
   align-items: center;
   position: fixed;
   top: 0;
-  left: 0;
-  z-index: 1000;
+  z-index: 1;
 }
 
 .shopping-cart-container {
@@ -37,3 +36,18 @@
   color: red;
   font-size: 1.7rem;
 }
+
+.toggle-filters {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-filters > input {
+}
+

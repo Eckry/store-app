@@ -101,11 +101,12 @@ function CarouselButtons({
 function Filters({
   setPriceFilter,
   price,
-  searchedCategories,
   setSearchedCategories,
+  showFilters
 }) {
+
   return (
-    <div className="filters">
+    <div className={showFilters ? "filters" : "hide-filters"}>
       <h3 className="filters-title">Price range</h3>
       <div className="price-range-container">
         <RangeInput onChange={setPriceFilter} price={price} />
@@ -138,6 +139,7 @@ function App() {
     showPrev,
     showNext,
     numberOfPages,
+    showFilters,
     deleteFromShoppingCart,
     updateQuantity,
     setProductSelectedInCart,
@@ -152,6 +154,7 @@ function App() {
     setPageNumber,
     goPrevPreview,
     goNextPreview,
+    interchangeShowFilters
   } = useStore();
 
   useEffect(() => {
@@ -165,6 +168,7 @@ function App() {
         onClick={interchangeShowCart}
         notification={notification}
         showCart={showCart}
+        interchangeShowFilters={interchangeShowFilters}
       >
         {showCart ? <ShoppingCartIconRed /> : <ShoppingCartIcon />}
       </Header>
@@ -192,8 +196,8 @@ function App() {
       <Filters
         setPriceFilter={setPriceFilter}
         price={price}
-        searchedCategories={searchedCategories}
         setSearchedCategories={setSearchedCategories}
+        showFilters={showFilters}
       />
       {showCart ? (
         <Cart

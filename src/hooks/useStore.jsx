@@ -31,6 +31,7 @@ const initialState = {
   notification: false,
   showPrev: true,
   showNext: true,
+  showFilters: true,
 };
 
 function reducer(state, action) {
@@ -230,6 +231,13 @@ function reducer(state, action) {
         showNext: next < state.filteredProducts.length - 1,
       };
     }
+
+    case actionTypes.INTERCHANGE_SHOW_FILTERS: {
+      return {
+        ...state,
+        showFilters: !state.showFilters,
+      };
+    }
     default:
       return state;
   }
@@ -250,6 +258,7 @@ export default function useStore() {
       showNext,
       notification,
       numberOfPages,
+      showFilters,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -310,6 +319,10 @@ export default function useStore() {
     dispatch({ type: "GO_NEXT_PREVIEW", payload });
   };
 
+  const interchangeShowFilters = () => {
+    dispatch({type: "INTERCHANGE_SHOW_FILTERS"});
+  }
+
   return {
     currentPage,
     price,
@@ -323,6 +336,7 @@ export default function useStore() {
     showPrev,
     showNext,
     numberOfPages,
+    showFilters,
     deleteFromShoppingCart,
     updateQuantity,
     setProductSelectedInCart,
@@ -337,5 +351,6 @@ export default function useStore() {
     setSearchedCategories,
     goPrevPreview,
     goNextPreview,
+    interchangeShowFilters
   };
 }

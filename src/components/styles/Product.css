@@ -1,9 +1,9 @@
 .product-container {
   width: 100%;
   border: 2px solid black;
-  height: 291px;
   display: flex;
   flex-direction: column;
+  height: 291px;
 }
 
 .product-image {
