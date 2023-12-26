@@ -2,15 +2,13 @@ import { useEffect } from "react";
 import "./App.css";
 import { ShoppingCartIcon, ShoppingCartIconRed } from "./components/Icons";
 import Product from "./components/Product";
-import CheckBox from "./components/CheckBox";
-import RangeInput from "./components/RangeInput";
 import PageButton from "./components/PageButton";
 import useStore from "./hooks/useStore";
 import Preview from "./components/Preview";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
+import Filters from "./components/Filters"
 import { NUMBER_OF_PRODUCTS_PER_PAGE } from "./constants.json";
-import categories from "./categories.json";
 
 function MainContent({
   currentPreview,
@@ -98,33 +96,6 @@ function CarouselButtons({
   );
 }
 
-function Filters({
-  setPriceFilter,
-  price,
-  setSearchedCategories,
-  showFilters
-}) {
-
-  return (
-    <div className={showFilters ? "filters" : "hide-filters"}>
-      <h3 className="filters-title">Price range</h3>
-      <div className="price-range-container">
-        <RangeInput onChange={setPriceFilter} price={price} />
-      </div>
-      <h3 className="filters-title">Category</h3>
-      <div className="checkboxes-container">
-        {categories.map((category) => (
-          <CheckBox
-            category={category}
-            setSearchedCategories={setSearchedCategories}
-            key={category}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function App() {
   const {
     currentPage,
@@ -169,6 +140,7 @@ function App() {
         notification={notification}
         showCart={showCart}
         interchangeShowFilters={interchangeShowFilters}
+        showFilters={showFilters}
       >
         {showCart ? <ShoppingCartIconRed /> : <ShoppingCartIcon />}
       </Header>

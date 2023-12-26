@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   background-color: var(--tertiary-color);
   height: 5rem;
   width: 100%;
@@ -38,16 +39,22 @@
 }
 
 .toggle-filters {
-  position: absolute;
-  top: 0;
-  right: 0;
   height: 100%;
-  width: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.toggle-filters > input {
+.filters-navbar {
+  position: absolute;
+  width: 100%;
+  background-color: black;
+  height: 100%;
+  z-index: -1;
 }
 
+@media (max-width: 1020px) {
+  .toggle-filters > input {
+    display: block;
+  }
+}

@@ -31,7 +31,7 @@ const initialState = {
   notification: false,
   showPrev: true,
   showNext: true,
-  showFilters: true,
+  showFilters: false,
 };
 
 function reducer(state, action) {

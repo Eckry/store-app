@@ -5,7 +5,7 @@ export default function Header({
   shoppingCart,
   onClick,
   notification,
-  interchangeShowFilters
+  interchangeShowFilters,
 }) {
   function handleOnClick() {
     onClick();
@@ -16,7 +16,11 @@ export default function Header({
   return (
     <header className="header">
       <label htmlFor="toggle-filters" className="toggle-filters">
-        <input onClick={interchangeShowFilters} type="checkbox" id="toggle-filters"/>
+        <input
+          onClick={interchangeShowFilters}
+          type="checkbox"
+          id="toggle-filters"
+        />
       </label>
       <button className="shopping-cart-container" onClick={handleOnClick}>
         {children}
