@@ -9,8 +9,8 @@ export default function RangeInput({ price, onChange }) {
     onChange({ id: "max", event: e });
   }
 
-  const minPos = (price.min / 1000) * 100;
-  const maxPos = (price.max / 1000) * 100;
+  const minPos = (price.min / 10) ;
+  const maxPos = (price.max / 10) ;
 
   return (
     <div className="information-container">
@@ -34,6 +34,14 @@ export default function RangeInput({ price, onChange }) {
           />
         </div>
         <div className="control-wrapper">
+          <div className="price-information-container" style={{width: `calc(${maxPos - minPos}% + 35px)` , left: `calc(${minPos}% - 10px)`}}>
+            <p className="price min">
+              {price.min}
+            </p>
+            <p className="price max">
+              {price.max}
+            </p>
+          </div>
           <div className="control" style={{ left: `${minPos}%` }}></div>
           <div className="rail">
             <div
@@ -43,14 +51,6 @@ export default function RangeInput({ price, onChange }) {
           </div>
           <div className="control" style={{ left: `${maxPos}%` }}></div>
         </div>
-      </div>
-      <div className="price-information-container">
-        <p className="price min" style={{ left: `${minPos - 7}%` }}>
-          {price.min}
-        </p>
-        <p className="price max" style={{ left: `${maxPos - 7}%` }}>
-          {price.max}
-        </p>
       </div>
     </div>
   );
