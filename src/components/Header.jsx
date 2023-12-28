@@ -6,6 +6,7 @@ export default function Header({
   onClick,
   notification,
   interchangeShowFilters,
+  showCart
 }) {
   function handleOnClick() {
     onClick();
@@ -22,7 +23,7 @@ export default function Header({
           id="toggle-filters"
         />
       </label>
-      <button className="shopping-cart-container" onClick={handleOnClick}>
+      <button disabled={showCart} className="shopping-cart-container" onClick={handleOnClick}>
         {children}
         {shoppingCart.length ? (
           <span style={style} className="number-of-products-container">

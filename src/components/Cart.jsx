@@ -1,4 +1,5 @@
 import "./styles/Cart.css";
+import { ShoppingCartIconRed } from "./Icons";
 
 export default function Cart({
   products,
@@ -6,6 +7,7 @@ export default function Cart({
   setProductSelectedInCart,
   updateQuantity,
   deleteFromShoppingCart,
+  interchangeShowCart,
 }) {
   function handleChangeProductSelectedInCart(productId) {
     const newProductSelectedInCart = products.find(
@@ -14,26 +16,36 @@ export default function Cart({
     setProductSelectedInCart(newProductSelectedInCart);
   }
 
-  function handleAddOneToQuantity (){
-    updateQuantity({product: productSelectedInCart, number: 1})
+  function handleAddOneToQuantity() {
+    updateQuantity({ product: productSelectedInCart, number: 1 });
   }
 
-  function handleRemoveOneToQuantity(){
-    updateQuantity({product: productSelectedInCart, number: -1});
+  function handleRemoveOneToQuantity() {
+    updateQuantity({ product: productSelectedInCart, number: -1 });
   }
 
-  function handleDeleteFromShoppingCart(){
+  function handleDeleteFromShoppingCart() {
     deleteFromShoppingCart();
+  }
+
+  function handleInterchangeShowCart() {
+    interchangeShowCart();
   }
   if (!products.length)
     return (
       <div className="cart-container empty">
+        <button className="close-button" onClick={handleInterchangeShowCart}>
+          <ShoppingCartIconRed />
+        </button>
         <h1 className="empty-title">Empty</h1>
       </div>
     );
-    
+
   return (
     <div className="cart-container">
+      <button className="close-button" onClick={handleInterchangeShowCart}>
+        <ShoppingCartIconRed />
+      </button>
       <div className="product-selected-container">
         <img
           className="product-selected-image"
@@ -47,9 +59,13 @@ export default function Cart({
           <div>
             <p>{productSelectedInCart.price}</p>
             <p>{productSelectedInCart.rate}</p>
-            <button onClick={handleRemoveOneToQuantity} className="sell-button">-</button>
+            <button onClick={handleRemoveOneToQuantity} className="sell-button">
+              -
+            </button>
             <p>total: {productSelectedInCart.quantity}</p>
-            <button onClick={handleAddOneToQuantity} className="buy-button">+</button>
+            <button onClick={handleAddOneToQuantity} className="buy-button">
+              +
+            </button>
             <button onClick={handleDeleteFromShoppingCart}>TRASH</button>
           </div>
         </div>

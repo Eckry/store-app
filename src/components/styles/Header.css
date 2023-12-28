@@ -43,18 +43,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
 
-.filters-navbar {
-  position: absolute;
-  width: 100%;
-  background-color: black;
-  height: 100%;
-  z-index: -1;
+.toggle-filters > input {
+  display: none;
 }
 
 @media (max-width: 1020px) {
   .toggle-filters > input {
     display: block;
+    position: absolute;
+    right: 3%;
   }
 }

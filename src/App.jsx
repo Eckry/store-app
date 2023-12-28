@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import "./App.css";
-import { ShoppingCartIcon, ShoppingCartIconRed } from "./components/Icons";
+import { ShoppingCartIcon } from "./components/Icons";
 import Product from "./components/Product";
 import PageButton from "./components/PageButton";
 import useStore from "./hooks/useStore";
 import Preview from "./components/Preview";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
-import Filters from "./components/Filters"
+import Filters from "./components/Filters";
 import { NUMBER_OF_PRODUCTS_PER_PAGE } from "./constants.json";
 
 function MainContent({
@@ -125,11 +125,23 @@ function App() {
     setPageNumber,
     goPrevPreview,
     goNextPreview,
-    interchangeShowFilters
+    interchangeShowFilters,
   } = useStore();
 
   useEffect(() => {
     setFilteredProducts();
+    function handleKeyPress(e) {
+      switch (e.key) {
+        case "ArrowLeft":
+          setPrevPage();
+          break;
+        case "ArrowRight":
+          setNextPage()
+          break
+      }
+    }
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
   }, [price, searchedCategories]);
 
   return (
@@ -142,7 +154,7 @@ function App() {
         interchangeShowFilters={interchangeShowFilters}
         showFilters={showFilters}
       >
-        {showCart ? <ShoppingCartIconRed /> : <ShoppingCartIcon />}
+        <ShoppingCartIcon />
       </Header>
       <div className="bar">
         <MainContent
@@ -178,6 +190,7 @@ function App() {
           setProductSelectedInCart={setProductSelectedInCart}
           products={shoppingCart}
           productSelectedInCart={productSelectedInCart}
+          interchangeShowCart={interchangeShowCart}
         />
       ) : null}
     </>

@@ -45,7 +45,6 @@ body {
 }
 
 .container-if-no-products {
-  position: relative;
   width: 90%;
   max-width: 800px;
   margin: 100px auto 0 auto;
@@ -69,10 +68,15 @@ body {
 @media (max-width: 1020px) {
   .container {
     grid-template-columns: 1fr 1fr;
-    min-height: calc(235px * 4);
   }
   .carousel-buttons,
   .container {
     margin-right: 0;
+  }
+}
+
+@media (max-width: 700px){
+  .container {
+    grid-template-columns: 1fr;
   }
 }

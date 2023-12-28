@@ -1,10 +1,11 @@
 .cart-container {
+  position: fixed;
   z-index: 1000;
-  margin: 5vw;
-  width: 90vw;
-  height: 80vh;
-  background-color: white;
-  position: absolute;
+  margin:  1vw 2.5vw;
+  width: 95vw;
+  height: 95vh;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
   top: 0;
   padding: 1.5rem;
   border-radius: 1.5rem;
@@ -27,14 +28,15 @@
 }
 
 .empty {
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .empty-title {
-  font-size: 150px;
-  color: rgba(0, 0, 0, 0.167);
+  font-size: 10rem;
+  color: rgba(0, 0, 0, 0.501);
   user-select: none;
 }
 
@@ -44,4 +46,14 @@
 
 .buy-button {
   width: 20px;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
