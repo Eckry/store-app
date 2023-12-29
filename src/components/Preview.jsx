@@ -7,14 +7,14 @@ function getStars(rate) {
 
   const stars = [];
   for (let i = 0; i < fullStars; i++) {
-    stars.push(<FaStar className="star" key={i}/>);
+    stars.push(<FaStar className="star" key={i} />);
   }
 
   if (decimalPart !== 0) {
     stars.push(
       <FaStar
         className="star"
-        key={decimalPart}
+        key={fullStars}
         style={{
           clipPath: `polygon(0 0, ${decimalPart * 10}% 0, ${
             decimalPart * 10
@@ -70,25 +70,34 @@ export default function Preview({
         <div className="description-container">
           <div className="title-container">
             <h1 className="title">{product.title}</h1>
+            <h4 className="subtitle">Description</h4>
             <p className="description">{product.description}</p>
             <p className="category">{product.category}</p>
           </div>
         </div>
       </div>
       <div className="rating-container">
-        <h1>{product.price}</h1>
-        <p className="rating">
+        <h1 className="product-price">{product.price}$</h1>
+        <div className="rating">
           <span className="stars-container">
             {getStars(product.rating.rate)}
           </span>
-          <FaStar className="gray-star"/>
-          <FaStar className="gray-star"/>
-          <FaStar className="gray-star"/>
-          <FaStar className="gray-star"/>
-          <FaStar className="gray-star"/>
-        </p>
+          <div className="gray-stars">
+            <FaStar className="gray-star" />
+            <FaStar className="gray-star" />
+            <FaStar className="gray-star" />
+            <FaStar className="gray-star" />
+            <FaStar className="gray-star" />
+          </div>
+          <p className="rating-count">({product.rating.count})</p>
+        </div>
       </div>
-      <button onClick={handleAddProductToShoppingCart}>ADD TO CART</button>
+      <button
+        className="add-to-cart-button"
+        onClick={handleAddProductToShoppingCart}
+      >
+        ADD TO CART
+      </button>
       <button className="return-button" onClick={handleSetCurrentPreview}>
         {"<-"}
       </button>

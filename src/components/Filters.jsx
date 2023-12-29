@@ -8,7 +8,13 @@ export default function Filters({
   price,
   setSearchedCategories,
   showFilters,
+  currentPreview
 }) {
+
+  const displayFilters = Object.keys(currentPreview).length !== 0
+
+  if(displayFilters) return;
+
   return (
     <div className={showFilters ? "filters" : "filters-hide"}>
       <div className="padding">

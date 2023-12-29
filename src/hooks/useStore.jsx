@@ -13,6 +13,7 @@ const updateQuantity = (number, payload, state) => {
 
 const getPrevAndNext = (payload, state) => {
   const previewIndex = state.filteredProducts.indexOf(payload);
+
   const prev = previewIndex - 1;
   const next = previewIndex + 1;
   return [prev, next];

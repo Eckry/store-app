@@ -23,15 +23,15 @@ function MainContent({
 }) {
   if (Object.keys(currentPreview).length)
     return (
-      <Preview
-        product={currentPreview}
-        addProductToShoppingCart={addProductToShoppingCart}
-        setCurrentPreview={setCurrentPreview}
-        goPrevPreview={goPrevPreview}
-        goNextPreview={goNextPreview}
-        showPrev={showPrev}
-        showNext={showNext}
-      />
+        <Preview
+          product={currentPreview}
+          addProductToShoppingCart={addProductToShoppingCart}
+          setCurrentPreview={setCurrentPreview}
+          goPrevPreview={goPrevPreview}
+          goNextPreview={goNextPreview}
+          showPrev={showPrev}
+          showNext={showNext}
+        />
     );
 
   if (!filteredProducts.length) {
@@ -136,8 +136,8 @@ function App() {
           setPrevPage();
           break;
         case "ArrowRight":
-          setNextPage()
-          break
+          setNextPage();
+          break;
       }
     }
     window.addEventListener("keydown", handleKeyPress);
@@ -182,6 +182,7 @@ function App() {
         price={price}
         setSearchedCategories={setSearchedCategories}
         showFilters={showFilters}
+        currentPreview={currentPreview}
       />
       {showCart ? (
         <Cart

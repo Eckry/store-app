@@ -18,7 +18,7 @@ export default function Product({
       <img src={product.image} className="product-image" />
       <div className="product-information">
         <div className="price-and-name-container">
-          <p className="product-price">{product.price} $</p>
+          <p className="product-price">{product.price}$</p>
           <p className="product-name">
             {product.title.split("").slice(0, 10)}...
           </p>
