@@ -35,6 +35,14 @@
   color: rgb(79, 129, 4);
 }
 
+.product-name {
+  width: 110px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+}
+
 .buttons-container {
   display: flex;
   width: 100%;
@@ -61,4 +69,10 @@
   cursor: pointer;
   outline: none;
   border: none;
+}
+
+@media (max-width: 1020px) {
+  .product-name {
+    width: 170px;
+  }
 }

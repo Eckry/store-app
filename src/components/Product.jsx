@@ -20,7 +20,7 @@ export default function Product({
         <div className="price-and-name-container">
           <p className="product-price">{product.price}$</p>
           <p className="product-name">
-            {product.title.split("").slice(0, 10)}...
+            {product.title}
           </p>
         </div>
         <div className="buttons-container">
