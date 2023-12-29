@@ -1,13 +1,13 @@
 .cart-container {
   position: fixed;
-  z-index: 1000;
-  margin:  1vw 2.5vw;
-  width: 95vw;
-  height: 95vh;
+  z-index: 60;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  height: 95%;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(20px);
-  top: 0;
-  padding: 1.5rem;
   border-radius: 1.5rem;
 }
 
@@ -28,7 +28,6 @@
 }
 
 .empty {
-
   display: flex;
   justify-content: center;
   align-items: center;
