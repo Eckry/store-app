@@ -34,22 +34,15 @@ export default function RangeInput({ price, onChange }) {
           />
         </div>
         <div className="control-wrapper">
-          <div className="price-information-container" style={{width: `calc(${maxPos - minPos}% + 35px)` , left: `calc(${minPos}% - 10px)`}}>
-            <p className="price min">
-              {price.min}
-            </p>
-            <p className="price max">
-              {price.max}
-            </p>
-          </div>
-          <div className="control" style={{ left: `calc(${minPos}% - 1px)` }}></div>
+
+          <div className="control" style={{ left: `calc(${minPos}% - 1px)` }}>{price.min}</div>
           <div className="rail">
             <div
               className="inner-rail"
               style={{ left: `${minPos}%`, right: `${100 - maxPos}%` }}
             ></div>
           </div>
-          <div className="control" style={{ left: `calc(${maxPos}% - 1px)` }}></div>
+          <div className="control" style={{ left: `calc(${maxPos}% - 18px)` }}>{price.max}</div>
         </div>
       </div>
     </div>

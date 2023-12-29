@@ -23,7 +23,7 @@
 
 .control-wrapper {
   margin: auto;
-  width: calc(100% - 15px);
+  width: calc(100% - 16px);
   height: 16px;
   position: absolute;
 }
@@ -45,28 +45,33 @@
 }
 
 .control {
-  width: 16px;
+  width: 35px;
   height: 16px;
-  border-radius: 50%;
+  border-radius: 1rem;
   position: absolute;
   z-index: 2;
-  background-color: rgb(102, 32, 169);
+  font-size: 12px;
+  color: rgb(15, 226, 254);
+  background-color: rgb(82, 25, 136);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .input::-ms-thumb {
   appearance: none;
   pointer-events: all;
-  width: 16px;
+  width: 35px;
   height: 16px;
   border-radius: 0px;
-  border: 0 none;
+  border: none;
   cursor: grab;
 }
 
 .input::-moz-range-thumb {
   appearance: none;
   pointer-events: all;
-  width: 16px;
+  width: 35px;
   height: 16px;
   border-radius: 0px;
   border: 0 none;
@@ -76,7 +81,7 @@
 .input::-webkit-slider-thumb {
   appearance: none;
   pointer-events: all;
-  width: 16px;
+  width: 35px;
   height: 16px;
   border-radius: 0px;
   border: 0 none;
@@ -89,50 +94,9 @@
   width: 100%;
 } 
 
-.price-information-container {
-  position: absolute;
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.price {
-  text-align: center;
-  width: 35px;
-  font-size: small;
-  border: 1px solid black;
-}
-
 @media (max-width: 1020px) {
   .wrapper{
     margin: auto;
     width: 50%;
-  }
-  .control {
-    width: 12px;
-    height: 12px;
-  }
-
-  .rail {
-    position: absolute;
-    width: 100%;
-    height: 4px;
-    top: 6px;
-    border-radius: 3px;
-    background-color: rgb(121, 224, 227);
-  }
-
-  .price-information-container {
-    position: absolute;
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .price {
-    text-align: center;
-    font-size: 3vh;
-    width: 25px;
-    border: 1px solid black;
   }
 }

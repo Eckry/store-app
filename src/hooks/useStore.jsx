@@ -69,8 +69,8 @@ function reducer(state, action) {
       event.preventDefault();
       const newPrice =
         id === "min"
-          ? Math.min(event.target.value, state.price.max - 300)
-          : Math.max(event.target.value, state.price.min + 300);
+          ? Math.min(event.target.value, state.price.max - 350)
+          : Math.max(event.target.value, state.price.min + 350);
       return {
         ...state,
         price:
