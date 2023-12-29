@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;1,300&display=swap');
+
 *,
 *::after,
 *::before {
@@ -15,6 +17,7 @@
 
 body {
   background-color: var(--highlight-color);
+  font-family: "Bitter", serif;
 }
 
 .container {
@@ -31,8 +34,6 @@ body {
   grid-auto-rows: min-content;
   gap: 1rem;
 }
-
-
 
 .bar {
   display: flex;
