@@ -42,14 +42,14 @@ export default function RangeInput({ price, onChange }) {
               {price.max}
             </p>
           </div>
-          <div className="control" style={{ left: `${minPos}%` }}></div>
+          <div className="control" style={{ left: `calc(${minPos}% - 1px)` }}></div>
           <div className="rail">
             <div
               className="inner-rail"
               style={{ left: `${minPos}%`, right: `${100 - maxPos}%` }}
             ></div>
           </div>
-          <div className="control" style={{ left: `${maxPos}%` }}></div>
+          <div className="control" style={{ left: `calc(${maxPos}% - 1px)` }}></div>
         </div>
       </div>
     </div>

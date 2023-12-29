@@ -22,7 +22,7 @@ export default function Filters({
         <div className="price-range-container">
           <RangeInput onChange={setPriceFilter} price={price} />
         </div>
-        <h3 className="filters-title">Category</h3>
+        <h3 className="filters-title">Categories</h3>
         <div className="checkboxes-container">
           {categories.map((category) => (
             <CheckBox

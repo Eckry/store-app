@@ -22,7 +22,8 @@
 }
 
 .control-wrapper {
-  width: calc(100% - 16px);
+  margin: auto;
+  width: calc(100% - 15px);
   height: 16px;
   position: absolute;
 }
@@ -100,4 +101,38 @@
   width: 35px;
   font-size: small;
   border: 1px solid black;
+}
+
+@media (max-width: 1020px) {
+  .wrapper{
+    margin: auto;
+    width: 50%;
+  }
+  .control {
+    width: 12px;
+    height: 12px;
+  }
+
+  .rail {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    top: 6px;
+    border-radius: 3px;
+    background-color: rgb(121, 224, 227);
+  }
+
+  .price-information-container {
+    position: absolute;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .price {
+    text-align: center;
+    font-size: 3vh;
+    width: 25px;
+    border: 1px solid black;
+  }
 }
