@@ -1,30 +1,5 @@
 import "./styles/Preview.css";
-import { FaStar } from "react-icons/fa";
-
-function getStars(rate) {
-  const fullStars = Math.floor(rate);
-  const decimalPart = (rate * 10) % 10;
-
-  const stars = [];
-  for (let i = 0; i < fullStars; i++) {
-    stars.push(<FaStar className="star" key={i} />);
-  }
-
-  if (decimalPart !== 0) {
-    stars.push(
-      <FaStar
-        className="star"
-        key={fullStars}
-        style={{
-          clipPath: `polygon(0 0, ${decimalPart * 10}% 0, ${
-            decimalPart * 10
-          }% 100%, 0 100%)`,
-        }}
-      />
-    );
-  }
-  return stars;
-}
+import Stars from "./Stars";
 
 export default function Preview({
   product,
@@ -78,19 +53,7 @@ export default function Preview({
       </div>
       <div className="rating-container">
         <h1 className="product-price">{product.price}$</h1>
-        <div className="rating">
-          <span className="stars-container">
-            {getStars(product.rating.rate)}
-          </span>
-          <div className="gray-stars">
-            <FaStar className="gray-star" />
-            <FaStar className="gray-star" />
-            <FaStar className="gray-star" />
-            <FaStar className="gray-star" />
-            <FaStar className="gray-star" />
-          </div>
-          <p className="rating-count">({product.rating.count})</p>
-        </div>
+        <Stars stars={product.rating.rate} count={product.rating.count} />
       </div>
       <button
         className="add-to-cart-button"
