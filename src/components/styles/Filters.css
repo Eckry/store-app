@@ -8,6 +8,7 @@
   height: auto;
   border-radius: 1rem 0 0 1rem;
   text-align: center;
+  overflow-y: scroll;
   padding: 1rem;
 }
 
@@ -44,7 +45,7 @@
     width: 100%;
     height: 100%;
     z-index: 5;
-    top: -100vh;
+    top: -100%;
     transform: translateY(100%);
     display: flex;
     flex-direction: column;
@@ -61,7 +62,7 @@
     border-radius: 0;
     overflow-y: scroll;
     transition: transform 0.5s ease-in-out;
-    top: -100vh;
+    top: -100%;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -73,7 +74,7 @@
     font-size: 1.5rem;
   }
 
-  .filters-title:nth-of-type(1){
+  .filters-title:nth-of-type(1) {
     margin-top: 3rem;
   }
 
