@@ -162,7 +162,6 @@ function reducer(state, action) {
     }
 
     case actionTypes.INTERCHANGE_SHOW_CART: {
-      if(state.shoppingCart.length === 0) return state
       return {
         ...state,
         notification: false,
@@ -204,7 +203,6 @@ function reducer(state, action) {
 
       return {
         ...state,
-        showCart: newShoppingCart.length !== 0,
         shoppingCart: newShoppingCart,
         productSelectedInCart: state.shoppingCart[newProductSelectedIndex],
       };

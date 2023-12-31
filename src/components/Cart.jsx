@@ -37,7 +37,7 @@ export default function Cart({
   }
   if (!products.length)
     return (
-      <div className="cart-container empty">
+      <div className="fixed empty">
         <button className="close-button" onClick={handleInterchangeShowCart}>
           <ShoppingCartIconRed />
         </button>
