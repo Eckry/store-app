@@ -70,6 +70,7 @@
 .rating {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .return-button {
@@ -91,6 +92,7 @@
 
 .stars-container {
   position: absolute;
+  top: 0;
 }
 
 .rating-count {

@@ -47,34 +47,17 @@ export default function Cart({
 
   return (
     <div className="fixed">
-      <div className="cart-container">
-        <button className="close-button" onClick={handleInterchangeShowCart}>
-          <ShoppingCartIconRed />
-        </button>
-        <div className="product-selected-container">
+      <button className="close-button" onClick={handleInterchangeShowCart}>
+        <ShoppingCartIconRed />
+      </button>
+      <div className="product-selected-container">
+        <div className="image-and-buttons-container">
           <img
             draggable="false"
             className="product-selected-image"
             src={productSelectedInCart.image}
             alt=""
           />
-          <h1 className="product-selected-title">
-            {productSelectedInCart.title}
-          </h1>
-          <div className="product-selected-information">
-            <h4 className="subtitle">Description</h4>
-            <p className="product-selected-description">
-              {productSelectedInCart.description}
-            </p>
-            <p className="category">{productSelectedInCart.category}</p>
-            <div className="rating-container cart-rating">
-              <p className="cart-price">{productSelectedInCart.price}$</p>
-              <Stars
-                stars={productSelectedInCart.rating.rate}
-                count={productSelectedInCart.rating.count}
-              />
-            </div>
-          </div>
           <div className="cart-buttons">
             <div className="cart-buttons-container">
               <button
@@ -94,23 +77,40 @@ export default function Cart({
             >
               <FaRegTrashAlt />
             </button>
-            
           </div>
         </div>
-        <div className="other-products">
-          {products.map((product) => {
-            return (
-              <img
-                draggable="false"
-                id={product.id}
-                onClick={(e) => handleChangeProductSelectedInCart(e)}
-                src={product.image}
-                className="other-products-image"
-                key={product.id}
-              />
-            );
-          })}
+        <h1 className="product-selected-title">
+          {productSelectedInCart.title}
+        </h1>
+        <div className="product-selected-information">
+          <h4 className="cart-description">Description</h4>
+          <p className="product-selected-description">
+            {productSelectedInCart.description}
+          </p>
+          <p className="category">{productSelectedInCart.category}</p>
+          <div className="rating-container cart-rating">
+            <p className="cart-price">{productSelectedInCart.price}$</p>
+            <Stars
+              stars={productSelectedInCart.rating.rate}
+              count={productSelectedInCart.rating.count}
+            />
+          </div>
         </div>
+      </div>
+
+      <div className="other-products">
+        {products.map((product) => {
+          return (
+            <img
+              draggable="false"
+              id={product.id}
+              onClick={(e) => handleChangeProductSelectedInCart(e)}
+              src={product.image}
+              className="other-products-image"
+              key={product.id}
+            />
+          );
+        })}
       </div>
     </div>
   );
