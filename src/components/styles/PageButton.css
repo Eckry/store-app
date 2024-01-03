@@ -6,20 +6,14 @@
   outline: none;
   cursor: pointer;
   color: white;
-  background-color: var(--highlight-color);
+  background-color: var(--tertiary-color);
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.25s ease-in-out;
-}
-
-.page-button:hover {
-  transform: scale(1.3);
-  transition: 0.25s ease-in-out;
 }
 
 .page-button-selected {
-  box-shadow: 0 0 10px 1px var(--highlight-brighty-color);
-  background-color: var(--highlight-brighty-color);
+  box-shadow: 0 0 10px 1px var(--tertiary-brighty-color);
+  background-color: var(--tertiary-brighty-color);
 }

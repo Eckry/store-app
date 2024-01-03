@@ -35,7 +35,7 @@
 }
 
 .product-price {
-  color: var(--tertiary-color);
+  color: var(--highlight-color-two);
 }
 
 .product-name {
@@ -58,7 +58,7 @@
 
 .add-button, .preview-button {
   color: white;
-  background-color: var(--highlight-color);
+  background-color: var(--tertiary-color);
   border-radius: 1rem;
   padding: 5px 10px;
   height: 100%;

@@ -11,9 +11,11 @@
 :root {
   --primary-color: #161A30;
   --secondary-color: #31304D;
-  --tertiary-color: #8608d4;
-  --highlight-color: #36078d;
-  --highlight-brighty-color: #642eca;
+  --tertiary-color: #36078d;
+  --tertiary-brighty-color: #5c30ae; 
+  --highlight-color: #8608d4;
+  --highlight-brighty-color: #ab61da;
+  --highlight-color-two: rgb(255, 188, 64);
 }
 
 body {
