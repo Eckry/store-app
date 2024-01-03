@@ -21,6 +21,8 @@
   background-color: transparent;
   outline: none;
   border: none;
+  font-size: 3rem;
+  color: yellow;
 }
 
 .number-of-products-container {
