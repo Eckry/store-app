@@ -1,6 +1,6 @@
 .header {
   position: absolute;
-  background-color: var(--tertiary-color);
+  background-color: var(--secondary-color);
   height: fit-content;
   padding: 1rem;
   width: 100%;
@@ -22,7 +22,7 @@
   outline: none;
   border: none;
   font-size: 3rem;
-  color: yellow;
+  color: var(--highlight-color);
 }
 
 .number-of-products-container {
