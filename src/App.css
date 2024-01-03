@@ -13,6 +13,7 @@
   --secondary-color: #31304D;
   --tertiary-color: #8608d4;
   --highlight-color: #36078d;
+  --highlight-brighty-color: #642eca;
 }
 
 body {
@@ -46,6 +47,10 @@ body {
 
 .carousel-buttons {
   margin: 0.7rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .container-if-no-products {
