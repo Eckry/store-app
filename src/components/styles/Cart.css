@@ -150,12 +150,20 @@
 
 .close-button {
   position: absolute;
-  top: 0;
-  right: 0;
-  outline: none;
+  top: 1%;
+  right: 2%;
+  z-index: 100;
   border: none;
-  background-color: transparent;
+  height: 50px;
+  width: 50px;
   cursor: pointer;
+  border-radius: 50%;
+  background-color: rgb(169, 5, 5);
+  border: 3px solid rgb(169, 5, 5);
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 1200px){
