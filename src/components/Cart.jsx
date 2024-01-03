@@ -46,11 +46,11 @@ export default function Cart({
     );
 
   return (
-    <>
-      <button className="close-button" onClick={handleInterchangeShowCart}>
-        <MdClose />
-      </button>
-      <div className="fixed">
+    <div className="fixed">
+      <div className="cart-container" >
+        <button className="close-button" onClick={handleInterchangeShowCart}>
+          <MdClose />
+        </button>
         <div className="product-selected-container">
           <div className="image-and-buttons-container">
             <img
@@ -114,6 +114,6 @@ export default function Cart({
           })}
         </div>
       </div>
-    </>
+    </div>
   );
 }
