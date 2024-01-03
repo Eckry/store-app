@@ -1,0 +1,10 @@
+.checkbox-text {
+  font-size: clamp(0.5rem, 1vw, 1.5rem);
+}
+
+@media (min-width: 1670px){
+
+  .checkbox-text {
+    font-size: 1.5rem;
+  }
+}

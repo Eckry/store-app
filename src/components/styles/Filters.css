@@ -12,6 +12,10 @@
   padding: 1rem;
 }
 
+.filters-title {
+  font-size: 1.5rem;
+}
+
 .filters-title:nth-of-type(2) {
   margin-top: 3rem;
 }
@@ -83,4 +87,16 @@
     width: fit-content;
     margin: 1rem auto;
   }
+}
+
+@media (min-width: 1670px){
+  .filters, .filters-hide {
+    width: 280px;
+    top: 28%;
+  }
+
+  .filters-title {
+    font-size: 2rem;
+  }
+
 }
