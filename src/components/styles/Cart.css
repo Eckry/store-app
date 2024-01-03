@@ -145,6 +145,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
+  border-radius: 1.5rem;
 }
 
 .empty-title {

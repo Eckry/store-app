@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./App.css";
-import { ShoppingCartIcon } from "./components/Icons";
+import { FaShoppingCart } from "react-icons/fa";
 import Product from "./components/Product";
 import PageButton from "./components/PageButton";
 import useStore from "./hooks/useStore";
@@ -154,7 +154,7 @@ function App() {
         interchangeShowFilters={interchangeShowFilters}
         showFilters={showFilters}
       >
-        <ShoppingCartIcon />
+        <FaShoppingCart />
       </Header>
       <div className="bar">
         <MainContent
