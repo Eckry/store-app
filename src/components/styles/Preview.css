@@ -43,6 +43,8 @@
 .description {
   font-size: small;
   line-height: 1.5em;
+  max-height: 100px;
+  overflow-y: scroll;
 }
 
 .category {
