@@ -1,4 +1,4 @@
-import "./styles/CheckBox.css"
+import "./styles/CheckBox.css";
 
 export default function CheckBox({ category, setSearchedCategories }) {
   function handleOnChange(event) {
@@ -6,9 +6,12 @@ export default function CheckBox({ category, setSearchedCategories }) {
   }
 
   return (
-    <div>
-      <input onChange={handleOnChange} type="checkbox" value={category} />
-      <label className="checkbox-text">{category}</label>
+    <div className="checkbox-container">
+      <label className="checkbox-label">
+        <input onChange={handleOnChange} type="checkbox" value={category} />
+        <span></span>
+        {category}
+      </label>
     </div>
   );
 }

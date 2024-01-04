@@ -41,7 +41,7 @@
 
 @media (max-width: 1320px) {
   .filters {
-    background-color: var(--tertiary-color);
+    background-color: var(--secondary-color);
     border-radius: 0;
     overflow-y: scroll;
     transition: transform 0.5s ease-in-out;
@@ -60,7 +60,7 @@
 
   .filters-hide {
     position: fixed;
-    background-color: var(--tertiary-color);
+    background-color: var(--secondary-color);
     width: 100%;
     height: 100%;
     border-radius: 0;
