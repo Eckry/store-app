@@ -66,7 +66,14 @@
   cursor: pointer;
   outline: none;
   border: none;
+  transition: 0.2s ease-in-out;
   width: 100%;
+}
+
+.add-button:hover, .preview-button:hover {
+  background-color: var(--tertiary-brighty-color);
+  transform: scale(1.05);
+  transition: 0.2s ease-in-out;
 }
 
 @media (max-width: 1320px) {
