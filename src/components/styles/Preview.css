@@ -10,57 +10,81 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.image-description-container {
-  display: flex;
-  flex-direction: column;
+  border: 2px solid var(--tertiary-color);
+  box-shadow: 0 0 8px 1px black;
 }
 
 .image-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: relative;
 }
 
 .title {
   font-size: 1rem;
   text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 .subtitle {
-  margin-top: 1rem;
-  border-bottom: 2px solid var(--highlight-color);
-  color: var(--highlight-color);
+  color: var(--highlight-brighty-color);
+}
+
+.description-container {
+  background-color: var(--primary-color);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px 1px black;
+  border: 2px solid var(--tertiary-color);
+  display: flex;
+  flex-direction: column;
+  height: 230px;
 }
 
 .description {
-  font-size: small;
+  font-size: 0.8rem;
   line-height: 1.5em;
-  max-height: 100px;
+  max-height: 4rem;
   overflow-y: scroll;
 }
 
 .category {
   font-size: small;
+  font-weight: bold;
   width: fit-content;
   border-radius: 1rem;
   padding: 0.2rem 0.5rem;
-  color: rgb(0, 89, 255);
+  box-shadow: 0 0 5px 1px black;
+  color: var(--highlight-brighty-color);
   margin-top: 1rem;
-  background-color: rgba(8, 157, 183, 0.207);
+  background-color: var(--secondary-color);
+  border: 2px solid var(--tertiary-color);
+}
+
+.product-price{
+  font-size: 1.5rem;
 }
 
 .preview-image {
   aspect-ratio: 1;
   object-fit: contain;
   width: 300px;
+  border: 2px solid var(--tertiary-color);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px 1px black;
+  background-color: var(--primary-color);
 }
 
 .rating-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 1rem;
 }
 
 .rating {
@@ -91,14 +115,19 @@
 }
 
 .rating-count {
+  font-size: 1.5rem;
   margin-left: 0.5rem;
-  color: rgba(0, 0, 0, 0.462);
+  color: var(--highlight-brighty-color);
+  font-weight: bold;
 }
 
 .add-to-cart-button {
   padding: 1rem;
-  background-color: greenyellow;
+  background-color: var(--tertiary-color);
   cursor: pointer;
+  color: white;
+  font-weight: bold;
   outline: none;
+  border-radius: 1rem;
   border: none;
 }
