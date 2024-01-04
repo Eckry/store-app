@@ -65,7 +65,7 @@
   border: 2px solid var(--tertiary-color);
 }
 
-.product-price{
+.product-price {
   font-size: 1.5rem;
 }
 
@@ -95,8 +95,17 @@
 
 .return-button {
   position: absolute;
-  left: 2%;
-  top: 2%;
+  outline: none;
+  border: none;
+  left: -25px;
+  top: -15px;
+  cursor: pointer;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: var(--highlight-color);
 }
 
 .star {
@@ -130,4 +139,33 @@
   outline: none;
   border-radius: 1rem;
   border: none;
+}
+
+.nav-button {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  color: var(--highlight-color-two);
+  font-size: 4rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px 1px black;
+  background-color: transparent;
+  border: 2px solid var(--highlight-color-two);
+}
+
+.disabled {
+  border: 2px solid var(--highlight-darker-color-two);
+  color: var(--highlight-darker-color-two);
+  box-shadow: none;
+  cursor: auto;
+}
+
+.io-icon {
+  path {
+    stroke-width: 64px;
+  }
 }
