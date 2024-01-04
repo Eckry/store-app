@@ -59,12 +59,14 @@
 .add-button, .preview-button {
   color: white;
   background-color: var(--tertiary-color);
+  font-weight: bold;
   border-radius: 1rem;
   padding: 5px 10px;
   height: 100%;
   cursor: pointer;
   outline: none;
   border: none;
+  width: 100%;
 }
 
 @media (max-width: 1320px) {

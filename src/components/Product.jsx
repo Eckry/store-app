@@ -28,10 +28,10 @@ export default function Product({
             className="preview-button"
             onClick={handleOnClickToViewProduct}
           >
-            SEE PREVIEW
+            See preview
           </button>
           <button className="add-button" onClick={handleOnClickToBuyProduct}>
-            ADD TO CART
+            Add to cart
           </button>
         </div>
       </div>
