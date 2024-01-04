@@ -84,7 +84,7 @@ export default function Cart({
             {productSelectedInCart.title}
           </h1>
           <div className="product-selected-information">
-            <h4 className="cart-description">Description</h4>
+            <h4 className="cart-description-title">Description</h4>
             <p className="product-selected-description">
               {productSelectedInCart.description}
             </p>

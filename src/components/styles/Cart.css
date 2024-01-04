@@ -9,7 +9,9 @@
 }
 
 .cart-container {
-  background-color: white;
+  box-shadow: 0 0 15px 1px black;
+  background-color: var(--secondary-color);
+  border: 2px solid var(--tertiary-color);
   border-radius: 1.5rem;
   padding: 1rem;
   overflow-y: scroll;
@@ -22,8 +24,10 @@
   justify-content: flex-start;
   overflow-x: scroll;
   gap: 0.5rem;
-  padding-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
   height: 30%;
+  background-color: var(--primary-color);
 }
 
 .other-products-image {
@@ -32,12 +36,15 @@
   min-width: 200px;
   width: 200px;
   object-fit: contain;
-  border: 1px solid black;
+  box-shadow: 0 0 15px 1px black;
+  cursor: pointer;
+  border: 2px solid var(--tertiary-color);
+  border-radius: 1rem;
   user-select: none;
+  padding: 10px;
 }
 
 .product-selected-container {
-  background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat(5, 85px);
@@ -50,6 +57,10 @@
   text-align: center;
 }
 
+.cart-description-title {
+  color: var(--highlight-brighty-color);
+}
+
 .image-and-buttons-container {
   grid-row: 1 / -1;
 }
@@ -57,21 +68,32 @@
 .product-selected-image {
   width: 100%;
   height: 400px;
+  box-shadow: 0 0 15px 1px black;
   object-fit: contain;
   user-select: none;
-  border: 2px black solid;
+  background-color: var(--primary-color);
+  border-radius: 1.4rem;
+  border: 2px solid var(--tertiary-color);
+  padding: 1rem;
 }
 
 .product-selected-information {
   grid-column: 2 / -1;
   grid-row: 2 / 5;
   font-size: 1.1rem;
+  background-color: var(--primary-color);
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 2px solid var(--tertiary-color);
+  box-shadow: 0 0 5px 1px  black;
 }
 
 .product-selected-description {
-  max-height: 70%;
+  max-height: 50%;
   overflow-y: scroll;
   padding-right: 10px;
+  text-wrap: pretty;
+  line-height: 1.6rem;
 }
 
 .cart-rating {
@@ -80,7 +102,7 @@
 }
 
 .cart-price {
-  color: green;
+  color: var(--highlight-color-two);
 }
 
 .cart-buttons {
@@ -105,6 +127,7 @@
 
 .sell-button,
 .buy-button {
+  box-shadow: 0 0 5px 1px black;
   border: none;
   outline: none;
   width: 40px;
@@ -114,22 +137,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.buy-button {
-  border: 3px solid greenyellow;
-  color: greenyellow;
-  background-color: transparent;
-}
-
-.sell-button {
-  border: 3px solid rgb(255, 68, 47);
-  color: rgb(255, 68, 47);
+  border: 3px solid var(--highlight-color-two);
+  color: var(--highlight-color-two);
   background-color: transparent;
 }
 
 .trash-button {
   display: flex;
+  box-shadow: 0 0 5px 1px black;
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
@@ -145,7 +160,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: var(--secondary-color);
   border-radius: 1.5rem;
 }
 

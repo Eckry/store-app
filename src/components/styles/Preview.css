@@ -77,12 +77,12 @@
 
 .star {
   font-size: 32px;
-  color: rgb(221, 198, 22);
+  color: var(--highlight-color);
 }
 
 .gray-star {
   font-size: 32px;
-  color: gray;
+  color: var(--secondary-color);
 }
 
 .stars-container {
