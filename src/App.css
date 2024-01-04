@@ -57,7 +57,7 @@ body {
 
 .container-if-no-products {
   width: 90%;
-  max-width: 800px;
+  max-width: 1100px;
   margin: 100px auto 0 auto;
   background-color: var(--secondary-color);
   border-radius: 1rem;
