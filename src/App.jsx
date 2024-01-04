@@ -183,6 +183,7 @@ function App() {
         setSearchedCategories={setSearchedCategories}
         showFilters={showFilters}
         currentPreview={currentPreview}
+        searchedCategories={searchedCategories}
       />
       {showCart ? (
         <Cart

@@ -9,6 +9,7 @@ export default function Filters({
   setSearchedCategories,
   showFilters,
   currentPreview,
+  searchedCategories
 }) {
   const displayFilters = Object.keys(currentPreview).length !== 0;
 
@@ -27,6 +28,7 @@ export default function Filters({
             category={category}
             setSearchedCategories={setSearchedCategories}
             key={category}
+            searchedCategories={searchedCategories}
           />
         ))}
       </div>
