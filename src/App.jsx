@@ -148,6 +148,8 @@ function App() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [price, searchedCategories]);
 
+  const isPreviewClosed = Object.keys(currentPreview).length === 0
+
   return (
     <>
       <Header
@@ -172,23 +174,23 @@ function App() {
           filteredProducts={filteredProducts}
           currentPage={currentPage}
         />
-        <CarouselButtons
+        {isPreviewClosed && <CarouselButtons
           setPrevPage={setPrevPage}
           currentPage={currentPage}
           setPageNumber={setPageNumber}
           filteredProducts={filteredProducts}
           setNextPage={setNextPage}
           numberOfPages={numberOfPages}
-        />
+        />}
       </div>
-      <Filters
+      {isPreviewClosed && <Filters
         setPriceFilter={setPriceFilter}
         price={price}
         setSearchedCategories={setSearchedCategories}
         showFilters={showFilters}
         currentPreview={currentPreview}
         searchedCategories={searchedCategories}
-      />
+      />}
       {showCart ? (
         <Cart
           deleteFromShoppingCart={deleteFromShoppingCart}

@@ -11,10 +11,6 @@ export default function Filters({
   currentPreview,
   searchedCategories
 }) {
-  const displayFilters = Object.keys(currentPreview).length !== 0;
-
-  if (displayFilters) return;
-
   return (
     <div className={showFilters ? "filters" : "filters-hide"}>
       <h3 className="filters-title">Price range</h3>
