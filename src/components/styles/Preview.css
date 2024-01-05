@@ -53,6 +53,7 @@
   overflow-y: scroll;
   padding-right: 10px;
   letter-spacing: 0.1px;
+  max-height: 150px;
 }
 
 .category {
@@ -147,12 +148,13 @@
   font-weight: bold;
   outline: none;
   border-radius: 1rem;
+  transition: 0.2s ease-in-out;
   border: none;
   font-size: 1.5rem;
   width: 100%;
 }
 
-.nav-button {
+.nav-button,.disabled {
   padding: 0.5rem 1rem;
   display: flex;
   justify-content: center;
@@ -187,6 +189,20 @@
   align-items: center;
   gap: 1rem;
   margin: 1rem 0;
+}
+
+.nav-button:hover {
+  transform: scale(1.05);
+}
+
+.nav-button:active {
+  transform: scale(1);
+}
+
+.add-to-cart-button:hover {
+  background-color: var(--tertiary-brighty-color);
+  transform: scale(1.01);
+  transition: 0.2s ease-in-out;
 }
 
 @media (max-width: 900px) {

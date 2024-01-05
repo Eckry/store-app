@@ -63,14 +63,14 @@ export default function Preview({
       </div>
       <div className="nav-buttons-container">
         <button
-          className={`nav-button${!showPrev ? " disabled" : ""}`}
+          className={!showPrev ? "disabled" : "nav-button"}
           disabled={!showPrev}
           onClick={handleGoPrevPreview}
         >
           <FaLongArrowAltLeft />
         </button>
         <button
-          className={`nav-button${!showNext ? " disabled" : ""}`}
+          className={!showNext ? "disabled" : "nav-button"}
           disabled={!showNext}
           onClick={handleGoNextPreview}
         >
