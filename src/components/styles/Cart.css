@@ -160,13 +160,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 15px 1px black;
   background-color: var(--secondary-color);
+  border: 2px solid var(--tertiary-color);
+  color: var(--primary-color);
+  font-size: 15rem;
   border-radius: 1.5rem;
 }
 
 .empty-title {
-  font-size: 10rem;
-  color: rgba(0, 0, 0, 0.501);
+  text-align: center;
+  font-size: 5rem;
   user-select: none;
 }
 
@@ -206,6 +211,10 @@
   .other-products-image {
     width: 100px;
     min-width: 100px;
+  }
+
+  .empty-title {
+    font-size: 5rem;
   }
 }
 

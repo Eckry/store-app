@@ -1,5 +1,5 @@
 import "./styles/Cart.css";
-import { MdClose } from "react-icons/md";
+import { MdClose, MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Stars from "./Stars";
@@ -41,7 +41,8 @@ export default function Cart({
         <button className="close-button" onClick={handleInterchangeShowCart}>
           <MdClose />
         </button>
-        <h1 className="empty-title">Empty</h1>
+        <MdOutlineRemoveShoppingCart />
+        <h1 className="empty-title">Your cart is empty!</h1>
       </div>
     );
 
