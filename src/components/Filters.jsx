@@ -8,7 +8,6 @@ export default function Filters({
   price,
   setSearchedCategories,
   showFilters,
-  currentPreview,
   searchedCategories
 }) {
   return (
