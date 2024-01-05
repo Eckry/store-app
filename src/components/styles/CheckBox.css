@@ -30,13 +30,12 @@
 
 .checkbox-label > span::after {
   position: absolute;
-  left: 5.5px;
-  top: 2.5px;
-  width: 30%;
-  height: 50%;
+  left: 4px;
+  width: 50%;
+  height: 80%;
   content: "";
   border: solid var(--highlight-color-two);
-  border-width: 0px 2px 2px 0px;
+  border-width: 0px 3px 3px 0px;
   transform: rotate(45deg);
   transition: 0.2s ease-in-out;
   opacity: 0;
