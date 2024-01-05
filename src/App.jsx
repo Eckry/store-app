@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import "./App.css";
 import { FaShoppingCart } from "react-icons/fa";
+import { FaRegFaceSadCry } from "react-icons/fa6";
 import Product from "./components/Product";
 import PageButton from "./components/PageButton";
 import useStore from "./hooks/useStore";
@@ -23,21 +24,24 @@ function MainContent({
 }) {
   if (Object.keys(currentPreview).length)
     return (
-        <Preview
-          product={currentPreview}
-          addProductToShoppingCart={addProductToShoppingCart}
-          setCurrentPreview={setCurrentPreview}
-          goPrevPreview={goPrevPreview}
-          goNextPreview={goNextPreview}
-          showPrev={showPrev}
-          showNext={showNext}
-        />
+      <Preview
+        product={currentPreview}
+        addProductToShoppingCart={addProductToShoppingCart}
+        setCurrentPreview={setCurrentPreview}
+        goPrevPreview={goPrevPreview}
+        goNextPreview={goNextPreview}
+        showPrev={showPrev}
+        showNext={showNext}
+      />
     );
 
   if (!filteredProducts.length) {
     return (
       <main className="container-if-no-products">
-        <h1 className="empty-title">Empty</h1>
+        <FaRegFaceSadCry />
+        <h1 className="empty-title">
+          We don't have that yet
+        </h1>
       </main>
     );
   }
