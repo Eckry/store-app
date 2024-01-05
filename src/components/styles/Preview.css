@@ -215,3 +215,11 @@
     max-width: none;
   }
 }
+
+
+@media(max-width: 500px){
+  .rating-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
