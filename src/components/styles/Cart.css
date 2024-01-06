@@ -52,12 +52,8 @@
   gap: 1rem;
 }
 
-.product-selected-title {
-  grid-column: 2 / 4;
-  text-align: center;
-}
-
 .cart-description-title {
+  margin-top: 1rem;
   color: var(--highlight-brighty-color);
 }
 
@@ -67,7 +63,7 @@
 
 .product-selected-image {
   width: 100%;
-  height: 400px;
+  height: 388px;
   box-shadow: 0 0 15px 1px black;
   object-fit: contain;
   user-select: none;
@@ -77,26 +73,37 @@
   padding: 1rem;
 }
 
+.product-selected-title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 .product-selected-information {
   grid-column: 2 / -1;
-  grid-row: 2 / 5;
+  grid-row: 1 / 5;
   font-size: 1.1rem;
   background-color: var(--primary-color);
   padding: 1rem;
   border-radius: 1rem;
   border: 2px solid var(--tertiary-color);
-  box-shadow: 0 0 5px 1px  black;
+  box-shadow: 0 0 5px 1px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-selected-description {
-  max-height: 50%;
   overflow-y: scroll;
   padding-right: 10px;
   text-wrap: pretty;
   line-height: 1.6rem;
+  max-height: 150px;
 }
 
 .cart-rating {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   font-size: 2rem;
   margin-top: 1rem;
 }
@@ -140,6 +147,23 @@
   border: 3px solid var(--highlight-color-two);
   color: var(--highlight-color-two);
   background-color: transparent;
+}
+
+.buy-and-trash-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.buy-product-anchor {
+  display: flex;
+  padding: 0.3rem;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--tertiary-color);
+  color: white;
+  box-shadow: 0 0 5px 1px black;
+  font-size: 2.5rem;
+  width: 100%;
 }
 
 .trash-button {

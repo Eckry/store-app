@@ -3,6 +3,7 @@ import { MdClose, MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Stars from "./Stars";
+import { BiPurchaseTag } from "react-icons/bi";
 
 export default function Cart({
   products,
@@ -48,7 +49,7 @@ export default function Cart({
 
   return (
     <div className="fixed">
-      <div className="cart-container" >
+      <div className="cart-container">
         <button className="close-button" onClick={handleInterchangeShowCart}>
           <MdClose />
         </button>
@@ -73,24 +74,31 @@ export default function Cart({
                   <FaChevronRight />
                 </button>
               </div>
-              <button
-                className="trash-button"
-                onClick={handleDeleteFromShoppingCart}
-              >
-                <FaRegTrashAlt />
-              </button>
+              <div className="buy-and-trash-buttons">
+                <a href="" className="buy-product-anchor">
+                  <BiPurchaseTag />
+                </a>
+                <button
+                  className="trash-button"
+                  onClick={handleDeleteFromShoppingCart}
+                >
+                  <FaRegTrashAlt />
+                </button>
+              </div>
             </div>
           </div>
-          <h1 className="product-selected-title">
-            {productSelectedInCart.title}
-          </h1>
           <div className="product-selected-information">
-            <h4 className="cart-description-title">Description</h4>
-            <p className="product-selected-description">
-              {productSelectedInCart.description}
-            </p>
-            <p className="category">{productSelectedInCart.category}</p>
-            <div className="rating-container cart-rating">
+            <h1 className="product-selected-title">
+              {productSelectedInCart.title}
+            </h1>
+            <div>
+              <h4 className="cart-description-title">Description</h4>
+              <p className="product-selected-description">
+                {productSelectedInCart.description}
+              </p>
+              <p className="category">{productSelectedInCart.category}</p>
+            </div>
+            <div className="cart-rating">
               <p className="cart-price">{productSelectedInCart.price}$</p>
               <Stars
                 stars={productSelectedInCart.rating.rate}
