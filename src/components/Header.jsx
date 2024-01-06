@@ -2,7 +2,6 @@ import "./styles/Header.css";
 
 export default function Header({
   children,
-  shoppingCart,
   onClick,
   notification,
   interchangeShowFilters,
@@ -30,13 +29,12 @@ export default function Header({
         disabled={showCart}
         className="shopping-cart-container"
         onClick={handleOnClick}
+        style={buttonStyle}
       >
         {children}
-        {shoppingCart.length ? (
-          <span style={style} className="number-of-products-container">
-            !
-          </span>
-        ) : null}
+        <span style={style} className="number-of-products-container">
+          !
+        </span>
       </button>
     </header>
   );
