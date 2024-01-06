@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./App.css";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaCaretRight, FaCaretLeft } from "react-icons/fa";
 import { FaRegFaceSadCry } from "react-icons/fa6";
 import Product from "./components/Product";
 import PageButton from "./components/PageButton";
@@ -39,9 +39,7 @@ function MainContent({
     return (
       <main className="container-if-no-products">
         <FaRegFaceSadCry />
-        <h1 className="empty-title">
-          We don't have that yet
-        </h1>
+        <h1 className="empty-title">We don't have that yet</h1>
       </main>
     );
   }
@@ -79,7 +77,7 @@ function CarouselButtons({
   return (
     <div className="carousel-buttons">
       <PageButton onClick={setPrevPage} value="">
-        {"<-"}
+        <FaCaretLeft />
       </PageButton>
       {Array(numberOfPages)
         .fill(0)
@@ -94,7 +92,7 @@ function CarouselButtons({
           </PageButton>
         ))}
       <PageButton onClick={setNextPage} value="">
-        {"->"}
+        <FaCaretRight />
       </PageButton>
     </div>
   );
@@ -148,7 +146,7 @@ function App() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [price, searchedCategories]);
 
-  const isPreviewClosed = Object.keys(currentPreview).length === 0
+  const isPreviewClosed = Object.keys(currentPreview).length === 0;
 
   return (
     <>
@@ -174,23 +172,27 @@ function App() {
           filteredProducts={filteredProducts}
           currentPage={currentPage}
         />
-        {isPreviewClosed && <CarouselButtons
-          setPrevPage={setPrevPage}
-          currentPage={currentPage}
-          setPageNumber={setPageNumber}
-          filteredProducts={filteredProducts}
-          setNextPage={setNextPage}
-          numberOfPages={numberOfPages}
-        />}
+        {isPreviewClosed && (
+          <CarouselButtons
+            setPrevPage={setPrevPage}
+            currentPage={currentPage}
+            setPageNumber={setPageNumber}
+            filteredProducts={filteredProducts}
+            setNextPage={setNextPage}
+            numberOfPages={numberOfPages}
+          />
+        )}
       </div>
-      {isPreviewClosed && <Filters
-        setPriceFilter={setPriceFilter}
-        price={price}
-        setSearchedCategories={setSearchedCategories}
-        showFilters={showFilters}
-        currentPreview={currentPreview}
-        searchedCategories={searchedCategories}
-      />}
+      {isPreviewClosed && (
+        <Filters
+          setPriceFilter={setPriceFilter}
+          price={price}
+          setSearchedCategories={setSearchedCategories}
+          showFilters={showFilters}
+          currentPreview={currentPreview}
+          searchedCategories={searchedCategories}
+        />
+      )}
       {showCart ? (
         <Cart
           deleteFromShoppingCart={deleteFromShoppingCart}
