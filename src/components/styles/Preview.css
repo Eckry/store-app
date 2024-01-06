@@ -107,8 +107,8 @@
   position: absolute;
   outline: none;
   border: none;
-  left: -30px;
-  top: -20px;
+  top: -55px;
+  left: 0;
   cursor: pointer;
   font-size: 3rem;
   display: flex;
@@ -229,6 +229,15 @@
 
   .title {
     max-width: none;
+  }
+
+  .nav-button, .disabled {
+    padding: 0 0.5rem;
+    font-size: 3rem;
+  }
+
+  .nav-buttons-container {
+    margin-bottom: 2rem;
   }
 }
 
