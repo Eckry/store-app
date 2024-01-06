@@ -205,13 +205,13 @@
   right: -5px;
   z-index: 100;
   border: none;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   cursor: pointer;
   border-radius: 50%;
-  background-color: rgb(169, 5, 5);
-  border: 3px solid rgb(169, 5, 5);
+  background-color: var(--tertiary-color);
   font-size: 2rem;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -233,8 +233,8 @@
   }
 
   .other-products-image {
-    width: 200px;
-    min-width: 200px;
+    width: 150px;
+    min-width: 150px;
   }
 
   .empty-title {
