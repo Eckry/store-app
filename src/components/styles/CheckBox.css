@@ -30,15 +30,12 @@
 
 .checkbox-label > span::after {
   position: absolute;
-  left: 4px;
-  width: 50%;
-  height: 80%;
+  width: 0;
+  height: 0;
   content: "";
   border: solid var(--highlight-color-two);
-  border-width: 0px 3px 3px 0px;
+  border-width: 0px 0px 0px 0px;
   transform: rotate(45deg);
-  transition: 0.2s ease-in-out;
-  opacity: 0;
 }
 
 .checkbox-label input:checked ~ span {
@@ -48,12 +45,30 @@
 }
 
 .checkbox-label input:checked ~ span::after {
-  transition: 0.2s ease-in-out;
-  opacity: 1;
+  animation: appear 0.2s;
+  border-width: 0px 3px 3px 0px;
+  width: 50%;
+  left: 4px;
+  top: 0;
+  height: 80%;
 }
 
-@media (min-width: 1670px){
+@keyframes appear {
+  0% {
+    width: 0%;
+    height: 0%;
+  }
+  20% {
+    border-width: 0px 3px 3px 0px;
+    width: 50%;
+  }
 
+  100% {
+    height: 80%;
+  }
+}
+
+@media (min-width: 1670px) {
   .checkbox-text {
     font-size: 1.5rem;
   }
