@@ -45,7 +45,7 @@
 }
 
 .checkbox-label input:checked ~ span::after {
-  animation: appear 0.2s;
+  animation: appear 0.1s;
   border-width: 0px 3px 3px 0px;
   width: 50%;
   left: 4px;
