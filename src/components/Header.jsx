@@ -22,6 +22,9 @@ export default function Header({
           type="checkbox"
           id="toggle-filters"
         />
+        <span></span>
+        <span></span>
+        <span></span>
       </label>
       <button disabled={showCart} className="shopping-cart-container" onClick={handleOnClick}>
         {children}
