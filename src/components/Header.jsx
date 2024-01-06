@@ -29,7 +29,6 @@ export default function Header({
         disabled={showCart}
         className="shopping-cart-container"
         onClick={handleOnClick}
-        style={buttonStyle}
       >
         {children}
         <span style={style} className="number-of-products-container">
