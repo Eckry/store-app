@@ -209,12 +209,17 @@
   width: 40px;
   cursor: pointer;
   border-radius: 50%;
-  background-color: var(--tertiary-color);
+  background-color: var(--secondary-color);
+  border: 3px solid var(--tertiary-color);
   font-size: 2rem;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.close-button:hover {
+  transform: scale(1.1);
 }
 
 @media (max-width: 1200px) {
