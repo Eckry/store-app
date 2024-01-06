@@ -228,13 +228,13 @@
   }
 
   .other-products {
-    height: 15%;
+    height: 30%;
     margin-top: 1rem;
   }
 
   .other-products-image {
-    width: 100px;
-    min-width: 100px;
+    width: 200px;
+    min-width: 200px;
   }
 
   .empty-title {
