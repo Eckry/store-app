@@ -48,81 +48,85 @@ export default function Cart({
     );
 
   return (
-    <div className="fixed">
-      <div className="cart-container">
-        <button className="close-button" onClick={handleInterchangeShowCart}>
-          <MdClose />
-        </button>
-        <div className="product-selected-container">
-          <div className="image-and-buttons-container">
-            <img
-              draggable="false"
-              className="product-selected-image"
-              src={productSelectedInCart.image}
-              alt=""
-            />
-            <div className="cart-buttons">
-              <div className="cart-buttons-container">
-                <button
-                  onClick={handleRemoveOneToQuantity}
-                  className="sell-button"
-                >
-                  <FaChevronLeft />
-                </button>
-                <p className="total">{productSelectedInCart.quantity}</p>
-                <button onClick={handleAddOneToQuantity} className="buy-button">
-                  <FaChevronRight />
-                </button>
-              </div>
-              <div className="buy-and-trash-buttons">
-                <a href="" className="buy-product-anchor">
-                  <BiPurchaseTag />
-                </a>
-                <button
-                  className="trash-button"
-                  onClick={handleDeleteFromShoppingCart}
-                >
-                  <FaRegTrashAlt />
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="product-selected-information">
-            <h1 className="product-selected-title">
-              {productSelectedInCart.title}
-            </h1>
-            <div>
-              <h4 className="cart-description-title">Description</h4>
-              <p className="product-selected-description">
-                {productSelectedInCart.description}
-              </p>
-              <p className="category">{productSelectedInCart.category}</p>
-            </div>
-            <div className="cart-rating">
-              <p className="cart-price">{productSelectedInCart.price}$</p>
-              <Stars
-                stars={productSelectedInCart.rating.rate}
-                count={productSelectedInCart.rating.count}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="other-products">
-          {products.map((product) => {
-            return (
+    <>
+      <button className="close-button" onClick={handleInterchangeShowCart}>
+        <MdClose />
+      </button>
+      <div className="fixed">
+        <div className="cart-container">
+          <div className="product-selected-container">
+            <div className="image-and-buttons-container">
               <img
                 draggable="false"
-                id={product.id}
-                onClick={(e) => handleChangeProductSelectedInCart(e)}
-                src={product.image}
-                className="other-products-image"
-                key={product.id}
+                className="product-selected-image"
+                src={productSelectedInCart.image}
+                alt=""
               />
-            );
-          })}
+              <div className="cart-buttons">
+                <div className="cart-buttons-container">
+                  <button
+                    onClick={handleRemoveOneToQuantity}
+                    className="sell-button"
+                  >
+                    <FaChevronLeft />
+                  </button>
+                  <p className="total">{productSelectedInCart.quantity}</p>
+                  <button
+                    onClick={handleAddOneToQuantity}
+                    className="buy-button"
+                  >
+                    <FaChevronRight />
+                  </button>
+                </div>
+                <div className="buy-and-trash-buttons">
+                  <a href="" className="buy-product-anchor">
+                    <BiPurchaseTag />
+                  </a>
+                  <button
+                    className="trash-button"
+                    onClick={handleDeleteFromShoppingCart}
+                  >
+                    <FaRegTrashAlt />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="product-selected-information">
+              <h1 className="product-selected-title">
+                {productSelectedInCart.title}
+              </h1>
+              <div>
+                <h4 className="cart-description-title">Description</h4>
+                <p className="product-selected-description">
+                  {productSelectedInCart.description}
+                </p>
+                <p className="category">{productSelectedInCart.category}</p>
+              </div>
+              <div className="cart-rating">
+                <p className="cart-price">{productSelectedInCart.price}$</p>
+                <Stars
+                  stars={productSelectedInCart.rating.rate}
+                  count={productSelectedInCart.rating.count}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="other-products">
+            {products.map((product) => {
+              return (
+                <img
+                  draggable="false"
+                  id={product.id}
+                  onClick={(e) => handleChangeProductSelectedInCart(e)}
+                  src={product.image}
+                  className="other-products-image"
+                  key={product.id}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

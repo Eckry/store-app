@@ -4,6 +4,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow-y: scroll;
   width: 95%;
   height: 95%;
 }
@@ -15,8 +16,10 @@
   border-radius: 1.5rem;
   padding: 1rem;
   overflow-y: scroll;
-  height: 100%;
+  height: auto;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .other-products {
@@ -201,8 +204,8 @@
 
 .close-button {
   position: absolute;
-  top: -5px;
-  right: -5px;
+  top: 1%;
+  right: 1.5%;
   z-index: 100;
   border: none;
   height: 40px;
@@ -229,7 +232,7 @@
   }
 
   .product-selected-description {
-    max-height: 200px;
+    max-height: 150px;
   }
 
   .other-products {
@@ -244,6 +247,7 @@
   .empty-title {
     font-size: 5rem;
   }
+
 }
 
 @media (max-width: 470px) {
