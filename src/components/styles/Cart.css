@@ -15,7 +15,6 @@
   border: 2px solid var(--tertiary-color);
   border-radius: 1.5rem;
   padding: 1rem;
-  overflow-y: scroll;
   height: auto;
   width: 100%;
   display: flex;
