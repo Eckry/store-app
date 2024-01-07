@@ -156,7 +156,7 @@ function App() {
         notification={notification}
         showCart={showCart}
         interchangeShowFilters={interchangeShowFilters}
-        showFilters={showFilters}
+        currentPreview={currentPreview}
       >
         <FaShoppingCart />
       </Header>
