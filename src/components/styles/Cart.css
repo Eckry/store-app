@@ -26,7 +26,7 @@
   gap: 0.5rem;
   padding: 1rem;
   border-radius: 1rem;
-  height: 30%;
+  height: 210px;
   background-color: var(--primary-color);
 }
 
@@ -233,7 +233,6 @@
   }
 
   .other-products {
-    height: 30%;
     margin-top: 1rem;
   }
 
