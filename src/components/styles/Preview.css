@@ -217,7 +217,7 @@
   }
 }
 
-@media (max-width: 810px) {
+@media (max-width: 820px) {
   .image-and-description-container {
     flex-direction: column;
   }
