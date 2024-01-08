@@ -10,6 +10,15 @@
   position: fixed;
   top: 0;
   z-index: 50;
+  animation: header linear both;
+  animation-timeline: scroll();
+  animation-range: 0 70px;
+}
+
+@keyframes header {
+  to{
+    background-color: var(--secondary-transparent-color);
+  }
 }
 
 .shopping-cart-container {
