@@ -16,7 +16,6 @@ export default function Header({
   function handleSubmit(event){
     event.preventDefault();
     const query = event.target.elements.word.value
-    if(query === "") return;
     setFilteredProducts(query);
   }
 
