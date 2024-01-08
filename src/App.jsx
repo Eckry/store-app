@@ -158,6 +158,7 @@ function App() {
         showCart={showCart}
         interchangeShowFilters={interchangeShowFilters}
         currentPreview={currentPreview}
+        setFilteredProducts={setFilteredProducts}
       >
         <FaShoppingCart />
       </Header>

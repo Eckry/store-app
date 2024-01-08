@@ -40,8 +40,11 @@ function reducer(state, action) {
 
   switch (type) {
     case actionTypes.SET_FILTERED_PRODUCTS: {
+      const {payload} = action
+      const filterByTitle = new RegExp(payload, "ig");
       const newFilteredProducts = products.filter(
         (product) =>
+          product.title.match(filterByTitle) &&
           product.price >= state.price.min &&
           product.price <= state.price.max &&
           (state.searchedCategories.includes(product.category) ||
@@ -265,8 +268,8 @@ export default function useStore() {
     dispatch,
   ] = useReducer(reducer, initialState);
 
-  const setFilteredProducts = () => {
-    dispatch({ type: "SET_FILTERED_PRODUCTS" });
+  const setFilteredProducts = (payload) => {
+    dispatch({ type: "SET_FILTERED_PRODUCTS", payload });
   };
 
   const setPriceFilter = (payload) => {

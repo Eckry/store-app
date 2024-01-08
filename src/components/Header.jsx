@@ -7,9 +7,17 @@ export default function Header({
   interchangeShowFilters,
   showCart,
   currentPreview,
+  setFilteredProducts
 }) {
   function handleOnClick() {
     onClick();
+  }
+
+  function handleSubmit(event){
+    event.preventDefault();
+    const query = event.target.elements.word.value
+    if(query === "") return;
+    setFilteredProducts(query);
   }
 
   const isCurrentPreviewActive = Object.keys(currentPreview).length !== 0;
@@ -29,9 +37,9 @@ export default function Header({
           !
         </span>
       </button>
-      <form action="">
-        <input className="text-filter" type="text" />
-        <button className="text-filter-button"></button>
+      <form onSubmit={handleSubmit} action="submit">
+        <input className="text-filter" name="word" type="text" />
+        <button className="text-filter-button" type="submit"></button>
       </form>
       <label
         style={toggleFilters}
