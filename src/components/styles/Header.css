@@ -1,6 +1,7 @@
 .header {
   position: absolute;
   background-color: var(--secondary-color);
+  backdrop-filter: blur(10px);
   height: fit-content;
   padding: 1rem;
   width: 100%;
