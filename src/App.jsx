@@ -9,6 +9,7 @@ import Preview from "./components/Preview";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import Filters from "./components/Filters";
+import Footer from "./components/Footer"
 import { NUMBER_OF_PRODUCTS_PER_PAGE } from "./constants.json";
 
 function MainContent({
@@ -203,6 +204,7 @@ function App() {
           interchangeShowCart={interchangeShowCart}
         />
       ) : null}
+      <Footer />
     </>
   );
 }

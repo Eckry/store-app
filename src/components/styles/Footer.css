@@ -1,0 +1,51 @@
+.footer {
+  padding: 1rem 2rem;
+  background-color: var(--secondary-transparent-color);
+  margin-top: 1rem;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.footer-anchor {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.footer-icon {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-icon > p {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.contact-information {
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-links > li {
+  list-style: none;
+}
+
+.footer-copyright{
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.footer-copyright-anchor {
+  color: white;
+}
