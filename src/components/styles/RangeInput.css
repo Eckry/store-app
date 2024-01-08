@@ -17,7 +17,8 @@
 
 .wrapper {
   position: relative;
-  width: 100%;
+  width: 50%;
+  margin: auto;
 }
 
 .control-wrapper {
@@ -93,11 +94,3 @@
   flex-direction: column;
   width: 100%;
 } 
-
-@media (max-width: 1320px) {
-
-  .wrapper {
-    width: 50%;
-    margin: auto;
-  }
-}

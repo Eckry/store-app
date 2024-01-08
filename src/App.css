@@ -33,7 +33,6 @@ body {
   max-width: 1100px;
   margin-top: 100px;
   min-height: calc(3 * 210px);
-  background-color: var(--secondary-color);
   border-radius: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
