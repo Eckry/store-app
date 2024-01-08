@@ -19,6 +19,20 @@ export default function Header({
 
   return (
     <header className="header">
+      <button
+        disabled={showCart}
+        className="shopping-cart-container"
+        onClick={handleOnClick}
+      >
+        {children}
+        <span style={style} className="number-of-products-container">
+          !
+        </span>
+      </button>
+      <form action="">
+        <input className="text-filter" type="text" />
+        <button className="text-filter-button"></button>
+      </form>
       <label
         style={toggleFilters}
         htmlFor="toggle-filters"
@@ -33,16 +47,6 @@ export default function Header({
         <span></span>
         <span></span>
       </label>
-      <button
-        disabled={showCart}
-        className="shopping-cart-container"
-        onClick={handleOnClick}
-      >
-        {children}
-        <span style={style} className="number-of-products-container">
-          !
-        </span>
-      </button>
     </header>
   );
 }
