@@ -41,11 +41,18 @@
   list-style: none;
 }
 
-.footer-copyright{
+.footer-copyright {
   margin-top: 1rem;
   text-align: center;
 }
 
 .footer-copyright-anchor {
   color: white;
+}
+
+@media (max-width: 600px) {
+  .contact-information ,.footer-links {
+    flex-direction: column;
+    text-align: center;
+  }
 }
