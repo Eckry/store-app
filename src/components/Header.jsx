@@ -1,4 +1,5 @@
 import "./styles/Header.css";
+import { FaSearch } from "react-icons/fa";
 
 export default function Header({
   children,
@@ -36,9 +37,11 @@ export default function Header({
           !
         </span>
       </button>
-      <form onSubmit={handleSubmit} action="submit">
-        <input className="text-filter" name="word" type="text" />
-        <button className="text-filter-button" type="submit"></button>
+      <form className="filters-form" onSubmit={handleSubmit} action="submit">
+        <input placeholder="Filter products..." className="text-filter" name="word" type="text" />
+        <button className="text-filter-button" type="submit">
+          <FaSearch />
+        </button>
       </form>
       <label
         style={toggleFilters}

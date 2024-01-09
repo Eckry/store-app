@@ -22,6 +22,51 @@
   align-items: center;
 }
 
+.filters-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-filter {
+  border: none;
+  outline: none;
+  padding: 0.7rem 1rem;
+  border-radius: 7px 0 0 7px;
+  width: 320px;
+  font-family: "Bitter", serif;
+  background-color: var(--primary-color);
+  color: var(--highlight-brighty-color-two);
+  border: solid var(--primary-color);
+  border-width: 2px 0 2px 2px;
+  transition: 0.25s ease-in-out;
+}
+
+.text-filter:focus {
+  border: solid var(--highlight-color-two);
+  border-width: 2px 0 2px 2px;
+}
+
+.text-filter-button {
+  width: 45px;
+  font-size: 1.5rem;
+  padding: 4.7px;
+  cursor: pointer;
+  outline: none;
+  color: var(--highlight-color-two);
+  background-color: var(--primary-color);
+  border: solid var(--primary-color);
+  border-width: 2px 2px 2px;
+  border-left: 2px solid var(--highlight-color-two);
+  transition: 0.25s ease-in-out;
+  border-radius: 0 8px 8px 0;
+}
+
+.text-filter:focus ~ .text-filter-button {
+  border: solid var(--highlight-color-two);
+  border-width: 2px 2px 2px;
+}
+
 .shopping-cart-container {
   position: relative;
   display: flex;
