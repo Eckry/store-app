@@ -38,7 +38,7 @@
   color: var(--highlight-brighty-color-two);
   border: solid var(--primary-color);
   border-width: 2px 0 2px 2px;
-  transition: 0.25s ease-in-out;
+  transition: border 0.25s ease-in-out;
 }
 
 .text-filter:focus {
@@ -57,7 +57,7 @@
   border: solid var(--primary-color);
   border-width: 2px 2px 2px;
   border-left: 2px solid var(--highlight-color-two);
-  transition: 0.25s ease-in-out;
+  transition: border 0.25s ease-in-out;
   border-radius: 0 8px 8px 0;
 }
 
@@ -137,5 +137,18 @@
 @keyframes header {
   to {
     background-color: var(--secondary-transparent-color);
+  }
+}
+
+
+@media(max-width:600px){
+  .text-filter{
+    width: 200px;
+  }
+}
+
+@media(max-width:400px){
+  .text-filter{
+    width: 150px;
   }
 }
