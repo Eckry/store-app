@@ -38,13 +38,15 @@ export default function Cart({
   }
   if (!products.length)
     return (
-      <div className="fixed empty">
+      <>
         <button className="close-button" onClick={handleInterchangeShowCart}>
           <MdClose />
         </button>
-        <MdOutlineRemoveShoppingCart />
-        <h1 className="empty-title">Your cart is empty!</h1>
-      </div>
+        <div className="fixed empty">
+          <MdOutlineRemoveShoppingCart />
+          <h1 className="empty-title">Your cart is empty!</h1>
+        </div>
+      </>
     );
 
   return (
