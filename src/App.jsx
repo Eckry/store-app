@@ -152,8 +152,7 @@ function App() {
   return (
     <>
       <Header
-        shoppingCart={shoppingCart}
-        onClick={interchangeShowCart}
+        interchangeShowCart={interchangeShowCart}
         notification={notification}
         showCart={showCart}
         interchangeShowFilters={interchangeShowFilters}

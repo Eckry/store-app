@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 
 export default function Header({
   children,
-  onClick,
+  interchangeShowCart,
   notification,
   interchangeShowFilters,
   showCart,
@@ -11,7 +11,7 @@ export default function Header({
   setFilteredProducts
 }) {
   function handleOnClick() {
-    onClick();
+    interchangeShowCart();
   }
 
   function handleSubmit(event){
