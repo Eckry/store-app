@@ -2,11 +2,11 @@ import "./styles/RangeInput.css";
 
 export default function RangeInput({ price, onChange }) {
   function handleMinChange(e) {
-    onChange({ id: "min", event: e });
+    onChange(e, "min");
   }
 
   function handleMaxChange(e) {
-    onChange({ id: "max", event: e });
+    onChange(e, "max");
   }
 
   const minPos = (price.min / 10) ;

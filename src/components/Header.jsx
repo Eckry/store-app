@@ -1,5 +1,7 @@
 import "./styles/Header.css";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
+import { useState } from "react";
+import Filters from "./Filters";
 
 export default function Header({
   interchangeShowCart,
@@ -8,15 +10,17 @@ export default function Header({
   showCart,
   currentPreview,
   setFilteredProducts,
+  showFilters,
 }) {
+  const [query, setQuery] = useState("");
+
   function handleOnClick() {
     interchangeShowCart();
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    const query = event.target.elements.word.value;
-    setFilteredProducts(query);
+    setQuery(event.target.value);
   }
 
   const isCurrentPreviewActive = Object.keys(currentPreview).length !== 0;
@@ -40,7 +44,6 @@ export default function Header({
         <input
           placeholder="Filter products..."
           className="text-filter"
-          name="word"
           type="text"
         />
         <button className="text-filter-button" type="submit">
@@ -61,6 +64,10 @@ export default function Header({
         <span></span>
         <span></span>
       </label>
+        <Filters
+          setFilteredProducts={setFilteredProducts}
+          showFilters={showFilters}
+        />
     </header>
   );
 }

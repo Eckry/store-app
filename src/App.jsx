@@ -11,6 +11,7 @@ import Cart from "./components/Cart";
 import Filters from "./components/Filters";
 import Footer from "./components/Footer";
 import { NUMBER_OF_PRODUCTS_PER_PAGE } from "./constants.json";
+import useFilters from "./hooks/useFilters";
 
 function MainContent({
   currentPreview,
@@ -102,9 +103,6 @@ function CarouselButtons({
 function App() {
   const {
     currentPage,
-    price,
-    searchedCategories,
-    filteredProducts,
     currentPreview,
     shoppingCart,
     showCart,
@@ -114,15 +112,14 @@ function App() {
     showNext,
     numberOfPages,
     showFilters,
+    filteredProducts,
+    setFilteredProducts,
     deleteFromShoppingCart,
     updateQuantity,
     setProductSelectedInCart,
     interchangeShowCart,
     addProductToShoppingCart,
     setCurrentPreview,
-    setFilteredProducts,
-    setPriceFilter,
-    setSearchedCategories,
     setNextPage,
     setPrevPage,
     setPageNumber,
@@ -132,7 +129,6 @@ function App() {
   } = useStore();
 
   useEffect(() => {
-    setFilteredProducts();
     function handleKeyPress(e) {
       switch (e.key) {
         case "ArrowLeft":
@@ -145,7 +141,7 @@ function App() {
     }
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [price, searchedCategories]);
+  }, []);
 
   const isPreviewClosed = Object.keys(currentPreview).length === 0;
 
@@ -158,6 +154,7 @@ function App() {
         interchangeShowFilters={interchangeShowFilters}
         currentPreview={currentPreview}
         setFilteredProducts={setFilteredProducts}
+        showFilters={showFilters}
       />
       <MainContent
         currentPreview={currentPreview}
@@ -178,15 +175,6 @@ function App() {
           filteredProducts={filteredProducts}
           setNextPage={setNextPage}
           numberOfPages={numberOfPages}
-        />
-      )}
-      {isPreviewClosed && (
-        <Filters
-          setPriceFilter={setPriceFilter}
-          price={price}
-          setSearchedCategories={setSearchedCategories}
-          showFilters={showFilters}
-          searchedCategories={searchedCategories}
         />
       )}
       {showCart ? (

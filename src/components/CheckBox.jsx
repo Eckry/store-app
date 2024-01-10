@@ -1,18 +1,24 @@
 import "./styles/CheckBox.css";
+import useFilters from "../hooks/useFilters";
 
 export default function CheckBox({
   category,
-  setSearchedCategories,
   searchedCategories,
+  interchangeSearchedCategories
 }) {
   function handleOnChange(event) {
-    setSearchedCategories(event.target.value);
+    interchangeSearchedCategories(event.target.value);
   }
 
   return (
     <div className="checkbox-container">
       <label className="checkbox-label">
-        <input checked={searchedCategories.includes(category)} onChange={handleOnChange} type="checkbox" value={category} />
+        <input
+          checked={searchedCategories[category]}
+          onChange={handleOnChange}
+          type="checkbox"
+          value={category}
+        />
         <span></span>
         {category}
       </label>

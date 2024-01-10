@@ -1,4 +1,3 @@
-import products from "../products.json";
 import { useReducer } from "react";
 import { NUMBER_OF_PRODUCTS_PER_PAGE, actionTypes } from "../constants.json";
 
@@ -20,13 +19,11 @@ const getPrevAndNext = (payload, state) => {
 };
 
 const initialState = {
-  price: { min: 0, max: 1000 },
-  searchedCategories: [],
-  filteredProducts: products,
-  numberOfPages: Math.ceil(products.length / NUMBER_OF_PRODUCTS_PER_PAGE),
+  numberOfPages: Math.ceil(21 / NUMBER_OF_PRODUCTS_PER_PAGE),
   currentPage: 0,
   currentPreview: {},
   shoppingCart: [],
+  filteredProducts: [],
   showCart: false,
   productSelectedInCart: {},
   notification: false,
@@ -40,60 +37,11 @@ function reducer(state, action) {
 
   switch (type) {
     case actionTypes.SET_FILTERED_PRODUCTS: {
-      const {payload} = action
-      const filterByTitle = new RegExp(payload, "ig");
-      const newFilteredProducts = products.filter(
-        (product) =>
-          product.title.match(filterByTitle) &&
-          product.price >= state.price.min &&
-          product.price <= state.price.max &&
-          (state.searchedCategories.includes(product.category) ||
-            state.searchedCategories.length === 0)
-      );
-      const newNumberOfPages = Math.ceil(
-        newFilteredProducts.length / NUMBER_OF_PRODUCTS_PER_PAGE
-      );
-
-      let newCurrentPage = state.currentPage;
-      if (newCurrentPage >= newNumberOfPages && newCurrentPage > 0) {
-        newCurrentPage = newNumberOfPages - 1;
-      }
-
-      return {
-        ...state,
-        filteredProducts: newFilteredProducts,
-        currentPage: newCurrentPage,
-        numberOfPages: newNumberOfPages,
-      };
-    }
-
-    case actionTypes.SET_PRICE_FILTER: {
-      const { event, id } = action.payload;
-      event.preventDefault();
-      const newPrice =
-        id === "min"
-          ? Math.min(event.target.value, state.price.max - 350)
-          : Math.max(event.target.value, state.price.min + 350);
-      return {
-        ...state,
-        price:
-          id === "min"
-            ? { min: newPrice, max: state.price.max }
-            : { min: state.price.min, max: newPrice },
-      };
-    }
-
-    case actionTypes.SET_SEARCHED_CATEGORIES: {
       const { payload } = action;
-      let newSearchedCategories;
-      if (state.searchedCategories.includes(payload)) {
-        newSearchedCategories = state.searchedCategories.filter(
-          (category) => category !== payload
-        );
-      } else {
-        newSearchedCategories = [...state.searchedCategories, payload];
-      }
-      return { ...state, searchedCategories: newSearchedCategories };
+      return {
+        ...state,
+        filteredProducts: payload,
+      };
     }
 
     case actionTypes.SET_NEXT_PAGE: {
@@ -251,8 +199,6 @@ function reducer(state, action) {
 export default function useStore() {
   const [
     {
-      price,
-      searchedCategories,
       filteredProducts,
       currentPage,
       currentPreview,
@@ -270,14 +216,6 @@ export default function useStore() {
 
   const setFilteredProducts = (payload) => {
     dispatch({ type: "SET_FILTERED_PRODUCTS", payload });
-  };
-
-  const setPriceFilter = (payload) => {
-    dispatch({ type: "SET_PRICE_FILTER", payload });
-  };
-
-  const setSearchedCategories = (payload) => {
-    dispatch({ type: "SET_SEARCHED_CATEGORIES", payload });
   };
 
   const setNextPage = () => {
@@ -325,13 +263,11 @@ export default function useStore() {
   };
 
   const interchangeShowFilters = () => {
-    dispatch({type: "INTERCHANGE_SHOW_FILTERS"});
-  }
+    dispatch({ type: "INTERCHANGE_SHOW_FILTERS" });
+  };
 
   return {
     currentPage,
-    price,
-    searchedCategories,
     filteredProducts,
     currentPreview,
     shoppingCart,
@@ -352,10 +288,8 @@ export default function useStore() {
     setPageNumber,
     setNextPage,
     setFilteredProducts,
-    setPriceFilter,
-    setSearchedCategories,
     goPrevPreview,
     goNextPreview,
-    interchangeShowFilters
+    interchangeShowFilters,
   };
 }

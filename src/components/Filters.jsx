@@ -1,15 +1,24 @@
 import RangeInput from "./RangeInput";
 import CheckBox from "./CheckBox";
 import categories from "../categories.json";
+import useFilters from "../hooks/useFilters";
 import "./styles/Filters.css";
+import { useEffect } from "react";
 
-export default function Filters({
-  setPriceFilter,
-  price,
-  setSearchedCategories,
-  showFilters,
-  searchedCategories
-}) {
+export default function Filters({ showFilters, setFilteredProducts }) {
+  const {
+    price,
+    setPriceFilter,
+    searchedCategories,
+    interchangeSearchedCategories,
+    getFilteredProducts
+  } = useFilters();
+
+  useEffect(() => {
+    const newFilteredProducts = getFilteredProducts();
+    setFilteredProducts(newFilteredProducts);
+  }, [price, searchedCategories])
+
   return (
     <div className={showFilters ? "filters" : "filters-hide"}>
       <h3 className="filters-title">Price range</h3>
@@ -21,9 +30,9 @@ export default function Filters({
         {categories.map((category) => (
           <CheckBox
             category={category}
-            setSearchedCategories={setSearchedCategories}
             key={category}
             searchedCategories={searchedCategories}
+            interchangeSearchedCategories={interchangeSearchedCategories}
           />
         ))}
       </div>
