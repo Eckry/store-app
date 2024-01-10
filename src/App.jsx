@@ -9,7 +9,7 @@ import Preview from "./components/Preview";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import Filters from "./components/Filters";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
 import { NUMBER_OF_PRODUCTS_PER_PAGE } from "./constants.json";
 
 function MainContent({
@@ -162,36 +162,33 @@ function App() {
       >
         <FaShoppingCart />
       </Header>
-      <div className="bar">
-        <MainContent
-          currentPreview={currentPreview}
-          addProductToShoppingCart={addProductToShoppingCart}
-          setCurrentPreview={setCurrentPreview}
-          goPrevPreview={goPrevPreview}
-          goNextPreview={goNextPreview}
-          showPrev={showPrev}
-          showNext={showNext}
-          filteredProducts={filteredProducts}
+      <MainContent
+        currentPreview={currentPreview}
+        addProductToShoppingCart={addProductToShoppingCart}
+        setCurrentPreview={setCurrentPreview}
+        goPrevPreview={goPrevPreview}
+        goNextPreview={goNextPreview}
+        showPrev={showPrev}
+        showNext={showNext}
+        filteredProducts={filteredProducts}
+        currentPage={currentPage}
+      />
+      {isPreviewClosed && (
+        <CarouselButtons
+          setPrevPage={setPrevPage}
           currentPage={currentPage}
+          setPageNumber={setPageNumber}
+          filteredProducts={filteredProducts}
+          setNextPage={setNextPage}
+          numberOfPages={numberOfPages}
         />
-        {isPreviewClosed && (
-          <CarouselButtons
-            setPrevPage={setPrevPage}
-            currentPage={currentPage}
-            setPageNumber={setPageNumber}
-            filteredProducts={filteredProducts}
-            setNextPage={setNextPage}
-            numberOfPages={numberOfPages}
-          />
-        )}
-      </div>
+      )}
       {isPreviewClosed && (
         <Filters
           setPriceFilter={setPriceFilter}
           price={price}
           setSearchedCategories={setSearchedCategories}
           showFilters={showFilters}
-          currentPreview={currentPreview}
           searchedCategories={searchedCategories}
         />
       )}
