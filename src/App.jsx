@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./App.css";
-import { FaShoppingCart, FaCaretRight, FaCaretLeft } from "react-icons/fa";
+import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 import { FaRegFaceSadCry } from "react-icons/fa6";
 import Product from "./components/Product";
 import PageButton from "./components/PageButton";
@@ -158,9 +158,7 @@ function App() {
         interchangeShowFilters={interchangeShowFilters}
         currentPreview={currentPreview}
         setFilteredProducts={setFilteredProducts}
-      >
-        <FaShoppingCart />
-      </Header>
+      />
       <MainContent
         currentPreview={currentPreview}
         addProductToShoppingCart={addProductToShoppingCart}

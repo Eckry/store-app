@@ -1,22 +1,21 @@
 import "./styles/Header.css";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaShoppingCart } from "react-icons/fa";
 
 export default function Header({
-  children,
   interchangeShowCart,
   notification,
   interchangeShowFilters,
   showCart,
   currentPreview,
-  setFilteredProducts
+  setFilteredProducts,
 }) {
   function handleOnClick() {
     interchangeShowCart();
   }
 
-  function handleSubmit(event){
+  function handleSubmit(event) {
     event.preventDefault();
-    const query = event.target.elements.word.value
+    const query = event.target.elements.word.value;
     setFilteredProducts(query);
   }
 
@@ -32,13 +31,18 @@ export default function Header({
         className="shopping-cart-container"
         onClick={handleOnClick}
       >
-        {children}
+        <FaShoppingCart />
         <span style={style} className="number-of-products-container">
           !
         </span>
       </button>
       <form className="filters-form" onSubmit={handleSubmit} action="submit">
-        <input placeholder="Filter products..." className="text-filter" name="word" type="text" />
+        <input
+          placeholder="Filter products..."
+          className="text-filter"
+          name="word"
+          type="text"
+        />
         <button className="text-filter-button" type="submit">
           <FaSearch />
         </button>
