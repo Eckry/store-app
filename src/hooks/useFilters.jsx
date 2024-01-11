@@ -1,12 +1,10 @@
+import { FiltersContext } from "../context/FiltersContext";
 import products from "../products.json";
-import { useState } from "react";
+import { useContext } from "react";
 
 export default function useFilters() {
-  const [price, setPrice] = useState({
-    min: 0,
-    max: 1000,
-  });
-  const [searchedCategories, setSearchedCategories] = useState({});
+  const { price, setPrice, searchedCategories, setSearchedCategories } =
+    useContext(FiltersContext);
 
   function interchangeSearchedCategories(category) {
     let newSearchedCategories = structuredClone(searchedCategories);
