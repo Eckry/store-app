@@ -105,21 +105,6 @@ function App() {
     interchangeShowFilters,
   } = useStore();
 
-  useEffect(() => {
-    function handleKeyPress(e) {
-      switch (e.key) {
-        case "ArrowLeft":
-          setPrevPage();
-          break;
-        case "ArrowRight":
-          setNextPage();
-          break;
-      }
-    }
-    window.addEventListener("keydown", handleKeyPress);
-    return () => window.removeEventListener("keydown", handleKeyPress);
-  }, []);
-
   const { filteredProducts } = useFilters();
   const { preview, setCurrentPreview } = usePreview(filteredProducts);
 
