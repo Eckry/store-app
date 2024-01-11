@@ -16,8 +16,6 @@ const initialState = {
   showCart: false,
   productSelectedInCart: {},
   notification: false,
-  showPrev: true,
-  showNext: true,
   showFilters: false,
 };
 
@@ -132,14 +130,6 @@ export default function useStore() {
     dispatch,
   ] = useReducer(reducer, initialState);
 
-  const setNextPage = () => {
-    dispatch({ type: "SET_NEXT_PAGE" });
-  };
-
-  const setPrevPage = () => {
-    dispatch({ type: "SET_PREV_PAGE" });
-  };
-
   const setCurrentPage = (payload) => {
     dispatch({ type: "SET_PAGE_NUMBER", payload });
   };
@@ -180,9 +170,7 @@ export default function useStore() {
     setProductSelectedInCart,
     interchangeShowCart,
     addProductToShoppingCart,
-    setPrevPage,
     setCurrentPage,
-    setNextPage,
     interchangeShowFilters,
   };
 }
