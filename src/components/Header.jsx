@@ -9,7 +9,6 @@ export default function Header({
   interchangeShowFilters,
   showCart,
   currentPreview,
-  setFilteredProducts,
   showFilters,
 }) {
   const {setQuery} = useFilters();
@@ -66,7 +65,6 @@ export default function Header({
         <span></span>
       </label>
         <Filters
-          setFilteredProducts={setFilteredProducts}
           showFilters={showFilters}
         />
     </header>
