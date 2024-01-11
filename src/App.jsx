@@ -1,6 +1,5 @@
 import "./App.css";
 import { NUMBER_OF_PRODUCTS_PER_PAGE } from "./constants.json";
-import products from "./products.json"
 import { useEffect } from "react";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 import { FaRegFaceSadCry } from "react-icons/fa6";
@@ -144,7 +143,6 @@ function App() {
   const isPreviewClosed = Object.keys(currentPreview).length === 0;
 
   const {getFilteredProducts} = useFilters();
-
   const filteredProducts = getFilteredProducts();
 
   return (

@@ -23,7 +23,6 @@ const initialState = {
   currentPage: 0,
   currentPreview: {},
   shoppingCart: [],
-  filteredProducts: [],
   showCart: false,
   productSelectedInCart: {},
   notification: false,
@@ -36,14 +35,6 @@ function reducer(state, action) {
   const { type } = action;
 
   switch (type) {
-    case actionTypes.SET_FILTERED_PRODUCTS: {
-      const { payload } = action;
-      return {
-        ...state,
-        filteredProducts: payload,
-      };
-    }
-
     case actionTypes.SET_NEXT_PAGE: {
       if (state.currentPage >= state.numberOfPages - 1)
         return { ...state, currentPage: state.numberOfPages - 1 };
