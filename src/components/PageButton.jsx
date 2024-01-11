@@ -1,4 +1,6 @@
 import "./styles/PageButton.css";
+import useFilters from "../hooks/useFilters";
+import { NUMBER_OF_PRODUCTS_PER_PAGE } from "../constants.json";
 
 export default function PageButton({
   currentPage,
@@ -6,10 +8,20 @@ export default function PageButton({
   children,
   value,
 }) {
+  const { filteredProducts } = useFilters();
   function handleClick(e) {
-    const newPage = parseInt(e.target.value)
-    if (value === "prev") return setCurrentPage(currentPage - 1);
-    if (value === "next") return setCurrentPage(currentPage + 1);
+    const numberOfPages = Math.ceil(
+      filteredProducts.length / NUMBER_OF_PRODUCTS_PER_PAGE
+    );
+    const newPage = parseInt(e.target.value);
+    if (value === "prev") {
+      if (currentPage <= 0) return;
+      return setCurrentPage(currentPage - 1);
+    }
+    if (value === "next") {
+      if (currentPage >= numberOfPages - 1) return;
+      return setCurrentPage(currentPage + 1);
+    }
     setCurrentPage(newPage);
   }
 

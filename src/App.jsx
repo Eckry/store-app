@@ -47,7 +47,9 @@ function MainContent({
   );
 }
 
-function CarouselButtons({ currentPage, setCurrentPage, filteredProducts }) {
+function CarouselButtons({ currentPage, setCurrentPage }) {
+  const {filteredProducts} = useFilters();
+  
   const numberOfPages = Math.ceil(
     filteredProducts.length / NUMBER_OF_PRODUCTS_PER_PAGE
   );
