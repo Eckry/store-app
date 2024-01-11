@@ -1,5 +1,7 @@
-import { useEffect } from "react";
 import "./App.css";
+import { NUMBER_OF_PRODUCTS_PER_PAGE } from "./constants.json";
+import products from "./products.json"
+import { useEffect } from "react";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 import { FaRegFaceSadCry } from "react-icons/fa6";
 import Product from "./components/Product";
@@ -8,9 +10,7 @@ import useStore from "./hooks/useStore";
 import Preview from "./components/Preview";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
-import Filters from "./components/Filters";
 import Footer from "./components/Footer";
-import { NUMBER_OF_PRODUCTS_PER_PAGE } from "./constants.json";
 import useFilters from "./hooks/useFilters";
 
 function MainContent({
@@ -112,8 +112,6 @@ function App() {
     showNext,
     numberOfPages,
     showFilters,
-    filteredProducts,
-    setFilteredProducts,
     deleteFromShoppingCart,
     updateQuantity,
     setProductSelectedInCart,
@@ -145,6 +143,10 @@ function App() {
 
   const isPreviewClosed = Object.keys(currentPreview).length === 0;
 
+  const {getFilteredProducts} = useFilters();
+
+  const filteredProducts = getFilteredProducts();
+
   return (
     <>
       <Header
@@ -153,7 +155,6 @@ function App() {
         showCart={showCart}
         interchangeShowFilters={interchangeShowFilters}
         currentPreview={currentPreview}
-        setFilteredProducts={setFilteredProducts}
         showFilters={showFilters}
       />
       <MainContent

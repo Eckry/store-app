@@ -3,21 +3,14 @@ import CheckBox from "./CheckBox";
 import categories from "../categories.json";
 import useFilters from "../hooks/useFilters";
 import "./styles/Filters.css";
-import { useEffect } from "react";
 
-export default function Filters({ showFilters, setFilteredProducts }) {
+export default function Filters({ showFilters}) {
   const {
     price,
     setPriceFilter,
     searchedCategories,
     interchangeSearchedCategories,
-    getFilteredProducts
   } = useFilters();
-
-  useEffect(() => {
-    const newFilteredProducts = getFilteredProducts();
-    setFilteredProducts(newFilteredProducts);
-  }, [price, searchedCategories])
 
   return (
     <div className={showFilters ? "filters" : "filters-hide"}>

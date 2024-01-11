@@ -3,8 +3,14 @@ import products from "../products.json";
 import { useContext } from "react";
 
 export default function useFilters() {
-  const { price, setPrice, searchedCategories, setSearchedCategories } =
-    useContext(FiltersContext);
+  const {
+    price,
+    setPrice,
+    query,
+    setQuery,
+    searchedCategories,
+    setSearchedCategories,
+  } = useContext(FiltersContext);
 
   function interchangeSearchedCategories(category) {
     let newSearchedCategories = structuredClone(searchedCategories);
@@ -14,7 +20,8 @@ export default function useFilters() {
     setSearchedCategories(newSearchedCategories);
   }
 
-  function getFilteredProducts(query) {
+  function getFilteredProducts() {
+    console.log(query)
     const filterByTitle = new RegExp(query, "ig");
     const newFilteredProducts = products.filter(
       (product) =>
@@ -48,5 +55,7 @@ export default function useFilters() {
     interchangeSearchedCategories,
     getFilteredProducts,
     setPriceFilter,
+    query,
+    setQuery,
   };
 }

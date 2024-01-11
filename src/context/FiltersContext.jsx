@@ -8,10 +8,18 @@ export function FiltersProvider({ children }) {
     max: 1000,
   });
   const [searchedCategories, setSearchedCategories] = useState({});
-  
+  const [query, setQuery] = useState("");
+
   return (
     <FiltersContext.Provider
-      value={{ price, searchedCategories, setPrice, setSearchedCategories }}
+      value={{
+        price,
+        searchedCategories,
+        setPrice,
+        setSearchedCategories,
+        query,
+        setQuery,
+      }}
     >
       {children}
     </FiltersContext.Provider>
