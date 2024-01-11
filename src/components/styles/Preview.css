@@ -185,7 +185,7 @@
 
 .nav-buttons-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
   margin: 1rem 0;
