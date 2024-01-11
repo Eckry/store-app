@@ -3,7 +3,6 @@ import useFilters from "../hooks/useFilters";
 
 export default function CheckBox({
   category,
-  searchedCategories,
   interchangeSearchedCategories
 }) {
   function handleOnChange(event) {
@@ -14,7 +13,6 @@ export default function CheckBox({
     <div className="checkbox-container">
       <label className="checkbox-label">
         <input
-          checked={searchedCategories[category]}
           onChange={handleOnChange}
           type="checkbox"
           value={category}
