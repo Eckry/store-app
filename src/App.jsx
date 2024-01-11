@@ -47,35 +47,38 @@ function MainContent({
   );
 }
 
-function CarouselButtons({
-  setPrevPage,
-  currentPage,
-  setPageNumber,
-  setNextPage,
-  numberOfPages,
-}) {
+function CarouselButtons({ currentPage, setCurrentPage, filteredProducts }) {
+  const numberOfPages = Math.ceil(
+    filteredProducts.length / NUMBER_OF_PRODUCTS_PER_PAGE
+  );
   if (numberOfPages <= 0) {
     return;
   }
 
   return (
     <div className="carousel-buttons">
-      <PageButton onClick={setPrevPage} value="">
+      <PageButton
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        value="prev"
+      >
         <FaCaretLeft />
       </PageButton>
-      {Array(numberOfPages)
-        .fill(0)
-        .map((_, idx) => (
-          <PageButton
-            onClick={setPageNumber}
-            currentPage={currentPage}
-            value={idx}
-            key={idx}
-          >
-            {idx + 1}
-          </PageButton>
-        ))}
-      <PageButton onClick={setNextPage} value="">
+      {Array.from({ length: numberOfPages }).map((_, idx) => (
+        <PageButton
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          value={idx}
+          key={idx}
+        >
+          {idx + 1}
+        </PageButton>
+      ))}
+      <PageButton
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        value="next"
+      >
         <FaCaretRight />
       </PageButton>
     </div>
@@ -90,18 +93,13 @@ function App() {
     showCart,
     productSelectedInCart,
     notification,
-    showPrev,
-    showNext,
-    numberOfPages,
     showFilters,
     deleteFromShoppingCart,
     updateQuantity,
     setProductSelectedInCart,
     interchangeShowCart,
     addProductToShoppingCart,
-    setNextPage,
-    setPrevPage,
-    setPageNumber,
+    setCurrentPage,
     interchangeShowFilters,
   } = useStore();
 
@@ -120,12 +118,9 @@ function App() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, []);
 
-  
-  const { getFilteredProducts } = useFilters();
-  const filteredProducts = getFilteredProducts();
-  
-  const {preview, setCurrentPreview} = usePreview(filteredProducts);
-  
+  const { filteredProducts } = useFilters();
+  const { preview, setCurrentPreview } = usePreview(filteredProducts);
+
   const isPreviewClosed = preview.product === undefined;
   return (
     <>
@@ -142,8 +137,6 @@ function App() {
           currentPreview={currentPreview}
           setCurrentPreview={setCurrentPreview}
           addProductToShoppingCart={addProductToShoppingCart}
-          showPrev={showPrev}
-          showNext={showNext}
           filteredProducts={filteredProducts}
           currentPage={currentPage}
         />
@@ -152,17 +145,13 @@ function App() {
           preview={preview}
           addProductToShoppingCart={addProductToShoppingCart}
           setCurrentPreview={setCurrentPreview}
-          showPrev={showPrev}
-          showNext={showNext}
         />
       )}
       {isPreviewClosed && (
         <CarouselButtons
-          setPrevPage={setPrevPage}
-          setNextPage={setNextPage}
           currentPage={currentPage}
-          setPageNumber={setPageNumber}
-          numberOfPages={numberOfPages}
+          setCurrentPage={setCurrentPage}
+          filteredProducts={filteredProducts}
         />
       )}
       {showCart ? (

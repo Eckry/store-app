@@ -1,15 +1,17 @@
 import { FiltersContext } from "../context/FiltersContext";
 import products from "../products.json";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 export default function useFilters() {
   const {
     price,
     setPrice,
     query,
+    filteredProducts,
     setQuery,
     searchedCategories,
     setSearchedCategories,
+    setFilteredProducts,
   } = useContext(FiltersContext);
 
   function interchangeSearchedCategories(category) {
@@ -20,7 +22,7 @@ export default function useFilters() {
     setSearchedCategories(newSearchedCategories);
   }
 
-  function getFilteredProducts() {
+  function updateFilteredProducts() {
     const filterByTitle = new RegExp(query, "ig");
     const newFilteredProducts = products.filter(
       (product) =>
@@ -32,7 +34,7 @@ export default function useFilters() {
             (elem) => !searchedCategories[elem]
           ))
     );
-    return newFilteredProducts;
+    setFilteredProducts(newFilteredProducts);
   }
 
   function setPriceFilter(event, id) {
@@ -48,11 +50,16 @@ export default function useFilters() {
     });
   }
 
+  useEffect(() => {
+    updateFilteredProducts();
+  }, [price, searchedCategories, query]);
+
   return {
     price,
     searchedCategories,
     interchangeSearchedCategories,
-    getFilteredProducts,
+    filteredProducts,
+    updateFilteredProducts,
     setPriceFilter,
     query,
     setQuery,

@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { NUMBER_OF_PRODUCTS_PER_PAGE, actionTypes } from "../constants.json";
+import { actionTypes } from "../constants.json";
 
 const updateQuantity = (number, payload, state) => {
   const newShoppingCart = state.shoppingCart.map((product) => {
@@ -11,9 +11,7 @@ const updateQuantity = (number, payload, state) => {
 };
 
 const initialState = {
-  numberOfPages: Math.ceil(21 / NUMBER_OF_PRODUCTS_PER_PAGE),
   currentPage: 0,
-  currentPreview: {},
   shoppingCart: [],
   showCart: false,
   productSelectedInCart: {},
@@ -27,28 +25,11 @@ function reducer(state, action) {
   const { type } = action;
 
   switch (type) {
-    case actionTypes.SET_NEXT_PAGE: {
-      if (state.currentPage >= state.numberOfPages - 1)
-        return { ...state, currentPage: state.numberOfPages - 1 };
-      return {
-        ...state,
-        currentPage: state.currentPage + 1,
-      };
-    }
-
-    case actionTypes.SET_PREV_PAGE: {
-      if (state.currentPage <= 0) return { ...state, currentPage: 0 };
-      return {
-        ...state,
-        currentPage: state.currentPage - 1,
-      };
-    }
-
     case actionTypes.SET_PAGE_NUMBER: {
       const { payload } = action;
       return {
         ...state,
-        currentPage: parseInt(payload.target.value),
+        currentPage: payload,
       };
     }
 
@@ -146,13 +127,10 @@ export default function useStore() {
       showCart,
       productSelectedInCart,
       notification,
-      numberOfPages,
       showFilters,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
-
-
 
   const setNextPage = () => {
     dispatch({ type: "SET_NEXT_PAGE" });
@@ -162,10 +140,9 @@ export default function useStore() {
     dispatch({ type: "SET_PREV_PAGE" });
   };
 
-  const setPageNumber = (payload) => {
+  const setCurrentPage = (payload) => {
     dispatch({ type: "SET_PAGE_NUMBER", payload });
   };
-
 
   const addProductToShoppingCart = (payload) => {
     dispatch({ type: "ADD_PRODUCT_TO_SHOPPING_CART", payload });
@@ -197,7 +174,6 @@ export default function useStore() {
     showCart,
     productSelectedInCart,
     notification,
-    numberOfPages,
     showFilters,
     deleteFromShoppingCart,
     updateQuantity,
@@ -205,7 +181,7 @@ export default function useStore() {
     interchangeShowCart,
     addProductToShoppingCart,
     setPrevPage,
-    setPageNumber,
+    setCurrentPage,
     setNextPage,
     interchangeShowFilters,
   };

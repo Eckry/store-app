@@ -12,6 +12,7 @@ export default function Filters({ showFilters}) {
     interchangeSearchedCategories,
   } = useFilters();
 
+
   return (
     <div className={showFilters ? "filters" : "filters-hide"}>
       <h3 className="filters-title">Price range</h3>
