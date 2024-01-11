@@ -23,19 +23,6 @@ function MainContent({
   filteredProducts,
   currentPage,
 }) {
-  if (Object.keys(currentPreview).length)
-    return (
-      <Preview
-        product={currentPreview}
-        addProductToShoppingCart={addProductToShoppingCart}
-        setCurrentPreview={setCurrentPreview}
-        goPrevPreview={goPrevPreview}
-        goNextPreview={goNextPreview}
-        showPrev={showPrev}
-        showNext={showNext}
-      />
-    );
-
   if (!filteredProducts.length) {
     return (
       <main className="container-if-no-products">
@@ -111,6 +98,7 @@ function App() {
     showNext,
     numberOfPages,
     showFilters,
+    setFilteredProducts,
     deleteFromShoppingCart,
     updateQuantity,
     setProductSelectedInCart,
@@ -142,7 +130,7 @@ function App() {
 
   const isPreviewClosed = Object.keys(currentPreview).length === 0;
 
-  const {getFilteredProducts} = useFilters();
+  const { getFilteredProducts } = useFilters();
   const filteredProducts = getFilteredProducts();
 
   return (
@@ -155,24 +143,35 @@ function App() {
         currentPreview={currentPreview}
         showFilters={showFilters}
       />
-      <MainContent
-        currentPreview={currentPreview}
-        addProductToShoppingCart={addProductToShoppingCart}
-        setCurrentPreview={setCurrentPreview}
-        goPrevPreview={goPrevPreview}
-        goNextPreview={goNextPreview}
-        showPrev={showPrev}
-        showNext={showNext}
-        filteredProducts={filteredProducts}
-        currentPage={currentPage}
-      />
+      {isPreviewClosed ? (
+        <MainContent
+          currentPreview={currentPreview}
+          addProductToShoppingCart={addProductToShoppingCart}
+          setCurrentPreview={setCurrentPreview}
+          goPrevPreview={goPrevPreview}
+          goNextPreview={goNextPreview}
+          showPrev={showPrev}
+          showNext={showNext}
+          filteredProducts={filteredProducts}
+          currentPage={currentPage}
+        />
+      ) : (
+        <Preview
+          product={currentPreview}
+          addProductToShoppingCart={addProductToShoppingCart}
+          setCurrentPreview={setCurrentPreview}
+          goPrevPreview={goPrevPreview}
+          goNextPreview={goNextPreview}
+          showPrev={showPrev}
+          showNext={showNext}
+        />
+      )}
       {isPreviewClosed && (
         <CarouselButtons
           setPrevPage={setPrevPage}
+          setNextPage={setNextPage}
           currentPage={currentPage}
           setPageNumber={setPageNumber}
-          filteredProducts={filteredProducts}
-          setNextPage={setNextPage}
           numberOfPages={numberOfPages}
         />
       )}

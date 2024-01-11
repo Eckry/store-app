@@ -21,7 +21,6 @@ export default function useFilters() {
   }
 
   function getFilteredProducts() {
-    console.log(query)
     const filterByTitle = new RegExp(query, "ig");
     const newFilteredProducts = products.filter(
       (product) =>
