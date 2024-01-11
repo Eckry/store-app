@@ -10,14 +10,6 @@ const updateQuantity = (number, payload, state) => {
   return newShoppingCart;
 };
 
-const getPrevAndNext = (payload, state) => {
-  const previewIndex = state.filteredProducts.indexOf(payload);
-
-  const prev = previewIndex - 1;
-  const next = previewIndex + 1;
-  return [prev, next];
-};
-
 const initialState = {
   numberOfPages: Math.ceil(21 / NUMBER_OF_PRODUCTS_PER_PAGE),
   currentPage: 0,
@@ -57,21 +49,6 @@ function reducer(state, action) {
       return {
         ...state,
         currentPage: parseInt(payload.target.value),
-      };
-    }
-
-    case actionTypes.SET_CURRENT_PREVIEW: {
-      const { payload } = action;
-
-      if (Object.keys(payload).length === 0)
-        return { ...state, currentPreview: payload };
-      const [prev, next] = getPrevAndNext(payload, state);
-
-      return {
-        ...state,
-        currentPreview: payload,
-        showPrev: prev >= 0,
-        showNext: next < state.filteredProducts.length,
       };
     }
 
@@ -150,32 +127,6 @@ function reducer(state, action) {
       };
     }
 
-    case actionTypes.GO_PREV_PREVIEW: {
-      const { payload } = action;
-
-      const [prev] = getPrevAndNext(payload, state);
-
-      return {
-        ...state,
-        currentPreview: state.filteredProducts[prev],
-        showPrev: prev > 0,
-        showNext: true,
-      };
-    }
-
-    case actionTypes.GO_NEXT_PREVIEW: {
-      const { payload } = action;
-
-      const [, next] = getPrevAndNext(payload, state);
-
-      return {
-        ...state,
-        currentPreview: state.filteredProducts[next],
-        showPrev: true,
-        showNext: next < state.filteredProducts.length - 1,
-      };
-    }
-
     case actionTypes.INTERCHANGE_SHOW_FILTERS: {
       return {
         ...state,
@@ -190,14 +141,10 @@ function reducer(state, action) {
 export default function useStore() {
   const [
     {
-      filteredProducts,
       currentPage,
-      currentPreview,
       shoppingCart,
       showCart,
       productSelectedInCart,
-      showPrev,
-      showNext,
       notification,
       numberOfPages,
       showFilters,
@@ -205,9 +152,7 @@ export default function useStore() {
     dispatch,
   ] = useReducer(reducer, initialState);
 
-  const setFilteredProducts = (payload) => {
-    dispatch({ type: "SET_FILTERED_PRODUCTS", payload });
-  };
+
 
   const setNextPage = () => {
     dispatch({ type: "SET_NEXT_PAGE" });
@@ -221,9 +166,6 @@ export default function useStore() {
     dispatch({ type: "SET_PAGE_NUMBER", payload });
   };
 
-  const setCurrentPreview = (payload) => {
-    dispatch({ type: "SET_CURRENT_PREVIEW", payload });
-  };
 
   const addProductToShoppingCart = (payload) => {
     dispatch({ type: "ADD_PRODUCT_TO_SHOPPING_CART", payload });
@@ -245,28 +187,16 @@ export default function useStore() {
     dispatch({ type: "DELETE_FROM_SHOPPING_CART" });
   };
 
-  const goPrevPreview = (payload) => {
-    dispatch({ type: "GO_PREV_PREVIEW", payload });
-  };
-
-  const goNextPreview = (payload) => {
-    dispatch({ type: "GO_NEXT_PREVIEW", payload });
-  };
-
   const interchangeShowFilters = () => {
     dispatch({ type: "INTERCHANGE_SHOW_FILTERS" });
   };
 
   return {
     currentPage,
-    filteredProducts,
-    currentPreview,
     shoppingCart,
     showCart,
     productSelectedInCart,
     notification,
-    showPrev,
-    showNext,
     numberOfPages,
     showFilters,
     deleteFromShoppingCart,
@@ -274,13 +204,9 @@ export default function useStore() {
     setProductSelectedInCart,
     interchangeShowCart,
     addProductToShoppingCart,
-    setCurrentPreview,
     setPrevPage,
     setPageNumber,
     setNextPage,
-    setFilteredProducts,
-    goPrevPreview,
-    goNextPreview,
     interchangeShowFilters,
   };
 }

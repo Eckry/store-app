@@ -11,15 +11,11 @@ import Header from "./components/Header";
 import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 import useFilters from "./hooks/useFilters";
+import usePreview from "./hooks/usePreview";
 
 function MainContent({
-  currentPreview,
   addProductToShoppingCart,
   setCurrentPreview,
-  goPrevPreview,
-  goNextPreview,
-  showPrev,
-  showNext,
   filteredProducts,
   currentPage,
 }) {
@@ -98,18 +94,14 @@ function App() {
     showNext,
     numberOfPages,
     showFilters,
-    setFilteredProducts,
     deleteFromShoppingCart,
     updateQuantity,
     setProductSelectedInCart,
     interchangeShowCart,
     addProductToShoppingCart,
-    setCurrentPreview,
     setNextPage,
     setPrevPage,
     setPageNumber,
-    goPrevPreview,
-    goNextPreview,
     interchangeShowFilters,
   } = useStore();
 
@@ -128,11 +120,13 @@ function App() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, []);
 
-  const isPreviewClosed = Object.keys(currentPreview).length === 0;
-
+  
   const { getFilteredProducts } = useFilters();
   const filteredProducts = getFilteredProducts();
-
+  
+  const {preview, setCurrentPreview} = usePreview(filteredProducts);
+  
+  const isPreviewClosed = preview.product === undefined;
   return (
     <>
       <Header
@@ -146,10 +140,8 @@ function App() {
       {isPreviewClosed ? (
         <MainContent
           currentPreview={currentPreview}
-          addProductToShoppingCart={addProductToShoppingCart}
           setCurrentPreview={setCurrentPreview}
-          goPrevPreview={goPrevPreview}
-          goNextPreview={goNextPreview}
+          addProductToShoppingCart={addProductToShoppingCart}
           showPrev={showPrev}
           showNext={showNext}
           filteredProducts={filteredProducts}
@@ -157,11 +149,9 @@ function App() {
         />
       ) : (
         <Preview
-          product={currentPreview}
+          preview={preview}
           addProductToShoppingCart={addProductToShoppingCart}
           setCurrentPreview={setCurrentPreview}
-          goPrevPreview={goPrevPreview}
-          goNextPreview={goNextPreview}
           showPrev={showPrev}
           showNext={showNext}
         />

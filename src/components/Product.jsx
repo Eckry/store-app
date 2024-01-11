@@ -6,7 +6,7 @@ export default function Product({
   addProductToShoppingCart,
 }) {
   function handleOnClickToViewProduct() {
-    setCurrentPreview(product);
+    setCurrentPreview(product.id);
   }
 
   function handleOnClickToBuyProduct() {

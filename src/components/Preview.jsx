@@ -2,31 +2,32 @@ import "./styles/Preview.css";
 import Stars from "./Stars";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import { IoReturnUpBackOutline } from "react-icons/io5";
+import usePreview from "../hooks/usePreview";
 
 export default function Preview({
-  product,
+  preview,
   addProductToShoppingCart,
-  setCurrentPreview,
-  goPrevPreview,
-  goNextPreview,
-  showPrev,
   showNext,
+  setCurrentPreview,
 }) {
+
+  const { prev, next, product } = preview;
   function handleAddProductToShoppingCart() {
     addProductToShoppingCart(product);
   }
 
-  function handleSetCurrentPreview() {
-    setCurrentPreview({});
-  }
-
   function handleGoPrevPreview() {
-    goPrevPreview(product);
+    setCurrentPreview(prev);
   }
 
   function handleGoNextPreview() {
-    goNextPreview(product);
+    setCurrentPreview(next);
   }
+
+  function handleSetCurrentPreview() {
+    setCurrentPreview(null);
+  }
+
 
   return (
     <>
@@ -63,15 +64,15 @@ export default function Preview({
       </div>
       <div className="nav-buttons-container">
         <button
-          className={!showPrev ? "disabled" : "nav-button"}
-          disabled={!showPrev}
+          className={prev <= -1 ? "disabled" : "nav-button"}
+          disabled={prev <= -1}
           onClick={handleGoPrevPreview}
         >
           <FaLongArrowAltLeft />
         </button>
         <button
-          className={!showNext ? "disabled" : "nav-button"}
-          disabled={!showNext}
+          className={next <= -1 ? "disabled" : "nav-button"}
+          disabled={next <= -1}
           onClick={handleGoNextPreview}
         >
           <FaLongArrowAltRight />

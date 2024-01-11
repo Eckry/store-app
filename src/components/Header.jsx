@@ -22,10 +22,7 @@ export default function Header({
     setQuery(event.target.elements.input.value);
   }
 
-  const isCurrentPreviewActive = Object.keys(currentPreview).length !== 0;
-
   const style = { display: notification ? "flex" : "none" };
-  const toggleFilters = { display: isCurrentPreviewActive ? "none" : "block" };
 
   return (
     <header className="header">
@@ -51,7 +48,6 @@ export default function Header({
         </button>
       </form>
       <label
-        style={toggleFilters}
         htmlFor="toggle-filters"
         className="toggle-filters"
       >
