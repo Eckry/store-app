@@ -33,7 +33,7 @@ function reducer(state, action) {
 
     case actionTypes.ADD_PRODUCT_TO_SHOPPING_CART: {
       const { payload } = action;
-
+      console.log(payload)
       const productToAdd = state.shoppingCart.find(
         (product) => product.id === payload.id
       );
