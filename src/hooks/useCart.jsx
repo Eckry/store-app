@@ -43,8 +43,9 @@ export default function useCart() {
   }
 
   function deleteProduct(productToDelete) {
-    const newCart = cart.filter((product) => product !== productToDelete);
+    const newCart = cart.filter((product) => product.id !== productToDelete.id);
     setCart(newCart);
+    setProductSelected(newCart[0]);
   }
 
   function selectProduct(productToSelect) {
