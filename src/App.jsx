@@ -13,12 +13,9 @@ import useFilters from "./hooks/useFilters";
 import usePreview from "./hooks/usePreview";
 import useCart from "./hooks/useCart";
 
-function MainContent({
-  setCurrentPreview,
-  filteredProducts,
-  currentPage,
-}) {
-  const {addProduct} = useCart();
+function MainContent({ currentPage, setCurrentPreview }) {
+  const { addProduct } = useCart();
+  const { filteredProducts } = useFilters();
 
   if (!filteredProducts.length) {
     return (
@@ -49,8 +46,8 @@ function MainContent({
 }
 
 function CarouselButtons({ currentPage, setCurrentPage }) {
-  const {filteredProducts} = useFilters();
-  
+  const { filteredProducts } = useFilters();
+
   const numberOfPages = Math.ceil(
     filteredProducts.length / NUMBER_OF_PRODUCTS_PER_PAGE
   );
@@ -106,43 +103,25 @@ function App() {
     <>
       <Header
         interchangeShowCart={interchangeShowCart}
-        notification={notification}
         showCart={showCart}
         interchangeShowFilters={interchangeShowFilters}
-        currentPreview={currentPreview}
         showFilters={showFilters}
       />
       {isPreviewClosed ? (
         <MainContent
-          currentPreview={currentPreview}
-          setCurrentPreview={setCurrentPreview}
-          filteredProducts={filteredProducts}
           currentPage={currentPage}
+          setCurrentPreview={setCurrentPreview}
         />
       ) : (
-        <Preview
-          preview={preview}
-          addProductToShoppingCart={addProductToShoppingCart}
-          setCurrentPreview={setCurrentPreview}
-        />
+        <Preview preview={preview} setCurrentPreview={setCurrentPreview} />
       )}
       {isPreviewClosed && (
         <CarouselButtons
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
-          filteredProducts={filteredProducts}
         />
       )}
-      {showCart ? (
-        <Cart
-          deleteFromShoppingCart={deleteFromShoppingCart}
-          updateQuantity={updateQuantity}
-          setProductSelectedInCart={setProductSelectedInCart}
-          products={shoppingCart}
-          productSelectedInCart={productSelectedInCart}
-          interchangeShowCart={interchangeShowCart}
-        />
-      ) : null}
+      {showCart && <Cart interchangeShowCart={interchangeShowCart} />}
       <Footer />
     </>
   );

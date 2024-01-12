@@ -2,17 +2,18 @@ import "./styles/Preview.css";
 import Stars from "./Stars";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import { IoReturnUpBackOutline } from "react-icons/io5";
-import usePreview from "../hooks/usePreview";
+import useCart from "../hooks/useCart";
 
 export default function Preview({
   preview,
-  addProductToShoppingCart,
   setCurrentPreview,
 }) {
 
+  const {addProduct} = useCart();
+
   const { prev, next, product } = preview;
   function handleAddProductToShoppingCart() {
-    addProductToShoppingCart(product);
+    addProduct(product);
   }
 
   function handleGoPrevPreview() {
