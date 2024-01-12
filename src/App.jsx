@@ -91,17 +91,9 @@ function CarouselButtons({ currentPage, setCurrentPage }) {
 function App() {
   const {
     currentPage,
-    currentPreview,
-    shoppingCart,
     showCart,
-    productSelectedInCart,
-    notification,
     showFilters,
-    deleteFromShoppingCart,
-    updateQuantity,
-    setProductSelectedInCart,
     interchangeShowCart,
-    addProductToShoppingCart,
     setCurrentPage,
     interchangeShowFilters,
   } = useStore();
