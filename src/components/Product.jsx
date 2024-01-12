@@ -1,10 +1,12 @@
 import "./styles/Product.css";
+import useCart from "../hooks/useCart";
 
 export default function Product({
   product,
   setCurrentPreview,
-  addProduct,
 }) {
+  const {addProduct} = useCart();
+  
   function handleOnClickToViewProduct() {
     setCurrentPreview(product.id);
   }

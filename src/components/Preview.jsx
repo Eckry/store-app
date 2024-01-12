@@ -7,7 +7,6 @@ import usePreview from "../hooks/usePreview";
 export default function Preview({
   preview,
   addProductToShoppingCart,
-  showNext,
   setCurrentPreview,
 }) {
 
