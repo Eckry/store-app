@@ -11,10 +11,8 @@ import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 import useFilters from "./hooks/useFilters";
 import usePreview from "./hooks/usePreview";
-import useCart from "./hooks/useCart";
 
 function MainContent({ currentPage, setCurrentPreview }) {
-  const { addProduct } = useCart();
   const { filteredProducts } = useFilters();
 
   if (!filteredProducts.length) {
@@ -38,7 +36,6 @@ function MainContent({ currentPage, setCurrentPreview }) {
             key={product.id}
             product={product}
             setCurrentPreview={setCurrentPreview}
-            addProduct={addProduct}
           />
         ))}
     </main>
