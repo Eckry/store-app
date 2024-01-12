@@ -4,29 +4,16 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Stars from "./Stars";
 import { BiPurchaseTag } from "react-icons/bi";
+import useCart from "../hooks/useCart"
 
 export default function Cart({
-  products,
-  productSelectedInCart,
-  setProductSelectedInCart,
-  updateQuantity,
   deleteFromShoppingCart,
   interchangeShowCart,
 }) {
-  function handleChangeProductSelectedInCart(e) {
-    const productId = e.target.id;
-    const newProductSelectedInCart = products.find(
-      (product) => product.id === parseInt(productId)
-    );
-    setProductSelectedInCart(newProductSelectedInCart);
-  }
+  const {cart, productSelected, setProductSelected} = useCart();
 
-  function handleAddOneToQuantity() {
-    updateQuantity({ product: productSelectedInCart, number: 1 });
-  }
-
-  function handleRemoveOneToQuantity() {
-    updateQuantity({ product: productSelectedInCart, number: -1 });
+  function handleChangeProductSelectedInCart(product) {
+    setProductSelected(product);
   }
 
   function handleDeleteFromShoppingCart() {
@@ -36,7 +23,7 @@ export default function Cart({
   function handleInterchangeShowCart() {
     interchangeShowCart();
   }
-  if (!products.length)
+  if (!cart.length)
     return (
       <>
         <button className="close-button" onClick={handleInterchangeShowCart}>
@@ -61,20 +48,20 @@ export default function Cart({
               <img
                 draggable="false"
                 className="product-selected-image"
-                src={productSelectedInCart.image}
+                src={productSelected.image}
                 alt=""
               />
               <div className="cart-buttons">
                 <div className="cart-buttons-container">
                   <button
-                    onClick={handleRemoveOneToQuantity}
+                    onClick={""}
                     className="sell-button"
                   >
                     <FaChevronLeft />
                   </button>
-                  <p className="total">{productSelectedInCart.quantity}</p>
+                  <p className="total">{productSelected.quantity}</p>
                   <button
-                    onClick={handleAddOneToQuantity}
+                    onClick={""}
                     className="buy-button"
                   >
                     <FaChevronRight />
@@ -95,31 +82,31 @@ export default function Cart({
             </div>
             <div className="product-selected-information">
               <h1 className="product-selected-title">
-                {productSelectedInCart.title}
+                {productSelected.title}
               </h1>
               <div>
                 <h4 className="cart-description-title">Description</h4>
                 <p className="product-selected-description">
-                  {productSelectedInCart.description}
+                  {productSelected.description}
                 </p>
-                <p className="category">{productSelectedInCart.category}</p>
+                <p className="category">{productSelected.category}</p>
               </div>
               <div className="cart-rating">
-                <p className="cart-price">{productSelectedInCart.price}$</p>
+                <p className="cart-price">{productSelected.price}$</p>
                 <Stars
-                  stars={productSelectedInCart.rating.rate}
-                  count={productSelectedInCart.rating.count}
+                  stars={productSelected.rating.rate}
+                  count={productSelected.rating.count}
                 />
               </div>
             </div>
           </div>
           <div className="other-products">
-            {products.map((product) => {
+            {cart.map((product) => {
               return (
                 <img
                   draggable="false"
                   id={product.id}
-                  onClick={(e) => handleChangeProductSelectedInCart(e)}
+                  onClick={() => handleChangeProductSelectedInCart(product)}
                   src={product.image}
                   className="other-products-image"
                   key={product.id}

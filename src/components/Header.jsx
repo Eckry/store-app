@@ -2,16 +2,16 @@ import "./styles/Header.css";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import Filters from "./Filters";
 import useFilters from "../hooks/useFilters";
+import useCart from "../hooks/useCart";
 
 export default function Header({
   interchangeShowCart,
-  notification,
   interchangeShowFilters,
   showCart,
-  currentPreview,
   showFilters,
 }) {
   const {setQuery} = useFilters();
+  const {notification} = useCart();
 
   function handleOnClick() {
     interchangeShowCart();

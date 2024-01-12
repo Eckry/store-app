@@ -3,14 +3,14 @@ import "./styles/Product.css";
 export default function Product({
   product,
   setCurrentPreview,
-  addProductToShoppingCart,
+  addProduct,
 }) {
   function handleOnClickToViewProduct() {
     setCurrentPreview(product.id);
   }
 
   function handleOnClickToBuyProduct() {
-    addProductToShoppingCart(product);
+    addProduct(product);
   }
 
   return (

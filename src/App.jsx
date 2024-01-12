@@ -1,6 +1,5 @@
 import "./App.css";
 import { NUMBER_OF_PRODUCTS_PER_PAGE } from "./constants.json";
-import { useEffect } from "react";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 import { FaRegFaceSadCry } from "react-icons/fa6";
 import Product from "./components/Product";
@@ -12,13 +11,15 @@ import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 import useFilters from "./hooks/useFilters";
 import usePreview from "./hooks/usePreview";
+import useCart from "./hooks/useCart";
 
 function MainContent({
-  addProductToShoppingCart,
   setCurrentPreview,
   filteredProducts,
   currentPage,
 }) {
+  const {addProduct} = useCart();
+
   if (!filteredProducts.length) {
     return (
       <main className="container-if-no-products">
@@ -40,7 +41,7 @@ function MainContent({
             key={product.id}
             product={product}
             setCurrentPreview={setCurrentPreview}
-            addProductToShoppingCart={addProductToShoppingCart}
+            addProduct={addProduct}
           />
         ))}
     </main>
@@ -123,7 +124,6 @@ function App() {
         <MainContent
           currentPreview={currentPreview}
           setCurrentPreview={setCurrentPreview}
-          addProductToShoppingCart={addProductToShoppingCart}
           filteredProducts={filteredProducts}
           currentPage={currentPage}
         />

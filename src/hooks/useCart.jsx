@@ -1,10 +1,20 @@
 import { CartContext } from "../context/CartContext";
+import { useContext } from "react";
 
 export default function useCart() {
-  const { cart, setCart, productSelected, setProductSelected } =
-    useContext(CartContext);
+  const {
+    cart,
+    setCart,
+    productSelected,
+    setProductSelected,
+    notification,
+    setNotification,
+  } = useContext(CartContext);
 
   function addProduct(productToAdd) {
+    setProductSelected(productToAdd);
+    setNotification(true);
+
     const productIndex = cart.findIndex(
       (product) => productToAdd.id === product.id
     );
@@ -15,8 +25,7 @@ export default function useCart() {
       ];
       return setCart(newCart);
     }
-
-    setCart(...cart, { ...productToAdd, quantity: 1 });
+    setCart([...cart, { ...productToAdd, quantity: 1 }]);
   }
 
   function removeProduct(productToRemove) {
@@ -41,9 +50,10 @@ export default function useCart() {
     setCart,
     productSelected,
     setProductSelected,
+    notification,
     selectProduct,
     deleteProduct,
     removeProduct,
-    addProduct
+    addProduct,
   };
 }

@@ -1,14 +1,24 @@
-import { createContext } from "react";
-import products from "../products.json";
-
+import { createContext, useState } from "react";
 
 export const CartContext = createContext(null);
 
-export function CartProvider({children}){
-  const [cart, setCart] = useState([products]);
+export function CartProvider({ children }) {
+  const [cart, setCart] = useState([]);
   const [productSelected, setProductSelected] = useState({});
-  
-  <CartContext.Provider value={{cart, setCart, productSelected, setProductSelected}}>
-    {children}
-  </CartContext.Provider>
+  const [notification, setNotification] = useState(false);
+
+  return (
+    <CartContext.Provider
+      value={{
+        cart,
+        setCart,
+        productSelected,
+        setProductSelected,
+        notification,
+        setNotification,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
 }
