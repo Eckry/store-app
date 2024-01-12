@@ -1,5 +1,5 @@
 import { CartContext } from "../context/CartContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 export default function useCart() {
   const {
@@ -12,27 +12,33 @@ export default function useCart() {
   } = useContext(CartContext);
 
   function addProduct(productToAdd) {
-    setProductSelected(productToAdd);
     setNotification(true);
 
     const productIndex = cart.findIndex(
       (product) => productToAdd.id === product.id
     );
     if (productIndex >= 0) {
-      const newCart = [
-        ...cart,
-        { ...productToAdd, quantity: productToAdd.quantity + 1 },
-      ];
-      return setCart(newCart);
+      const newCart = cart.with(productIndex, {
+        ...cart[productIndex],
+        quantity: cart[productIndex].quantity + 1,
+      });
+      setCart(newCart);
+      return setProductSelected(newCart[productIndex]);
     }
     setCart([...cart, { ...productToAdd, quantity: 1 }]);
+    setProductSelected({ ...productToAdd, quantity: 1 });
   }
 
   function removeProduct(productToRemove) {
-    const newCart = [
-      ...cart,
-      { ...productToRemove, quantity: productToRemove.quantity - 1 },
-    ];
+    const newCart = cart.map((product) => {
+      if (productToRemove.id === product.id && product.quantity > 1) {
+        const productUpdated = { ...product, quantity: product.quantity - 1 };
+        setProductSelected(productUpdated);
+        return productUpdated;
+      }
+      return product;
+    });
+
     setCart(newCart);
   }
 

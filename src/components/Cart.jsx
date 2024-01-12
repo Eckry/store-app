@@ -4,25 +4,38 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Stars from "./Stars";
 import { BiPurchaseTag } from "react-icons/bi";
-import useCart from "../hooks/useCart"
+import useCart from "../hooks/useCart";
 
-export default function Cart({
-  deleteFromShoppingCart,
-  interchangeShowCart,
-}) {
-  const {cart, productSelected, setProductSelected} = useCart();
+export default function Cart({ interchangeShowCart }) {
+  const {
+    cart,
+    addProduct,
+    removeProduct,
+    productSelected,
+    deleteProduct,
+    setProductSelected,
+  } = useCart();
 
   function handleChangeProductSelectedInCart(product) {
     setProductSelected(product);
   }
 
-  function handleDeleteFromShoppingCart() {
-    deleteFromShoppingCart();
+  function handleBuyProduct() {
+    addProduct(productSelected);
+  }
+
+  function handleRemove() {
+    removeProduct(productSelected);
+  }
+
+  function handleDelete(){
+    deleteProduct(productSelected)
   }
 
   function handleInterchangeShowCart() {
     interchangeShowCart();
   }
+
   if (!cart.length)
     return (
       <>
@@ -54,16 +67,13 @@ export default function Cart({
               <div className="cart-buttons">
                 <div className="cart-buttons-container">
                   <button
-                    onClick={""}
+                    onClick={handleRemove}
                     className="sell-button"
                   >
                     <FaChevronLeft />
                   </button>
                   <p className="total">{productSelected.quantity}</p>
-                  <button
-                    onClick={""}
-                    className="buy-button"
-                  >
+                  <button onClick={handleBuyProduct} className="buy-button">
                     <FaChevronRight />
                   </button>
                 </div>
@@ -73,7 +83,7 @@ export default function Cart({
                   </a>
                   <button
                     className="trash-button"
-                    onClick={handleDeleteFromShoppingCart}
+                    onClick={handleDelete}
                   >
                     <FaRegTrashAlt />
                   </button>
