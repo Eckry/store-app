@@ -13,30 +13,29 @@ export default function Filters({ showFilters }) {
   } = useFilters();
 
   return (
-    <div className="filters">
-      <label htmlFor="toggle-filters" className="toggle-filters">
-        <input
-          type="checkbox"
-          id="toggle-filters"
-        />
+    <div className="show-filters">
+      <input className="hamburger-input" type="checkbox" id="toggle-filters" />
+      <label className="toggle-filters" htmlFor="toggle-filters">
         <span></span>
         <span></span>
         <span></span>
       </label>
-      <h3 className="filters-title">Price range</h3>
-      <div className="price-range-container">
-        <RangeInput onChange={setPriceFilter} price={price} />
-      </div>
-      <h3 className="filters-title">Categories</h3>
-      <div className="checkboxes-container">
-        {categories.map((category) => (
-          <CheckBox
-            category={category}
-            key={category}
-            searchedCategories={searchedCategories}
-            interchangeSearchedCategories={interchangeSearchedCategories}
-          />
-        ))}
+      <div className="filters">
+        <h3 className="filters-title">Price range</h3>
+        <div className="price-range-container">
+          <RangeInput onChange={setPriceFilter} price={price} />
+        </div>
+        <h3 className="filters-title">Categories</h3>
+        <div className="checkboxes-container">
+          {categories.map((category) => (
+            <CheckBox
+              category={category}
+              key={category}
+              searchedCategories={searchedCategories}
+              interchangeSearchedCategories={interchangeSearchedCategories}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
