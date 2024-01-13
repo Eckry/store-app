@@ -4,7 +4,6 @@ import { actionTypes } from "../constants.json";
 const initialState = {
   currentPage: 0,
   showCart: false,
-  showFilters: false,
 };
 
 function reducer(state, action) {
