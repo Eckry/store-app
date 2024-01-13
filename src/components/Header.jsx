@@ -47,19 +47,6 @@ export default function Header({
           <FaSearch />
         </button>
       </form>
-      <label
-        htmlFor="toggle-filters"
-        className="toggle-filters"
-      >
-        <input
-          onClick={interchangeShowFilters}
-          type="checkbox"
-          id="toggle-filters"
-        />
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
         <Filters
           showFilters={showFilters}
         />

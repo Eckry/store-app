@@ -4,7 +4,7 @@ import categories from "../categories.json";
 import useFilters from "../hooks/useFilters";
 import "./styles/Filters.css";
 
-export default function Filters({ showFilters}) {
+export default function Filters({ showFilters }) {
   const {
     price,
     setPriceFilter,
@@ -12,9 +12,17 @@ export default function Filters({ showFilters}) {
     interchangeSearchedCategories,
   } = useFilters();
 
-
   return (
-    <div className={showFilters ? "filters" : "filters-hide"}>
+    <div className="filters">
+      <label htmlFor="toggle-filters" className="toggle-filters">
+        <input
+          type="checkbox"
+          id="toggle-filters"
+        />
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
       <h3 className="filters-title">Price range</h3>
       <div className="price-range-container">
         <RangeInput onChange={setPriceFilter} price={price} />
