@@ -42,10 +42,7 @@ export default function useStore() {
   const [
     {
       currentPage,
-      shoppingCart,
       showCart,
-      productSelectedInCart,
-      notification,
       showFilters,
     },
     dispatch,
