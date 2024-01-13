@@ -105,8 +105,6 @@
 @media (max-width: 1150px) {
   .filters {
     position: fixed;
-    background-color: var(--secondary-transparent-color);
-    backdrop-filter: blur(10px);
     top: 80px;
     left:0;
     width: 100%;
