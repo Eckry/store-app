@@ -49,8 +49,8 @@
 
 .text-filter-button {
   width: 45px;
-  font-size: 1.5rem;
-  padding: 4.7px;
+  font-size: 25px;
+  padding: 6.7px 0;
   cursor: pointer;
   outline: none;
   color: var(--highlight-color-two);
@@ -60,6 +60,9 @@
   border-left: 2px solid var(--highlight-color-two);
   transition: border 0.25s ease-in-out;
   border-radius: 0 8px 8px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .text-filter:focus ~ .text-filter-button {
