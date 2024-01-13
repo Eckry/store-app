@@ -83,14 +83,8 @@ function CarouselButtons({ currentPage, setCurrentPage }) {
 }
 
 function App() {
-  const {
-    currentPage,
-    showCart,
-    showFilters,
-    interchangeShowCart,
-    setCurrentPage,
-    interchangeShowFilters,
-  } = useStore();
+  const { currentPage, showCart, interchangeShowCart, setCurrentPage } =
+    useStore();
 
   const { filteredProducts } = useFilters();
   const { preview, setCurrentPreview } = usePreview(filteredProducts);
@@ -98,12 +92,7 @@ function App() {
   const isPreviewClosed = preview.product === undefined;
   return (
     <>
-      <Header
-        interchangeShowCart={interchangeShowCart}
-        showCart={showCart}
-        interchangeShowFilters={interchangeShowFilters}
-        showFilters={showFilters}
-      />
+      <Header interchangeShowCart={interchangeShowCart} showCart={showCart} />
       {isPreviewClosed ? (
         <MainContent
           currentPage={currentPage}

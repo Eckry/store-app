@@ -27,26 +27,16 @@ function reducer(state, action) {
       };
     }
 
-    case actionTypes.INTERCHANGE_SHOW_FILTERS: {
-      return {
-        ...state,
-        showFilters: !state.showFilters,
-      };
-    }
     default:
       return state;
   }
 }
 
 export default function useStore() {
-  const [
-    {
-      currentPage,
-      showCart,
-      showFilters,
-    },
-    dispatch,
-  ] = useReducer(reducer, initialState);
+  const [{ currentPage, showCart }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   const setCurrentPage = (payload) => {
     dispatch({ type: "SET_PAGE_NUMBER", payload });
@@ -56,16 +46,10 @@ export default function useStore() {
     dispatch({ type: "INTERCHANGE_SHOW_CART" });
   };
 
-  const interchangeShowFilters = () => {
-    dispatch({ type: "INTERCHANGE_SHOW_FILTERS" });
-  };
-
   return {
     currentPage,
     showCart,
-    showFilters,
     interchangeShowCart,
     setCurrentPage,
-    interchangeShowFilters,
   };
 }

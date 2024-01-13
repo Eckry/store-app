@@ -4,7 +4,7 @@ import categories from "../categories.json";
 import useFilters from "../hooks/useFilters";
 import "./styles/Filters.css";
 
-export default function Filters({ showFilters }) {
+export default function Filters() {
   const {
     price,
     setPriceFilter,

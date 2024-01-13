@@ -4,14 +4,9 @@ import Filters from "./Filters";
 import useFilters from "../hooks/useFilters";
 import useCart from "../hooks/useCart";
 
-export default function Header({
-  interchangeShowCart,
-  interchangeShowFilters,
-  showCart,
-  showFilters,
-}) {
-  const {setQuery} = useFilters();
-  const {notification} = useCart();
+export default function Header({ interchangeShowCart, showCart }) {
+  const { setQuery } = useFilters();
+  const { notification } = useCart();
 
   function handleOnClick() {
     interchangeShowCart();
@@ -47,9 +42,7 @@ export default function Header({
           <FaSearch />
         </button>
       </form>
-        <Filters
-          showFilters={showFilters}
-        />
+      <Filters />
     </header>
   );
 }
