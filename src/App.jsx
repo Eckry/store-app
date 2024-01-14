@@ -2,6 +2,7 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
 import About from "./routes/About";
+import Contact from "./routes/Contact";
 
 const router = createBrowserRouter([
   {
@@ -10,7 +11,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/store-app/about",
-    element: <About/>
+    element: <About />,
+  },
+  {
+    path: "/store-app/contact",
+    element: <Contact />,
   },
 ]);
 

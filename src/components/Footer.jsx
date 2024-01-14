@@ -22,7 +22,7 @@ export default function Footer() {
             </Link>
           </li>
           <li>
-            <Link to="contact" className="footer-anchor">
+            <Link to="/store-app/contact" className="footer-anchor">
               Contact me
             </Link>
           </li>
