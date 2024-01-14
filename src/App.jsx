@@ -3,20 +3,24 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
 import About from "./routes/About";
 import Contact from "./routes/Contact";
-
+import {path} from "./constants.json"
 const router = createBrowserRouter([
   {
-    path: "/store-app",
+    path: `${path}`,
     element: <Root />,
   },
   {
-    path: "/store-app/about",
+    path: `${path}/about`,
     element: <About />,
   },
   {
-    path: "/store-app/contact",
+    path: `${path}contact`,
     element: <Contact />,
   },
+  {
+    path: `${path}checkout`,
+    element: <Checkout />
+  }
 ]);
 
 function App() {

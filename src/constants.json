@@ -1,5 +1,6 @@
 {
   "NUMBER_OF_PRODUCTS_PER_PAGE": 12,
+  "path": "/store-app",
   "actionTypes": {
     "SET_FILTERED_PRODUCTS": "SET_FILTERED_PRODUCTS",
     "SET_PRICE_FILTER":"SET_PRICE_FILTER",
