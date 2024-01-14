@@ -1,5 +1,6 @@
 import "./styles/Footer.css";
 import { CiShoppingBasket } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -11,19 +12,19 @@ export default function Footer() {
         </div>
         <ul className="footer-links">
           <li>
-            <a href="" className="footer-anchor">
+            <Link to="/store-app/" className="footer-anchor">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="" className="footer-anchor">
+            <Link to="/store-app/about" className="footer-anchor">
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="" className="footer-anchor">
+            <Link to="contact" className="footer-anchor">
               Contact me
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
