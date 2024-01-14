@@ -3,7 +3,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
 import About from "./routes/About";
 import Contact from "./routes/Contact";
-import {path} from "./constants.json"
+import {path} from "./constants.json";
+import Checkout from "./routes/Checkout";
+
 const router = createBrowserRouter([
   {
     path: `${path}`,
@@ -14,11 +16,11 @@ const router = createBrowserRouter([
     element: <About />,
   },
   {
-    path: `${path}contact`,
+    path: `${path}/contact`,
     element: <Contact />,
   },
   {
-    path: `${path}checkout`,
+    path: `${path}/checkout`,
     element: <Checkout />
   }
 ]);
