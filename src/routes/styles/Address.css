@@ -1,0 +1,46 @@
+.address-form {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  border-radius: 0.7rem;
+  gap: 1rem;
+}
+
+.address-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.address-input {
+  color: var(--highlight-color-two);
+  width: 100%;
+  border: 2px solid var(--primary-color);
+  outline: none;
+  background-color: var(--primary-color);
+  padding: 1rem 0.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+.address-input:focus {
+  border: 2px solid var(--highlight-color-two);
+}
+
+.address-button {
+  background-color: var(--tertiary-color);
+  border: none;
+  outline: none;
+  padding: 1rem;
+  border-radius: 5px;
+  color: white;
+  margin: 1rem auto 0;
+  display: block;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.address-button:hover {
+  background-color: var(--tertiary-brighty-color);
+}

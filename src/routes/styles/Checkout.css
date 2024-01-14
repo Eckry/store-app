@@ -1,0 +1,25 @@
+.checkout-container {
+  margin: auto;
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checkout-product {
+  background-color: var(--secondary-color);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.checkout-image {
+  width: 200px;
+  object-fit: contain;
+}
+
+.checkout-price {
+  color: var(--highlight-color-two);
+  text-align: center;
+}
