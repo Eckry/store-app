@@ -62,7 +62,7 @@ export default function Cart({ interchangeShowCart }) {
                 draggable="false"
                 className="product-selected-image"
                 src={productSelected.image}
-                alt=""
+                alt={productSelected.title}
               />
               <div className="cart-buttons">
                 <div className="cart-buttons-container">
@@ -120,6 +120,7 @@ export default function Cart({ interchangeShowCart }) {
                   src={product.image}
                   className="other-products-image"
                   key={product.id}
+                  alt={product.title}
                 />
               );
             })}
