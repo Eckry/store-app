@@ -5,6 +5,8 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Stars from "./Stars";
 import { BiPurchaseTag } from "react-icons/bi";
 import useCart from "../hooks/useCart";
+import { Link } from "react-router-dom";
+import { LiaCartArrowDownSolid } from "react-icons/lia";
 
 export default function Cart({ interchangeShowCart }) {
   const {
@@ -28,8 +30,8 @@ export default function Cart({ interchangeShowCart }) {
     removeProduct(productSelected);
   }
 
-  function handleDelete(){
-    deleteProduct(productSelected)
+  function handleDelete() {
+    deleteProduct(productSelected);
   }
 
   function handleInterchangeShowCart() {
@@ -64,31 +66,6 @@ export default function Cart({ interchangeShowCart }) {
                 src={productSelected.image}
                 alt={productSelected.title}
               />
-              <div className="cart-buttons">
-                <div className="cart-buttons-container">
-                  <button
-                    onClick={handleRemove}
-                    className="sell-button"
-                  >
-                    <FaChevronLeft />
-                  </button>
-                  <p className="total">{productSelected.quantity}</p>
-                  <button onClick={handleBuyProduct} className="buy-button">
-                    <FaChevronRight />
-                  </button>
-                </div>
-                <div className="buy-and-trash-buttons">
-                  <a href="" className="buy-product-anchor">
-                    <BiPurchaseTag />
-                  </a>
-                  <button
-                    className="trash-button"
-                    onClick={handleDelete}
-                  >
-                    <FaRegTrashAlt />
-                  </button>
-                </div>
-              </div>
             </div>
             <div className="product-selected-information">
               <h1 className="product-selected-title">
@@ -109,6 +86,30 @@ export default function Cart({ interchangeShowCart }) {
                 />
               </div>
             </div>
+          </div>
+          <div className="buttons">
+            <div className="cart-buttons">
+              <div className="cart-buttons-container">
+                <button onClick={handleRemove} className="sell-button">
+                  <FaChevronLeft />
+                </button>
+                <p className="total">{productSelected.quantity}</p>
+                <button onClick={handleBuyProduct} className="buy-button">
+                  <FaChevronRight />
+                </button>
+              </div>
+              <div className="buy-and-trash-buttons">
+                <a href="" className="buy-product-anchor">
+                  <BiPurchaseTag />
+                </a>
+                <button className="trash-button" onClick={handleDelete}>
+                  <FaRegTrashAlt />
+                </button>
+              </div>
+            </div>
+            <Link className="buy-everything">
+              <LiaCartArrowDownSolid />
+            </Link>
           </div>
           <div className="other-products">
             {cart.map((product) => {
