@@ -107,7 +107,7 @@ export default function Cart({ interchangeShowCart }) {
                 </button>
               </div>
             </div>
-            <Link className="buy-everything">
+            <Link to="/store-app/checkout" className="buy-everything">
               <LiaCartArrowDownSolid />
             </Link>
           </div>
