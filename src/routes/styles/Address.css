@@ -8,6 +8,14 @@
   gap: 1rem;
 }
 
+.form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  color: var(--highlight-color-two);
+}
+
 .address-wrapper {
   display: flex;
   gap: 1rem;
