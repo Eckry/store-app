@@ -4,19 +4,39 @@
   max-width: 1000px;
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 1rem;
 }
 
-.checkout-product {
+.checkout-cart {
+  display: flex;
+  flex-direction: column;
   background-color: var(--secondary-color);
-  border-radius: 1rem;
+  border-radius: 0.8rem;
+  gap: 2rem;
   padding: 1rem;
 }
 
+.checkout-product {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
 .checkout-image {
-  width: 200px;
+  width: 40px;
   object-fit: contain;
+}
+
+.checkout-title {
+  max-width: 250px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.checkout-information{
+  width: 100%;
 }
 
 .checkout-price {
