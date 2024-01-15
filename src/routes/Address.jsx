@@ -1,5 +1,6 @@
 import useAddress from "../hooks/useAddress";
 import "./styles/Address.css";
+import { Link } from "react-router-dom";
 
 export default function Address() {
   const { data, updateData } = useAddress();
@@ -29,7 +30,7 @@ export default function Address() {
     updateData(newData);
   }
   return (
-    <div>
+    <div className="address-container">
       <form className="address-form" onSubmit={handleSubmit}>
         <div className="address-wrapper">
           <label htmlFor="" className="form-label">
@@ -108,9 +109,9 @@ export default function Address() {
           />
         </label>
       </form>
-      <button className="address-button" type="submit">
+      <Link to={"/store-app/checkout/shipping"} className="address-button" type="submit">
         Next {"->"}
-      </button>
+      </Link>
     </div>
   );
 }

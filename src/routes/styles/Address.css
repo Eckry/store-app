@@ -1,3 +1,11 @@
+.address-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
 .address-form {
   width: 800px;
   display: flex;
@@ -38,13 +46,10 @@
 
 .address-button {
   background-color: var(--tertiary-color);
-  border: none;
-  outline: none;
   padding: 1rem;
   border-radius: 5px;
   color: white;
-  margin: 1rem auto 0;
-  display: block;
+  text-decoration: none;
   font-weight: bold;
   cursor: pointer;
 }
