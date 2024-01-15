@@ -99,7 +99,7 @@ export default function Cart({ interchangeShowCart }) {
                 </button>
               </div>
               <div className="buy-and-trash-buttons">
-                <Link state={{product: productSelected}} to="/store-app/checkout/data" className="buy-product-anchor">
+                <Link state={{cart}} to="/store-app/checkout/data" className="buy-product-anchor">
                   <BiPurchaseTag />
                 </Link>
                 <button className="trash-button" onClick={handleDelete}>
@@ -107,7 +107,7 @@ export default function Cart({ interchangeShowCart }) {
                 </button>
               </div>
             </div>
-            <Link state={{product: cart}} to="/store-app/checkout/data" className="buy-everything">
+            <Link state={{cart}} to="/store-app/checkout/data" className="buy-everything">
               <LiaCartArrowDownSolid />
             </Link>
           </div>
