@@ -6,7 +6,6 @@ export default function Payment() {
   return (  
     <>
       <ShippingInformation data={data} />
-      <h1>hello</h1>
     </>
   );
 }
