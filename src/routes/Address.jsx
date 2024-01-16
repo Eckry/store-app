@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import useAddress from "../hooks/useAddress";
 import "./styles/Address.css";
-import { Link } from "react-router-dom";
 
 export default function Address() {
   const { data, updateData } = useAddress();
+  const navigate = useNavigate();
+
   function handleSubmit(event) {
     event.preventDefault();
     const {
@@ -26,92 +28,100 @@ export default function Address() {
       phone: phone.value,
       email: email.value,
     };
-
+    console.log("sss");
     updateData(newData);
+    return navigate("/store-app/checkout/shipping");
   }
+
   return (
-    <div className="address-container">
-      <form className="address-form" onSubmit={handleSubmit}>
-        <div className="address-wrapper">
-          <label htmlFor="" className="form-label">
-            First Name
-            <input
-              className="address-input"
-              type="text"
-              name="firstName"
-              defaultValue={data.firstName}
-            />
-          </label>
-          <label htmlFor="" className="form-label">
-            Last Name
-            <input
-              className="address-input"
-              type="text"
-              name="lastName"
-              defaultValue={data.lastName}
-            />
-          </label>
-        </div>
+    <form className="address-form" onSubmit={handleSubmit}>
+      <div className="address-wrapper">
         <label htmlFor="" className="form-label">
-          Address
+          First Name
           <input
+            required
             className="address-input"
             type="text"
-            name="address"
-            defaultValue={data.address}
+            name="firstName"
+            defaultValue={data.firstName}
           />
         </label>
         <label htmlFor="" className="form-label">
-          Zip Code
+          Last Name
           <input
+            required
             className="address-input"
             type="text"
-            name="zipCode"
-            defaultValue={data.zipCode}
+            name="lastName"
+            defaultValue={data.lastName}
           />
         </label>
-        <div className="address-wrapper">
-          <label htmlFor="" className="form-label">
-            City
-            <input
-              className="address-input"
-              type="text"
-              name="city"
-              defaultValue={data.city}
-            />
-          </label>
-          <label htmlFor="" className="form-label">
-            Country
-            <input
-              className="address-input"
-              type="text"
-              name="country"
-              defaultValue={data.country}
-            />
-          </label>
-        </div>
+      </div>
+      <label htmlFor="" className="form-label">
+        Address
+        <input
+          required
+          className="address-input"
+          type="text"
+          name="address"
+          defaultValue={data.address}
+        />
+      </label>
+      <label htmlFor="" className="form-label">
+        Zip Code
+        <input
+          required
+          className="address-input"
+          type="text"
+          name="zipCode"
+          defaultValue={data.zipCode}
+        />
+      </label>
+      <div className="address-wrapper">
         <label htmlFor="" className="form-label">
-          Phone
+          City
           <input
+            required
             className="address-input"
-            type="tel"
-            name="phone"
-            defaultValue={data.phone}
+            type="text"
+            name="city"
+            defaultValue={data.city}
           />
         </label>
         <label htmlFor="" className="form-label">
-          Email
+          Country
           <input
+            required
             className="address-input"
-            type="email"
-            name="email"
-            defaultValue={data.emailx}
+            type="text"
+            name="country"
+            defaultValue={data.country}
           />
         </label>
-      </form>
-      <Link to={"/store-app/checkout/shipping"} className="address-button" type="submit">
+      </div>
+      <label htmlFor="" className="form-label">
+        Phone
+        <input
+          required
+          className="address-input"
+          type="tel"
+          name="phone"
+          defaultValue={data.phone}
+        />
+      </label>
+      <label htmlFor="" className="form-label">
+        Email
+        <input
+          required
+          className="address-input"
+          type="email"
+          name="email"
+          defaultValue={data.email}
+        />
+      </label>
+      <button className="address-button" type="submit">
         Next {"->"}
-      </Link>
-    </div>
+      </button>
+    </form>
   );
 }
