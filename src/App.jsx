@@ -7,6 +7,7 @@ import { path } from "./constants.json";
 import Checkout from "./routes/Checkout";
 import Address from "./routes/Address";
 import Shipping from "./routes/Shipping"
+import Payment from "./routes/Payment";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
     children: [
       { path: `${path}/checkout/data`, element: <Address /> },
       { path: `${path}/checkout/shipping`, element: <Shipping /> },
+      {path: `${path}/checkout/payment`, element: <Payment />}
     ],
   },
 ]);
