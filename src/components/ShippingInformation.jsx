@@ -21,9 +21,6 @@ export default function ShippingInformation({data}) {
           <li className="user-data">{data.email}</li>
         </ul>
       </main>
-      <Link to={"/store-app/checkout/payment"} className="shipping-button next">
-        Next {"->"}
-      </Link>
     </div>
   );
 }
