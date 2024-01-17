@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import "./styles/Checkout.css";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 import { AddressProvider } from "../context/AddressContext";
 import useCart from "../hooks/useCart";
 
@@ -19,7 +19,17 @@ function CheckoutProduct({ image, title, price, quantity }) {
 }
 
 export default function Checkout() {
+  const location = useLocation();
   const { cart } = useCart();
+
+  const isOnData = /data/.test(location.pathname)
+  const isOnShipping = /shipping/.test(location.pathname)
+  const isOnPayment = /payment/.test(location.pathname)
+
+  const classNames = {
+    data: isOnShipping || isOnPayment ? "checked" : "",
+    shipping: isOnPayment ? "checked" : ""
+  }
 
   let totalPrice = 0;
 
@@ -30,10 +40,32 @@ export default function Checkout() {
   return (
     <AddressProvider>
       <header>
-        <Link to={"/store-app/"}>Go to main page</Link>
-        <Link state={{ cart }} to={"/store-app/checkout/data"}>
-          Go to checkout
+        <Link className="continue-shopping" to={"/store-app/"}>
+          Continue shopping...
         </Link>
+        <div className="link-wrapper">
+          <Link
+            className={`checkout-link ${isOnData ? "highlighted" : ""}`}
+            to={"/store-app/checkout/data"}
+          >
+            <span className={`checkout-check ${classNames.data}`}></span>
+            Information
+          </Link>
+          <Link
+            className={`checkout-link ${isOnShipping ? "highlighted" : ""}`}
+            to={"/store-app/checkout/shipping"}
+          >
+            <span className={`checkout-check ${classNames.shipping}`}></span>
+            Shipping
+          </Link>
+          <Link
+            className={`checkout-link ${isOnPayment ? "highlighted" : ""}`}
+            to={"/store-app/checkout/payment"}
+          >
+            <span className="checkout-check"></span>
+            Payment
+          </Link>
+        </div>
       </header>
       <main className="checkout-container">
         <Outlet />
