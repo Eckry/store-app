@@ -9,6 +9,9 @@ export default function CarouselButtons({ currentPage, setCurrentPage }) {
   const numberOfPages = Math.ceil(
     filteredProducts.length / NUMBER_OF_PRODUCTS_PER_PAGE
   );
+
+  if(currentPage >= numberOfPages) setCurrentPage(numberOfPages - 1);
+  
   if (numberOfPages <= 0) {
     return;
   }
