@@ -22,14 +22,14 @@ export default function Checkout() {
   const location = useLocation();
   const { cart } = useCart();
 
-  const isOnData = /data/.test(location.pathname)
-  const isOnShipping = /shipping/.test(location.pathname)
-  const isOnPayment = /payment/.test(location.pathname)
+  const isOnData = /data/.test(location.pathname);
+  const isOnShipping = /shipping/.test(location.pathname);
+  const isOnPayment = /payment/.test(location.pathname);
 
   const classNames = {
     data: isOnShipping || isOnPayment ? "checked" : "",
-    shipping: isOnPayment ? "checked" : ""
-  }
+    shipping: isOnPayment ? "checked" : "",
+  };
 
   let totalPrice = 0;
 
@@ -52,6 +52,7 @@ export default function Checkout() {
             Information
           </Link>
           <Link
+            style={{ pointerEvents: isOnData ? "none" : "all" }}
             className={`checkout-link ${isOnShipping ? "highlighted" : ""}`}
             to={"/store-app/checkout/shipping"}
           >
@@ -59,6 +60,7 @@ export default function Checkout() {
             Shipping
           </Link>
           <Link
+            style={{ pointerEvents: isOnData ? "none" : "all" }}
             className={`checkout-link ${isOnPayment ? "highlighted" : ""}`}
             to={"/store-app/checkout/payment"}
           >
