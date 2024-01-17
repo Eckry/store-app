@@ -36,9 +36,10 @@ export default function Address() {
   return (
     <form className="address-form" onSubmit={handleSubmit}>
       <div className="address-wrapper">
-        <label htmlFor="" className="form-label">
+        <label htmlFor="firstName" className="form-label">
           First Name
           <input
+            id="firstName"
             required
             className="address-input"
             type="text"
@@ -46,9 +47,10 @@ export default function Address() {
             defaultValue={data.firstName}
           />
         </label>
-        <label htmlFor="" className="form-label">
+        <label htmlFor="lastName" className="form-label">
           Last Name
           <input
+            id="lastName"
             required
             className="address-input"
             type="text"
@@ -57,9 +59,10 @@ export default function Address() {
           />
         </label>
       </div>
-      <label htmlFor="" className="form-label">
+      <label htmlFor="address" className="form-label">
         Address
         <input
+          id="address"
           required
           className="address-input"
           type="text"
@@ -67,9 +70,10 @@ export default function Address() {
           defaultValue={data.address}
         />
       </label>
-      <label htmlFor="" className="form-label">
+      <label htmlFor="zipCode" className="form-label">
         Zip Code
         <input
+          id="zipCode"
           required
           className="address-input"
           type="text"
@@ -78,9 +82,10 @@ export default function Address() {
         />
       </label>
       <div className="address-wrapper">
-        <label htmlFor="" className="form-label">
+        <label htmlFor="city" className="form-label">
           City
           <input
+            id="city"
             required
             className="address-input"
             type="text"
@@ -88,9 +93,10 @@ export default function Address() {
             defaultValue={data.city}
           />
         </label>
-        <label htmlFor="" className="form-label">
+        <label htmlFor="country" className="form-label">
           Country
           <input
+            id="country"
             required
             className="address-input"
             type="text"
@@ -99,9 +105,10 @@ export default function Address() {
           />
         </label>
       </div>
-      <label htmlFor="" className="form-label">
+      <label htmlFor="phone" className="form-label">
         Phone
         <input
+          id="phone"
           required
           className="address-input"
           type="tel"
@@ -109,9 +116,10 @@ export default function Address() {
           defaultValue={data.phone}
         />
       </label>
-      <label htmlFor="" className="form-label">
+      <label htmlFor="email" className="form-label">
         Email
         <input
+          id="email"
           required
           className="address-input"
           type="email"
