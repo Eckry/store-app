@@ -72,10 +72,14 @@ export default function Checkout() {
       <main className="checkout-container">
         <Outlet />
         <section className="checkout-cart">
-          {cart.map((product) => {
-            return <CheckoutProduct key={product.id} {...product} />;
-          })}
-          <p>{totalPrice.toFixed(2)}</p>
+          <div className="checkout-cart-products">
+            {cart.map((product) => {
+              return <CheckoutProduct key={product.id} {...product} />;
+            })}
+          </div>
+          <p className="checkout-total-price">
+            Total price: <span className="checkout-price">${totalPrice.toFixed(2)}</span>
+          </p>
         </section>
       </main>
       <Footer />
