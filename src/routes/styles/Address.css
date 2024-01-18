@@ -1,11 +1,20 @@
 .address-form {
-  width: 1100px;
   display: flex;
   flex-direction: column;
+  border-radius: 0.7rem;
+  gap: 1rem;
+}
+
+.address-container{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 500px;
   background-color: var(--secondary-color);
   padding: 1rem;
   border-radius: 0.7rem;
-  gap: 1rem;
+  border: 2px solid var(--tertiary-color);
+  box-shadow: 0 0 5px 1px black;
 }
 
 .form-label {
@@ -27,9 +36,9 @@
   border: 2px solid var(--primary-color);
   outline: none;
   background-color: var(--primary-color);
-  padding: 1rem 0.5rem;
   font-size: 1rem;
-  border-radius: 8px;
+  border-radius: 7px;
+  padding: 10px 7px;
 }
 
 .address-input:focus {
