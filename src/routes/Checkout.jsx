@@ -58,7 +58,7 @@ export default function Checkout() {
             to={"/store-app/checkout/shipping"}
           >
             <span className={`checkout-check ${classNames.shipping}`}></span>
-            Shipping
+            Confirmation
           </Link>
           <Link
             style={{ pointerEvents: isOnData ? "none" : "all" }}
