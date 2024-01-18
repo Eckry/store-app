@@ -1,18 +1,24 @@
 .continue-shopping {
   display: block;
+  display: flex;
+  align-items: center;
+  gap: 5px;
   text-align: center;
+  width: fit-content;
+  margin: 2rem auto 0 auto;
+  font-size: 1.2rem;
+}
+
+.continue-shopping:hover {
+  color: var(--highlight-color-two);
 }
 
 .link-wrapper {
   position: relative;
-  height: 100px;
   width: fit-content;
-  margin: auto;
-  margin-bottom: 1rem;
-  padding: 1rem 1rem 0 1rem;
+  margin: 2rem auto;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
   gap: 3rem;
 }
 

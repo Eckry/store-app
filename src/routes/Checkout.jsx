@@ -3,6 +3,7 @@ import "./styles/Checkout.css";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { AddressProvider } from "../context/AddressContext";
 import useCart from "../hooks/useCart";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 
 function CheckoutProduct({ image, title, price, quantity }) {
   return (
@@ -41,7 +42,7 @@ export default function Checkout() {
     <AddressProvider>
       <header>
         <Link className="continue-shopping" to={"/store-app/"}>
-          Continue shopping...
+          <FaLongArrowAltLeft /> Continue shopping
         </Link>
         <div className="link-wrapper">
           <Link
