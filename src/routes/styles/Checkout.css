@@ -83,7 +83,7 @@
 }
 
 .checkout-check {
-  border: 2px solid var(--tertiary-color);
+  border: 2px solid var(--highlight-color);
   position: relative;
   width: 20px;
   height: 20px;
@@ -105,12 +105,12 @@
 
 .checked {
   transition: 0.25s ease-in-out;
-  background-color: var(--tertiary-brighty-color);
-  box-shadow: 0 0 15px 1px var(--tertiary-brighty-color);
+  background-color: var(--highlight-color);
+  box-shadow: 0 0 50px 2px var(--highlight-color);
 }
 
 .highlighted {
-  color: var(--tertiary-brighty-color);
+  color: var(--highlight-color);
 }
 
 .checkout-total-price {
