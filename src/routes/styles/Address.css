@@ -22,7 +22,7 @@
   flex-direction: column;
   gap: 5px;
   width: 100%;
-  color: var(--highlight-color-two);
+  color: white;
 }
 
 .address-wrapper {
@@ -69,6 +69,6 @@
 
 .address-title {
   padding: 5px 0;
-  color: var(--highlight-color-two);
+  color: white;
   border-bottom: 3px solid var(--highlight-color-two);
 }
