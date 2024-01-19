@@ -138,7 +138,7 @@ export default function Address() {
           />
         </label>
       </div>
-      <button className="address-button" type="submit">
+      <button className="shipping-button" type="submit">
         Next <FaLongArrowAltRight />
       </button>
     </form>
