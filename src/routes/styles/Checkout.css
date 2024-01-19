@@ -127,3 +127,9 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+@media(max-width:800px){
+  .checkout-cart-products {
+    grid-template-columns: 1fr;
+  }
+}
