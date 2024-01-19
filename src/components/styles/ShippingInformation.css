@@ -2,10 +2,12 @@
   background-color: var(--secondary-color);
   padding: 1rem;
   border-radius: 0.8rem;
-  width: 800px;
+  width: 700px;
   height: fit-content;
   position: relative;
   display: block;
+  box-shadow: 0 0 5px 1px black;
+  border: 2px solid var(--tertiary-color);
 }
 
 .shipping-title {
@@ -40,8 +42,30 @@
   width: fit-content;
   margin-top: 1rem;
 }
+
+.user-data-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem ;
+}
 .user-data {
   font-weight: normal;
   list-style: none;
-  margin-left: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 2px solid var(--tertiary-color);
+  background-color: var(--primary-color);
+}
+
+.user-data:nth-last-of-type(1) {
+  grid-column: 1 / -1;
+}
+
+.user-data-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 200px;
 }
