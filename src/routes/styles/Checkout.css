@@ -121,8 +121,12 @@
   color: var(--highlight-color);
 }
 
-@media (max-width: 1150px){
+@media (max-width: 1150px) {
   .checkout-container {
     flex-direction: column;
+  }
+  .checkout-cart-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }

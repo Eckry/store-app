@@ -10,7 +10,9 @@ function CheckoutProduct({ image, title, price, quantity }) {
     <article className="checkout-product">
       <img className="checkout-image" src={`../${image}`} alt="" />
       <div className="checkout-information">
-        <p title={title} className="checkout-title">{title}</p>
+        <p title={title} className="checkout-title">
+          {title}
+        </p>
         <p className="checkout-price">
           {quantity} x ${price}
         </p>
@@ -37,6 +39,11 @@ export default function Checkout() {
   cart.forEach((product) => {
     totalPrice += product.price * product.quantity;
   });
+
+  const onlyOnProduct = cart.length === 1;
+  const cartProductStyle = onlyOnProduct
+    ? { gap: "0", width: "min-content" }
+    : { gap: "1rem", width: "unset" };
 
   return (
     <AddressProvider>
@@ -73,13 +80,14 @@ export default function Checkout() {
       <main className="checkout-container">
         <Outlet />
         <section className="checkout-cart">
-          <div className="checkout-cart-products">
+          <div className="checkout-cart-products" style={cartProductStyle}>
             {cart.map((product) => {
               return <CheckoutProduct key={product.id} {...product} />;
             })}
           </div>
           <p>
-            Total price: <span className="checkout-price">${totalPrice.toFixed(2)}</span>
+            Total price:{" "}
+            <span className="checkout-price">${totalPrice.toFixed(2)}</span>
           </p>
         </section>
       </main>
