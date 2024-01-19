@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useAddress from "../hooks/useAddress";
+import { FaLongArrowAltRight } from "react-icons/fa";
 import "./styles/Address.css";
 
 export default function Address() {
@@ -138,7 +139,7 @@ export default function Address() {
         </label>
       </div>
       <button className="address-button" type="submit">
-        Next {"->"}
+        Next <FaLongArrowAltRight />
       </button>
     </form>
   );

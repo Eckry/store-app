@@ -47,8 +47,9 @@
 
 .address-button {
   font-family: "Bitter", serif;
+  font-size: 1rem;
   background-color: var(--tertiary-color);
-  padding: 1rem;
+  padding: 0.7rem;
   border-radius: 5px;
   color: white;
   font-weight: bold;
@@ -56,6 +57,10 @@
   border: none;
   outline: none;
   margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .address-button:hover {
