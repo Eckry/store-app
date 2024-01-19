@@ -88,3 +88,9 @@
   color: var(--highlight-color-two);
 }
 
+@media (max-width: 1150px) {
+  .shipping-container {
+    width: 90%;
+    max-width: 700px;
+  }
+}
