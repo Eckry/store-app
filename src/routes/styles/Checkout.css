@@ -23,9 +23,6 @@
 }
 
 .checkout-container {
-  margin: auto;
-  width: 90%;
-  max-width: 1000px;
   display: flex;
   justify-content: center;
   gap: 1rem;
