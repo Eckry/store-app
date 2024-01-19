@@ -78,7 +78,7 @@ export default function Checkout() {
               return <CheckoutProduct key={product.id} {...product} />;
             })}
           </div>
-          <p className="checkout-total-price">
+          <p>
             Total price: <span className="checkout-price">${totalPrice.toFixed(2)}</span>
           </p>
         </section>
