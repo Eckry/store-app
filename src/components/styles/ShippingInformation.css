@@ -68,4 +68,5 @@
   overflow: hidden;
   white-space: nowrap;
   max-width: 200px;
+  color: var(--highlight-color-two);
 }
