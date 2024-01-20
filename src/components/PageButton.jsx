@@ -1,35 +1,33 @@
 import "./styles/PageButton.css";
 import useFilters from "../hooks/useFilters";
 import { NUMBER_OF_PRODUCTS_PER_PAGE } from "../constants.json";
+import { useSearchParams } from "react-router-dom";
 
-export default function PageButton({
-  currentPage,
-  setCurrentPage,
-  children,
-  value,
-}) {
+export default function PageButton({ children, value }) {
+  const [searchParams, setSearchParams] = useSearchParams();
   const { filteredProducts } = useFilters();
+  const page = Number(searchParams.get("page")) - 1;
   function handleClick(e) {
+    const newPage = Number(e.target.value);
     const numberOfPages = Math.ceil(
       filteredProducts.length / NUMBER_OF_PRODUCTS_PER_PAGE
     );
-    const newPage = parseInt(e.target.value);
     if (value === "prev") {
-      if (currentPage <= 0) return;
-      return setCurrentPage(currentPage - 1);
+      if (page <= 0) return;
+      return setSearchParams({ page: page });
     }
     if (value === "next") {
-      if (currentPage >= numberOfPages - 1) return;
-      return setCurrentPage(currentPage + 1);
+      if (page >= numberOfPages - 1) return;
+      return setSearchParams({ page: page + 2 });
     }
-    setCurrentPage(newPage);
+    setSearchParams({ page: newPage + 1 });
   }
 
   return (
     <button
       value={value}
       onClick={handleClick}
-      className={currentPage === value ? "page-button-selected" : "page-button"}
+      className={page === value ? "page-button-selected" : "page-button"}
     >
       {children}
     </button>
