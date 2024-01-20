@@ -174,7 +174,7 @@
   border: 2px solid var(--highlight-darker-color-two);
   color: var(--highlight-darker-color-two);
   box-shadow: none;
-  cursor: auto;
+  pointer-events: none;
 }
 
 .io-icon {

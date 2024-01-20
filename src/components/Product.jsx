@@ -1,12 +1,10 @@
 import "./styles/Product.css";
 import useCart from "../hooks/useCart";
+import { Link } from "react-router-dom";
 
-export default function Product({
-  product,
-  setCurrentPreview,
-}) {
-  const {addProduct} = useCart();
-  
+export default function Product({ product, setCurrentPreview }) {
+  const { addProduct } = useCart();
+
   function handleOnClickToViewProduct() {
     setCurrentPreview(product.id);
   }
@@ -21,17 +19,15 @@ export default function Product({
       <div className="product-information">
         <div className="price-and-name-container">
           <p className="product-price">{product.price}$</p>
-          <p className="product-name">
-            {product.title}
-          </p>
+          <p className="product-name">{product.title}</p>
         </div>
         <div className="buttons-container">
-          <button
+          <Link
+            to={`/store-app/preview/${product.id}`}
             className="preview-button"
-            onClick={handleOnClickToViewProduct}
           >
             See preview
-          </button>
+          </Link>
           <button className="add-button" onClick={handleOnClickToBuyProduct}>
             Add to cart
           </button>

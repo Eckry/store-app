@@ -3,31 +3,16 @@ import Stars from "./Stars";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import useCart from "../hooks/useCart";
+import { Link } from "react-router-dom";
 
-export default function Preview({
-  preview,
-  setCurrentPreview,
-}) {
+export default function Preview({ preview }) {
+  const { addProduct } = useCart();
 
-  const {addProduct} = useCart();
+  function handleAddProductToShoppingCart() {
+    addProduct(preview);
+  }
 
   const { prev, next, product } = preview;
-  function handleAddProductToShoppingCart() {
-    addProduct(product);
-  }
-
-  function handleGoPrevPreview() {
-    setCurrentPreview(prev);
-  }
-
-  function handleGoNextPreview() {
-    setCurrentPreview(next);
-  }
-
-  function handleSetCurrentPreview() {
-    setCurrentPreview(null);
-  }
-
 
   return (
     <>
@@ -35,7 +20,7 @@ export default function Preview({
         <div className="image-and-description-container">
           <img
             className="preview-image"
-            src={product.image}
+            src={`../${product.image}`}
             alt="product image"
           />
           <div className="description-container">
@@ -58,25 +43,23 @@ export default function Preview({
         >
           Add to cart
         </button>
-        <button className="return-button" onClick={handleSetCurrentPreview}>
+        <Link to={"/store-app/"} className="return-button">
           <IoReturnUpBackOutline className="io-icon" />
-        </button>
+        </Link>
       </div>
       <div className="nav-buttons-container">
-        <button
-          className={prev <= -1 ? "disabled" : "nav-button"}
-          disabled={prev <= -1}
-          onClick={handleGoPrevPreview}
+        <Link
+          to={`/store-app/preview/${prev?.id}`}
+          className={prev ? "nav-button" : "disabled"}
         >
           <FaLongArrowAltLeft />
-        </button>
-        <button
-          className={next <= -1 ? "disabled" : "nav-button"}
-          disabled={next <= -1}
-          onClick={handleGoNextPreview}
+        </Link>
+        <Link
+          to={`/store-app/preview/${next?.id}`}
+          className={next ? "nav-button" : "disabled"}
         >
           <FaLongArrowAltRight />
-        </button>
+        </Link>
       </div>
     </>
   );
