@@ -8,7 +8,7 @@ import useCart from "../hooks/useCart";
 import { Link } from "react-router-dom";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
 
-export default function Cart({ interchangeShowCart }) {
+export default function Cart() {
   const {
     cart,
     addProduct,
@@ -34,17 +34,13 @@ export default function Cart({ interchangeShowCart }) {
     deleteProduct(productSelected);
   }
 
-  function handleInterchangeShowCart() {
-    interchangeShowCart();
-  }
-
   if (!cart.length)
     return (
       <>
         <Link to="/store-app/" className="close-button">
           <MdClose />
         </Link>
-        <div className="fixed empty">
+        <div className="empty">
           <MdOutlineRemoveShoppingCart />
           <h1 className="empty-title">Your cart is empty!</h1>
         </div>
@@ -56,79 +52,73 @@ export default function Cart({ interchangeShowCart }) {
       <Link to="/store-app/" className="close-button">
         <MdClose />
       </Link>
-      <div className="fixed">
-        <div className="cart-container">
-          <div className="product-selected-container">
-            <div className="image-and-buttons-container">
-              <img
-                draggable="false"
-                className="product-selected-image"
-                src={productSelected.image}
-                alt={productSelected.title}
+      <div className="cart-container">
+        <div className="product-selected-container">
+            <img
+              draggable="false"
+              className="product-selected-image"
+              src={productSelected.image}
+              alt={productSelected.title}
+            />
+          <div className="product-selected-information">
+            <h1 className="product-selected-title">{productSelected.title}</h1>
+            <div>
+              <h4 className="cart-description-title">Description</h4>
+              <p className="product-selected-description">
+                {productSelected.description}
+              </p>
+              <p className="category">{productSelected.category}</p>
+            </div>
+            <div className="cart-rating">
+              <p className="cart-price">{productSelected.price}$</p>
+              <Stars
+                stars={productSelected.rating.rate}
+                count={productSelected.rating.count}
               />
             </div>
-            <div className="product-selected-information">
-              <h1 className="product-selected-title">
-                {productSelected.title}
-              </h1>
-              <div>
-                <h4 className="cart-description-title">Description</h4>
-                <p className="product-selected-description">
-                  {productSelected.description}
-                </p>
-                <p className="category">{productSelected.category}</p>
-              </div>
-              <div className="cart-rating">
-                <p className="cart-price">{productSelected.price}$</p>
-                <Stars
-                  stars={productSelected.rating.rate}
-                  count={productSelected.rating.count}
-                />
-              </div>
+          </div>
+        </div>
+        <div className="buttons">
+          <div className="cart-buttons">
+            <div className="cart-buttons-container">
+              <button onClick={handleRemove} className="sell-button">
+                <FaChevronLeft />
+              </button>
+              <p className="total">{productSelected.quantity}</p>
+              <button onClick={handleBuyProduct} className="buy-button">
+                <FaChevronRight />
+              </button>
+            </div>
+            <div className="buy-and-trash-buttons">
+              <Link
+                to="/store-app/checkout/data"
+                className="buy-product-anchor"
+              >
+                <BiPurchaseTag />
+              </Link>
+              <button className="trash-button" onClick={handleDelete}>
+                <FaRegTrashAlt />
+              </button>
             </div>
           </div>
-          <div className="buttons">
-            <div className="cart-buttons">
-              <div className="cart-buttons-container">
-                <button onClick={handleRemove} className="sell-button">
-                  <FaChevronLeft />
-                </button>
-                <p className="total">{productSelected.quantity}</p>
-                <button onClick={handleBuyProduct} className="buy-button">
-                  <FaChevronRight />
-                </button>
-              </div>
-              <div className="buy-and-trash-buttons">
-                <Link
-                  to="/store-app/checkout/data"
-                  className="buy-product-anchor"
-                >
-                  <BiPurchaseTag />
-                </Link>
-                <button className="trash-button" onClick={handleDelete}>
-                  <FaRegTrashAlt />
-                </button>
-              </div>
-            </div>
-            <Link to="/store-app/checkout/data" className="buy-everything">
-              <LiaCartArrowDownSolid />
-            </Link>
-          </div>
-          <div className="other-products">
-            {cart.map((product) => {
-              return (
-                <img
-                  draggable="false"
-                  id={product.id}
-                  onClick={() => handleChangeProductSelectedInCart(product)}
-                  src={product.image}
-                  className="other-products-image"
-                  key={product.id}
-                  alt={product.title}
-                />
-              );
-            })}
-          </div>
+          <Link to="/store-app/checkout/data" className="buy-everything">
+            <LiaCartArrowDownSolid />
+          </Link>
+        </div>
+        <div className="other-products">
+          {cart.map((product) => {
+            return (
+              <img
+                draggable="false"
+                id={product.id}
+                onClick={() => handleChangeProductSelectedInCart(product)}
+                src={product.image}
+                className="other-products-image"
+                key={product.id}
+                alt={product.title}
+              />
+            );
+          })}
         </div>
       </div>
     </>
