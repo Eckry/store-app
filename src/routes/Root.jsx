@@ -3,14 +3,12 @@ import { NUMBER_OF_PRODUCTS_PER_PAGE } from "../constants.json";
 import { FaRegFaceSadCry } from "react-icons/fa6";
 import Product from "../components/Product";
 import useStore from "../hooks/useStore";
-import Preview from "../components/Preview";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CarouselButtons from "../components/CarouselButtons";
 import useFilters from "../hooks/useFilters";
-import usePreview from "../hooks/usePreview";
 
-function MainContent({ currentPage, setCurrentPreview }) {
+function MainContent({ currentPage }) {
   const { filteredProducts } = useFilters();
 
   if (!filteredProducts.length) {
@@ -30,11 +28,7 @@ function MainContent({ currentPage, setCurrentPreview }) {
           NUMBER_OF_PRODUCTS_PER_PAGE * (currentPage + 1)
         )
         .map((product) => (
-          <Product
-            key={product.id}
-            product={product}
-            setCurrentPreview={setCurrentPreview}
-          />
+          <Product key={product.id} product={product} />
         ))}
     </main>
   );
@@ -43,27 +37,14 @@ function MainContent({ currentPage, setCurrentPreview }) {
 export default function Root() {
   const { currentPage, setCurrentPage } = useStore();
 
-  const { filteredProducts } = useFilters();
-  const { preview, setCurrentPreview } = usePreview(filteredProducts);
-
-  const isPreviewClosed = preview.product === undefined;
   return (
     <>
       <Header />
-      {isPreviewClosed ? (
-        <MainContent
-          currentPage={currentPage}
-          setCurrentPreview={setCurrentPreview}
-        />
-      ) : (
-        <Preview preview={preview} setCurrentPreview={setCurrentPreview} />
-      )}
-      {isPreviewClosed && (
-        <CarouselButtons
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
-      )}
+      <MainContent currentPage={currentPage} />
+      <CarouselButtons
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
       <Footer />
     </>
   );

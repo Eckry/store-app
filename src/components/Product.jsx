@@ -2,12 +2,8 @@ import "./styles/Product.css";
 import useCart from "../hooks/useCart";
 import { Link } from "react-router-dom";
 
-export default function Product({ product, setCurrentPreview }) {
+export default function Product({ product }) {
   const { addProduct } = useCart();
-
-  function handleOnClickToViewProduct() {
-    setCurrentPreview(product.id);
-  }
 
   function handleOnClickToBuyProduct() {
     addProduct(product);
