@@ -46,6 +46,7 @@
   align-items: center;
   border-bottom: 3px solid var(--highlight-color-two);
   padding: 5px 0;
+  gap: 1rem;
 }
 
 .edit {
@@ -92,5 +93,15 @@
   .shipping-container {
     width: 90%;
     max-width: 700px;
+  }
+}
+
+@media (max-width: 800px){
+  .user-data-container {
+    grid-template-columns: 1fr;
+  }
+
+  .user-data-title {
+    max-width: 170px;
   }
 }
