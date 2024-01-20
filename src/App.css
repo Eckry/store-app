@@ -22,10 +22,12 @@
 }
 
 body {
+  position: relative;
   background-color: var(--primary-color);
   font-family: "Bitter", serif;
   color: white;
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 150px;
 }
 
 a {
@@ -54,7 +56,7 @@ a {
 }
 
 .carousel-buttons {
-  margin: 0.7rem 0;
+  margin: 0.7rem 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
