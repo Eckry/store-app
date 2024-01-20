@@ -3,7 +3,6 @@
 }
 
 .continue-shopping {
-  display: block;
   display: flex;
   align-items: center;
   gap: 5px;
