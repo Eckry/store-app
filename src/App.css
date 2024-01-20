@@ -91,6 +91,12 @@ a {
   }
 }
 
+@media(max-width: 600px){
+  body {
+    padding-bottom: 239px;
+  }
+}
+
 @media(max-width: 700px){
   .container {
     grid-template-columns: 1fr;
