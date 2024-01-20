@@ -35,6 +35,8 @@ export default function Cart() {
     deleteProduct(productSelected);
   }
 
+  const onlyOnProduct = cart.length === 1;
+
   if (!cart.length)
     return (
       <div className="cart-container-empty">
@@ -98,19 +100,23 @@ export default function Cart() {
         </Link>
       </div>
       <div className="other-products">
-        {cart.map((product) => {
-          return (
-            <img
-              draggable="false"
-              id={product.id}
-              onClick={() => handleChangeProductSelectedInCart(product)}
-              src={product.image}
-              className="other-products-image"
-              key={product.id}
-              alt={product.title}
-            />
-          );
-        })}
+        {onlyOnProduct ? (
+          <span className="cart-placeholder">If you buy other products, they will be shown here</span>
+        ) : (
+          cart.map((product) => {
+            return (
+              <img
+                draggable="false"
+                id={product.id}
+                onClick={() => handleChangeProductSelectedInCart(product)}
+                src={product.image}
+                className="other-products-image"
+                key={product.id}
+                alt={product.title}
+              />
+            );
+          })
+        )}
       </div>
       <Link to="/store-app/" className="continue-shopping margin-top">
         <IoReturnUpBackOutline /> Continue shopping
