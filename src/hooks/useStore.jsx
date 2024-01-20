@@ -3,7 +3,6 @@ import { actionTypes } from "../constants.json";
 
 const initialState = {
   currentPage: 0,
-  showCart: false,
 };
 
 function reducer(state, action) {
@@ -18,21 +17,13 @@ function reducer(state, action) {
       };
     }
 
-    case actionTypes.INTERCHANGE_SHOW_CART: {
-      return {
-        ...state,
-        notification: false,
-        showCart: !state.showCart,
-      };
-    }
-
     default:
       return state;
   }
 }
 
 export default function useStore() {
-  const [{ currentPage, showCart }, dispatch] = useReducer(
+  const [{ currentPage }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -41,14 +32,8 @@ export default function useStore() {
     dispatch({ type: "SET_PAGE_NUMBER", payload });
   };
 
-  const interchangeShowCart = () => {
-    dispatch({ type: "INTERCHANGE_SHOW_CART" });
-  };
-
   return {
     currentPage,
-    showCart,
-    interchangeShowCart,
     setCurrentPage,
   };
 }

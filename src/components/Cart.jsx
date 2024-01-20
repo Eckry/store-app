@@ -101,9 +101,12 @@ export default function Cart() {
       </div>
       <div className="other-products">
         {onlyOnProduct ? (
-          <span className="cart-placeholder">If you buy other products, they will be shown here</span>
+          <span className="cart-placeholder">
+            If you buy other products, they will be shown here
+          </span>
         ) : (
           cart.map((product) => {
+            if (product.id === productSelected.id) return;
             return (
               <img
                 draggable="false"

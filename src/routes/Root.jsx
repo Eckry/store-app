@@ -5,7 +5,6 @@ import Product from "../components/Product";
 import useStore from "../hooks/useStore";
 import Preview from "../components/Preview";
 import Header from "../components/Header";
-import Cart from "../components/Cart";
 import Footer from "../components/Footer";
 import CarouselButtons from "../components/CarouselButtons";
 import useFilters from "../hooks/useFilters";
@@ -42,8 +41,7 @@ function MainContent({ currentPage, setCurrentPreview }) {
 }
 
 export default function Root() {
-  const { currentPage, showCart, interchangeShowCart, setCurrentPage } =
-    useStore();
+  const { currentPage, setCurrentPage } = useStore();
 
   const { filteredProducts } = useFilters();
   const { preview, setCurrentPreview } = usePreview(filteredProducts);
@@ -51,7 +49,7 @@ export default function Root() {
   const isPreviewClosed = preview.product === undefined;
   return (
     <>
-      <Header interchangeShowCart={interchangeShowCart} showCart={showCart} />
+      <Header />
       {isPreviewClosed ? (
         <MainContent
           currentPage={currentPage}
