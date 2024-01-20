@@ -86,7 +86,7 @@ export default function Checkout() {
             })}
           </div>
           <p>
-            Total price:{" "}
+            Total:{" "}
             <span className="checkout-price">${totalPrice.toFixed(2)}</span>
           </p>
         </section>
