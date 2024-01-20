@@ -47,7 +47,7 @@ export default function Checkout() {
 
   return (
     <AddressProvider>
-      <header>
+      <header className="checkout-header">
         <Link className="continue-shopping" to={"/store-app/"}>
           <FaLongArrowAltLeft /> Continue shopping
         </Link>
