@@ -7,7 +7,7 @@ export default function ShippingInformation({ data }) {
     <main className="shipping-container">
       <header className="shipping-header">
         <h2 className="shipping-title">
-          Check if your information is correct please.
+          Check if your information is correct please
         </h2>
         <Link to={"/store-app/checkout/data"} className="edit">
           Edit <FaEdit />
