@@ -1,7 +1,6 @@
 .cart-container {
-
   border-radius: 1.5rem;
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
   height: auto;
   width: 95%;
   margin: 1rem auto;
@@ -176,6 +175,22 @@
   border-radius: 1.5rem;
 }
 
+.continue-shopping-empty {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+  width: fit-content;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  transition: 0.25s ease-in-out;
+}
+
+.continue-shopping-empty:hover {
+  color: var(--highlight-color-two);
+  transform: scale(1.1);
+}
+
 .empty-title {
   text-align: center;
   font-size: 5rem;
@@ -183,10 +198,6 @@
 }
 
 .close-button {
-  position: fixed;
-  top: 1%;
-  right: 1.5%;
-  z-index: 100;
   border: none;
   height: 40px;
   width: 40px;
@@ -226,6 +237,10 @@
   border: none;
   cursor: pointer;
   text-decoration: none;
+}
+
+.margin-top {
+  margin-top: 2rem !important;
 }
 
 @media (max-width: 1200px) {
