@@ -8,12 +8,14 @@ import Checkout from "./routes/Checkout";
 import Address from "./routes/Address";
 import Shipping from "./routes/Shipping"
 import Payment from "./routes/Payment";
+import ShoppingCart from "./routes/ShoppingCart";
 
 const router = createBrowserRouter([
   {
     path: `${path}`,
     element: <Root />,
   },
+  {path: `${path}/cart`, element: <ShoppingCart />},
   {
     path: `${path}/about`,
     element: <About />,

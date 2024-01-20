@@ -41,9 +41,9 @@ export default function Cart({ interchangeShowCart }) {
   if (!cart.length)
     return (
       <>
-        <button className="close-button" onClick={handleInterchangeShowCart}>
+        <Link to="/store-app/" className="close-button">
           <MdClose />
-        </button>
+        </Link>
         <div className="fixed empty">
           <MdOutlineRemoveShoppingCart />
           <h1 className="empty-title">Your cart is empty!</h1>
@@ -53,9 +53,9 @@ export default function Cart({ interchangeShowCart }) {
 
   return (
     <>
-      <button className="close-button" onClick={handleInterchangeShowCart}>
+      <Link to="/store-app/" className="close-button">
         <MdClose />
-      </button>
+      </Link>
       <div className="fixed">
         <div className="cart-container">
           <div className="product-selected-container">
@@ -99,7 +99,10 @@ export default function Cart({ interchangeShowCart }) {
                 </button>
               </div>
               <div className="buy-and-trash-buttons">
-                <Link to="/store-app/checkout/data" className="buy-product-anchor">
+                <Link
+                  to="/store-app/checkout/data"
+                  className="buy-product-anchor"
+                >
                   <BiPurchaseTag />
                 </Link>
                 <button className="trash-button" onClick={handleDelete}>

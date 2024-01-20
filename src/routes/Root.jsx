@@ -66,7 +66,6 @@ export default function Root() {
           setCurrentPage={setCurrentPage}
         />
       )}
-      {showCart && <Cart interchangeShowCart={interchangeShowCart} />}
       <Footer />
     </>
   );

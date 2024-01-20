@@ -3,6 +3,7 @@ import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import Filters from "./Filters";
 import useFilters from "../hooks/useFilters";
 import useCart from "../hooks/useCart";
+import { Link } from "react-router-dom";
 
 export default function Header({ interchangeShowCart, showCart }) {
   const { setQuery } = useFilters();
@@ -21,16 +22,12 @@ export default function Header({ interchangeShowCart, showCart }) {
 
   return (
     <header className="header">
-      <button
-        disabled={showCart}
-        className="shopping-cart-container"
-        onClick={handleOnClick}
-      >
+      <Link to="/store-app/cart" className="shopping-cart-container">
         <FaShoppingCart />
         <span style={style} className="number-of-products-container">
           !
         </span>
-      </button>
+      </Link>
       <form className="filters-form" onSubmit={handleSubmit} action="submit">
         <input
           placeholder="Filter products..."
