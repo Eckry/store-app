@@ -165,15 +165,13 @@
   cursor: pointer;
 }
 
-.empty {
+.cart-container-empty {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 90dvh;
   flex-direction: column;
-  box-shadow: 0 0 15px 1px black;
-  background-color: var(--secondary-color);
-  border: 2px solid var(--tertiary-color);
-  color: var(--primary-color);
+  color: var(--tertiary-color);
   font-size: 15rem;
   border-radius: 1.5rem;
 }

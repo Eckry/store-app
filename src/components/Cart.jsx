@@ -40,7 +40,7 @@ export default function Cart() {
         <Link to="/store-app/" className="close-button">
           <MdClose />
         </Link>
-        <div className="empty">
+        <div className="cart-container-empty">
           <MdOutlineRemoveShoppingCart />
           <h1 className="empty-title">Your cart is empty!</h1>
         </div>
