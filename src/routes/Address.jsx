@@ -36,7 +36,7 @@ export default function Address() {
   return (
     <form className="address-form" onSubmit={handleSubmit}>
       <div className="address-container">
-        <h3 className="address-title">Address information</h3>
+        <h2 className="address-title">Address information</h2>
         <div className="address-wrapper">
           <label htmlFor="firstName" className="form-label">
             First Name
