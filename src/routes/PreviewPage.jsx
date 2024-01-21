@@ -47,7 +47,7 @@ export default function PreviewPage() {
           </div>
         </div>
         <div className="rating-container">
-          <h1 className="product-price">{product.price}$</h1>
+          <h1 className="product-price">${product.price}</h1>
           <Stars stars={product.rating.rate} count={product.rating.count} />
         </div>
 
