@@ -68,6 +68,28 @@
   height: 80px;
 }
 
+.checkout-products-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.checkout-product-trash,
+.checkout-product-link {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: red;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.checkout-product-link{
+  color: var(--highlight-color-two);
+}
+
 .checkout-image {
   width: 40px;
   object-fit: contain;

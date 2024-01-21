@@ -2,11 +2,20 @@ import "./styles/Checkout.css";
 import Footer from "../components/Footer";
 import Warning from "../components/Warning";
 import { Outlet, Link, useLocation } from "react-router-dom";
+import { FaRegTrashAlt } from "react-icons/fa";
 import { AddressProvider } from "../context/AddressContext";
 import useCart from "../hooks/useCart";
 import { IoReturnUpBackOutline } from "react-icons/io5";
+import { FaLink } from "react-icons/fa";
 
-function CheckoutProduct({ image, title, price, quantity }) {
+function CheckoutProduct({ product }) {
+  const { image, title, price, quantity } = product;
+  const { deleteProduct } = useCart();
+
+  function handleOnClick() {
+    deleteProduct(product);
+  }
+
   return (
     <article className="checkout-product">
       <img className="checkout-image" src={`../${image}`} alt="" />
@@ -17,6 +26,14 @@ function CheckoutProduct({ image, title, price, quantity }) {
         <p className="checkout-price">
           {quantity} x ${price}
         </p>
+      </div>
+      <div className="checkout-products-container">
+        <button onClick={handleOnClick} className="checkout-product-trash">
+          <FaRegTrashAlt />
+        </button>
+        <a className="checkout-product-link" href="">
+          <FaLink />
+        </a>
       </div>
     </article>
   );
@@ -84,7 +101,7 @@ export default function Checkout() {
         <section className="checkout-cart">
           <div className="checkout-cart-products" style={cartProductStyle}>
             {cart.map((product) => {
-              return <CheckoutProduct key={product.id} {...product} />;
+              return <CheckoutProduct key={product.id} product={product} />;
             })}
           </div>
           <p>
