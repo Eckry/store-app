@@ -54,10 +54,11 @@
   justify-content: space-around;
   align-items: center;
   height: 100%;
-  gap: 1rem ;
+  gap: 1rem;
 }
 
-.add-button, .preview-button {
+.product-button {
+  font-family: "Bitter", serif;
   color: white;
   background-color: var(--tertiary-color);
   font-weight: bold;
@@ -67,14 +68,23 @@
   cursor: pointer;
   outline: none;
   border: none;
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
   width: 100%;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.add-button:hover, .preview-button:hover {
+.product-button:hover{
   background-color: var(--tertiary-brighty-color);
   transform: scale(1.05);
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
+}
+
+.product-button:active{
+  transform: scale(0.95);
+  transition: 0.1s ease-in-out;
 }
 
 @media (max-width: 1320px) {

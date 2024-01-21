@@ -20,11 +20,11 @@ export default function Product({ product }) {
         <div className="buttons-container">
           <Link
             to={`/store-app/preview/${product.id}`}
-            className="preview-button"
+            className="product-button"
           >
             See preview
           </Link>
-          <button className="add-button" onClick={handleOnClickToBuyProduct}>
+          <button className="product-button" onClick={handleOnClickToBuyProduct}>
             Add to cart
           </button>
         </div>
