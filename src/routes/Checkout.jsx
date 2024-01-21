@@ -63,7 +63,7 @@ export default function Checkout() {
 
   const onlyOnProduct = cart.length === 1;
   const cartProductStyle = onlyOnProduct
-    ? { gap: "0", width: "min-content" }
+    ? { gap: "0", width: "405px", gridTemplateColumns: "1fr" }
     : { gap: "1rem", width: "unset" };
 
   return (

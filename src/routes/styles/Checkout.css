@@ -155,7 +155,7 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
   .checkout-cart-products {
     grid-template-columns: 1fr;
   }
