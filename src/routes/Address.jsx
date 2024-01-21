@@ -139,7 +139,10 @@ export default function Address() {
         </label>
       </div>
       <button className="shipping-button" type="submit">
-        Next <FaLongArrowAltRight />
+        Next
+        <span className="move-arrow">
+          <FaLongArrowAltRight />
+        </span>
       </button>
     </form>
   );

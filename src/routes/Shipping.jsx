@@ -9,7 +9,10 @@ export default function Shipping() {
     <div className="confirmation-container">
       <ShippingInformation data={data} />
       <Link to={"/store-app/checkout/payment"} className="shipping-button">
-        Next <FaLongArrowAltRight />
+        Next{" "}
+        <span className="move-arrow">
+          <FaLongArrowAltRight />
+        </span>
       </Link>
     </div>
   );

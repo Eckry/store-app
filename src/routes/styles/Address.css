@@ -74,6 +74,16 @@
   border-bottom: 3px solid var(--highlight-color-two);
 }
 
+.move-arrow {
+  display: grid;
+  place-content: center;
+  transition: 0.3s ease-in-out;
+}
+
+.shipping-button:hover > .move-arrow {
+  transform: translateX(3px);
+}
+
 @media (max-width: 740px) {
   .address-container {
     width: 90%;
