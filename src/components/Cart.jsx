@@ -1,5 +1,5 @@
 import "./styles/Cart.css";
-import { MdClose, MdOutlineRemoveShoppingCart } from "react-icons/md";
+import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Stars from "./Stars";
@@ -7,7 +7,6 @@ import { BiPurchaseTag } from "react-icons/bi";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import useCart from "../hooks/useCart";
 import { Link } from "react-router-dom";
-import { LiaCartArrowDownSolid } from "react-icons/lia";
 import { useEffect } from "react";
 
 export default function Cart() {
@@ -23,7 +22,7 @@ export default function Cart() {
 
   useEffect(() => {
     setNotification(false);
-  },[])
+  }, []);
 
   function handleChangeProductSelectedInCart(product) {
     setProductSelected(product);
@@ -81,29 +80,24 @@ export default function Cart() {
           </div>
         </div>
       </div>
-      <div className="buttons">
-        <div className="cart-buttons">
-          <div className="cart-buttons-container">
-            <button onClick={handleRemove} className="sell-button">
-              <FaChevronLeft />
-            </button>
-            <p className="total">{productSelected.quantity}</p>
-            <button onClick={handleBuyProduct} className="buy-button">
-              <FaChevronRight />
-            </button>
-          </div>
-          <div className="buy-and-trash-buttons">
-            <Link to="/store-app/checkout/data" className="buy-product-anchor">
-              <BiPurchaseTag />
-            </Link>
-            <button className="trash-button" onClick={handleDelete}>
-              <FaRegTrashAlt />
-            </button>
-          </div>
+      <div className="cart-buttons">
+        <div className="cart-buttons-container">
+          <button onClick={handleRemove} className="sell-button">
+            <FaChevronLeft />
+          </button>
+          <p className="total">{productSelected.quantity}</p>
+          <button onClick={handleBuyProduct} className="buy-button">
+            <FaChevronRight />
+          </button>
         </div>
-        <Link to="/store-app/checkout/data" className="buy-everything">
-          <LiaCartArrowDownSolid />
-        </Link>
+        <div className="buy-and-trash-buttons">
+          <Link to="/store-app/checkout/data" className="buy-product-anchor">
+            <BiPurchaseTag />
+          </Link>
+          <button className="trash-button" onClick={handleDelete}>
+            <FaRegTrashAlt />
+          </button>
+        </div>
       </div>
       <div className="other-products">
         {onlyOnProduct ? (
