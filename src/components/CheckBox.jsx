@@ -1,5 +1,4 @@
 import "./styles/CheckBox.css";
-import useFilters from "../hooks/useFilters";
 
 export default function CheckBox({
   category,
