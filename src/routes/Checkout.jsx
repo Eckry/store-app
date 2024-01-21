@@ -7,6 +7,7 @@ import { AddressProvider } from "../context/AddressContext";
 import useCart from "../hooks/useCart";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import { FaLink } from "react-icons/fa";
+import { useEffect } from "react";
 
 function CheckoutProduct({ product }) {
   const { image, title, price, quantity } = product;
@@ -44,8 +45,10 @@ export default function Checkout() {
   const { cart } = useCart();
   const navigate = useNavigate();
 
-  if (!cart.length) navigate("/store-app/cart")
-    
+  useEffect(() => {
+    if (!cart.length) navigate("/store-app/cart");
+  }, []);
+
   const isOnData = /data/.test(location.pathname);
   const isOnShipping = /shipping/.test(location.pathname);
   const isOnPayment = /payment/.test(location.pathname);
@@ -70,7 +73,7 @@ export default function Checkout() {
     <AddressProvider>
       <header className="checkout-header">
         <Link className="continue-shopping" to={"/store-app/"}>
-          <IoReturnUpBackOutline className="io-icon"/> Continue shopping
+          <IoReturnUpBackOutline className="io-icon" /> Continue shopping
         </Link>
         <div className="link-wrapper">
           <Link
