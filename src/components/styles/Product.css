@@ -62,7 +62,7 @@
   color: white;
   background-color: var(--tertiary-color);
   font-weight: bold;
-  border-radius: 1rem;
+  border-radius: 7px;
   padding: 5px 10px;
   height: 100%;
   cursor: pointer;
