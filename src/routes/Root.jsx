@@ -2,7 +2,6 @@ import "../App.css";
 import { NUMBER_OF_PRODUCTS_PER_PAGE } from "../constants.json";
 import { FaRegFaceSadCry } from "react-icons/fa6";
 import Product from "../components/Product";
-import useStore from "../hooks/useStore";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CarouselButtons from "../components/CarouselButtons";
@@ -40,7 +39,6 @@ function MainContent() {
 }
 
 export default function Root() {
-  const { currentPage, setCurrentPage } = useStore();
   const [searchParams, setSearchParams] = useSearchParams();
   useEffect(() => {
     if (!searchParams.get("page")) setSearchParams({ page: 1 });
@@ -49,10 +47,7 @@ export default function Root() {
     <>
       <Header />
       <MainContent />
-      <CarouselButtons
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
+      <CarouselButtons />
       <Footer />
     </>
   );
