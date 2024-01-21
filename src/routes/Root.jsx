@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CarouselButtons from "../components/CarouselButtons";
 import useFilters from "../hooks/useFilters";
+import useCart from "../hooks/useCart";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -40,9 +41,11 @@ function MainContent() {
 
 export default function Root() {
   const [searchParams, setSearchParams] = useSearchParams();
+
   useEffect(() => {
     if (!searchParams.get("page")) setSearchParams({ page: 1 });
-  });
+  }, []);
+
   return (
     <>
       <Header />

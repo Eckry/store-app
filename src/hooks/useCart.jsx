@@ -62,5 +62,6 @@ export default function useCart() {
     deleteProduct,
     removeProduct,
     addProduct,
+    setNotification,
   };
 }

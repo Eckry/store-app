@@ -8,6 +8,7 @@ import { IoReturnUpBackOutline } from "react-icons/io5";
 import useCart from "../hooks/useCart";
 import { Link } from "react-router-dom";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
+import { useEffect } from "react";
 
 export default function Cart() {
   const {
@@ -17,7 +18,12 @@ export default function Cart() {
     productSelected,
     deleteProduct,
     setProductSelected,
+    setNotification,
   } = useCart();
+
+  useEffect(() => {
+    setNotification(false);
+  },[])
 
   function handleChangeProductSelectedInCart(product) {
     setProductSelected(product);
