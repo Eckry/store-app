@@ -1,5 +1,6 @@
-import Footer from "../components/Footer";
 import "./styles/Checkout.css";
+import Footer from "../components/Footer";
+import Warning from "../components/Warning";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { AddressProvider } from "../context/AddressContext";
 import useCart from "../hooks/useCart";
@@ -77,6 +78,7 @@ export default function Checkout() {
           </Link>
         </div>
       </header>
+      <Warning />
       <main className="checkout-container">
         <Outlet />
         <section className="checkout-cart">
