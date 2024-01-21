@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;1,300&family=Source+Code+Pro&display=swap");
 
 *,
 *::after,
@@ -31,9 +31,14 @@ body {
   padding-bottom: 150px;
 }
 
+button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+
 a {
   text-decoration: none;
   color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
 }
 
 .container {
@@ -92,13 +97,13 @@ a {
   }
 }
 
-@media(max-width: 600px){
+@media (max-width: 600px) {
   body {
     padding-bottom: 239px;
   }
 }
 
-@media(max-width: 700px){
+@media (max-width: 700px) {
   .container {
     grid-template-columns: 1fr;
     min-height: 3700px;
