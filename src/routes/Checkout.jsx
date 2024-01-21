@@ -46,7 +46,7 @@ export default function Checkout() {
 
   useEffect(() => {
     if (!cart.length) navigate("/store-app/cart");
-  }, []);
+  }, [cart]);
 
   const isOnData = /data/.test(location.pathname);
   const isOnShipping = /shipping/.test(location.pathname);
