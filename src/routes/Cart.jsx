@@ -2,7 +2,7 @@ import "./styles/Cart.css";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import Stars from "./Stars";
+import Stars from "../components/Stars";
 import { BiPurchaseTag } from "react-icons/bi";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import useCart from "../hooks/useCart";

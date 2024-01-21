@@ -3,7 +3,6 @@ import { NUMBER_OF_PRODUCTS_PER_PAGE } from "../constants.json";
 import { FaRegFaceSadCry } from "react-icons/fa6";
 import Product from "../components/Product";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import CarouselButtons from "../components/CarouselButtons";
 import useFilters from "../hooks/useFilters";
 import { useSearchParams } from "react-router-dom";
@@ -50,7 +49,6 @@ export default function Home() {
       <Header />
       <MainContent />
       <CarouselButtons />
-      <Footer />
     </>
   );
 }

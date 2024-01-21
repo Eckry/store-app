@@ -1,6 +1,5 @@
 import "./styles/Preview.css";
 import { useParams } from "react-router-dom";
-import Footer from "../components/Footer";
 import useFilters from "../hooks/useFilters";
 import useCart from "../hooks/useCart";
 import Stars from "../components/Stars";
@@ -73,8 +72,6 @@ export default function PreviewPage() {
           <FaLongArrowAltRight />
         </Link>
       </div>
-
-      <Footer />
     </>
   );
 }

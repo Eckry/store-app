@@ -1,5 +1,4 @@
 import "./styles/Checkout.css";
-import Footer from "../components/Footer";
 import Warning from "../components/Warning";
 import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
@@ -116,7 +115,6 @@ export default function Checkout() {
           </p>
         </section>
       </main>
-      <Footer />
     </AddressProvider>
   );
 }

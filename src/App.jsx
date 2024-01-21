@@ -8,7 +8,7 @@ import Checkout from "./routes/Checkout";
 import Address from "./routes/Address";
 import Shipping from "./routes/Shipping";
 import Payment from "./routes/Payment";
-import ShoppingCart from "./routes/ShoppingCart";
+import Cart from "./routes/Cart";
 import PreviewPage from "./routes/PreviewPage";
 import Root from "./routes/Root";
 
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       { path: `${path}/home`, element: <Home /> },
       { path: `${path}/preview/:id`, element: <PreviewPage /> },
-      { path: `${path}cart`, element: <ShoppingCart /> },
+      { path: `${path}cart`, element: <Cart /> },
       {
         path: `${path}/about`,
         element: <About />,
