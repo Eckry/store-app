@@ -262,6 +262,11 @@
   .empty-title {
     font-size: 5rem;
   }
+
+  .cart-buttons {
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 @media (max-width: 470px) {
