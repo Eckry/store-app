@@ -7,7 +7,6 @@ import { AddressProvider } from "../context/AddressContext";
 import useCart from "../hooks/useCart";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import { FaLink } from "react-icons/fa";
-import { Navigate } from "react-router-dom";
 
 function CheckoutProduct({ product }) {
   const { image, title, price, quantity } = product;
