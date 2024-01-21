@@ -1,8 +1,12 @@
+.preview-header {
+  padding: 30px 0;
+}
+
 .preview-container {
   position: relative;
   width: 90%;
   max-width: 800px;
-  margin: 140px auto 0;
+  margin: auto;
   background-color: var(--secondary-color);
   border-radius: 1rem;
   padding: 1rem;

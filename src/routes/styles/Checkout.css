@@ -11,10 +11,11 @@
   margin: auto;
   transition: 0.25s ease-in-out;
   font-size: 1.2rem;
+  color: var(--highlight-color-two);
 }
 
 .continue-shopping:hover {
-  color: var(--highlight-color-two);
+  color: var(--highlight-brighty-color-two);
   transform: scale(1.1);
 }
 

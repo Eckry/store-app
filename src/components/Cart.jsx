@@ -48,7 +48,7 @@ export default function Cart() {
         <MdOutlineRemoveShoppingCart />
         <h1 className="empty-title">Your cart is empty!</h1>
         <Link to="/store-app/" className="continue-shopping-empty">
-          <IoReturnUpBackOutline /> Continue shopping
+          <IoReturnUpBackOutline className="io-icon"/> Continue shopping
         </Link>
       </div>
     );
@@ -122,7 +122,7 @@ export default function Cart() {
         )}
       </div>
       <Link to="/store-app/" className="continue-shopping margin-top">
-        <IoReturnUpBackOutline /> Continue shopping
+        <IoReturnUpBackOutline className="io-icon"/> Continue shopping
       </Link>
     </div>
   );
