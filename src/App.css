@@ -32,13 +32,13 @@ body {
 }
 
 button {
-  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 a {
   text-decoration: none;
   color: white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .container {
