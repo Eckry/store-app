@@ -2,7 +2,7 @@
   background-color: var(--warning-container-color);
   color: var(--highlight-color-two);
   border: 2px solid var(--highlight-color-two);
-  padding:10px;
+  padding: 10px;
   max-width: 1050px;
   margin: 2rem auto;
   display: flex;
@@ -14,9 +14,14 @@
   font-size: 5rem;
   height: auto;
 }
+
 .warning-text {
   line-height: 25px;
   text-wrap: pretty;
+}
+
+.warning-link {
+  margin: 0 5px;
 }
 
 @media (max-width: 1150px) {
@@ -25,18 +30,17 @@
     width: 90%;
   }
 
-  .warning-icon{
+  .warning-icon {
     font-size: 10rem;
   }
 }
 
-
 @media (max-width: 740px) {
-  .warning-container{
+  .warning-container {
     flex-direction: column;
     gap: 0;
   }
-  .warning-icon{
+  .warning-icon {
     font-size: 3rem;
   }
 }
