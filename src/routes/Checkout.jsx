@@ -3,7 +3,7 @@ import "./styles/Checkout.css";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { AddressProvider } from "../context/AddressContext";
 import useCart from "../hooks/useCart";
-import { FaLongArrowAltLeft } from "react-icons/fa";
+import { IoReturnUpBackOutline } from "react-icons/io5";
 
 function CheckoutProduct({ image, title, price, quantity }) {
   return (
@@ -49,7 +49,7 @@ export default function Checkout() {
     <AddressProvider>
       <header className="checkout-header">
         <Link className="continue-shopping" to={"/store-app/"}>
-          <FaLongArrowAltLeft /> Continue shopping
+          <IoReturnUpBackOutline /> Continue shopping
         </Link>
         <div className="link-wrapper">
           <Link
