@@ -1,12 +1,13 @@
 import "./styles/Checkout.css";
 import Footer from "../components/Footer";
 import Warning from "../components/Warning";
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { AddressProvider } from "../context/AddressContext";
 import useCart from "../hooks/useCart";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import { FaLink } from "react-icons/fa";
+import { Navigate } from "react-router-dom";
 
 function CheckoutProduct({ product }) {
   const { image, title, price, quantity } = product;
@@ -42,7 +43,10 @@ function CheckoutProduct({ product }) {
 export default function Checkout() {
   const location = useLocation();
   const { cart } = useCart();
+  const navigate = useNavigate();
 
+  if (!cart.length) navigate("/store-app/cart")
+    
   const isOnData = /data/.test(location.pathname);
   const isOnShipping = /shipping/.test(location.pathname);
   const isOnPayment = /payment/.test(location.pathname);
