@@ -184,10 +184,11 @@
   margin-top: 2rem;
   font-size: 1.2rem;
   transition: 0.25s ease-in-out;
+  color: var(--highlight-color-two);
 }
 
 .continue-shopping-empty:hover {
-  color: var(--highlight-color-two);
+  color: var(--highlight-brighty-color-two);
   transform: scale(1.1);
 }
 
