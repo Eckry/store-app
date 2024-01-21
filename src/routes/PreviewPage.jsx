@@ -27,7 +27,7 @@ export default function PreviewPage() {
   return (
     <>
       <header className="preview-header">
-        <Link to={"/store-app/"} className="continue-shopping">
+        <Link to={"/store-app/home"} className="continue-shopping">
           <IoReturnUpBackOutline className="io-icon" /> Continue shopping
         </Link>
       </header>

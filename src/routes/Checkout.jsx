@@ -72,7 +72,7 @@ export default function Checkout() {
   return (
     <AddressProvider>
       <header className="checkout-header">
-        <Link className="continue-shopping" to={"/store-app/"}>
+        <Link className="continue-shopping" to={"/store-app/home"}>
           <IoReturnUpBackOutline className="io-icon" /> Continue shopping
         </Link>
         <div className="link-wrapper">

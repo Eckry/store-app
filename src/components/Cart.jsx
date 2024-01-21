@@ -47,12 +47,11 @@ export default function Cart() {
       <div className="cart-container-empty">
         <MdOutlineRemoveShoppingCart />
         <h1 className="empty-title">Your cart is empty!</h1>
-        <Link to="/store-app/" className="continue-shopping-empty">
+        <Link to="/store-app/home" className="continue-shopping-empty">
           <IoReturnUpBackOutline className="io-icon"/> Continue shopping
         </Link>
       </div>
     );
-
   return (
     <div className="cart-container">
       <div className="product-selected-container">
@@ -121,7 +120,7 @@ export default function Cart() {
           })
         )}
       </div>
-      <Link to="/store-app/" className="continue-shopping margin-top">
+      <Link to="/store-app/home" className="continue-shopping margin-top">
         <IoReturnUpBackOutline className="io-icon"/> Continue shopping
       </Link>
     </div>
