@@ -1,0 +1,56 @@
+.pending-face {
+  color: var(--error-color);
+  font-size: 2.2rem;
+}
+
+.pending-error {
+  font-size: 1.5rem;
+  color: var(--error-color);
+}
+
+.loading {
+  width: fit-content;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.circle {
+  display: block;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: var(--tertiary-color);
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+.circle:nth-of-type(1) {
+  animation-delay: 0.3s;
+}
+
+.circle:nth-of-type(2) {
+  animation-delay: 0.6s;
+}
+
+.circle:nth-of-type(3) {
+  animation-delay: 0.9s;
+}
+
+.circle:nth-of-type(4) {
+  animation-delay: 1.2s;
+}
+.circle:nth-of-type(5) {
+  animation-delay: 1.5s;
+}
+
+@keyframes loading {
+  50% {
+    background-color: var(--tertiary-transparent-color);
+  }
+
+  100% {
+    background-color: var(--tertiary-color);
+  }
+}
