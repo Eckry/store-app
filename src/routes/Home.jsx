@@ -12,7 +12,9 @@ function MainContent() {
   const { filteredProducts } = useFilters();
   const [searchParams] = useSearchParams();
 
-  const page = Number(searchParams.get("page")) - 1;
+  let page;
+  if (!searchParams.get("page")) page = 0;
+  else page = Number(searchParams.get("page")) - 1;
 
   if (!filteredProducts.length) {
     return (
@@ -41,7 +43,6 @@ export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    if (!searchParams.get("page")) setSearchParams({ page: 1 });
   }, []);
 
   return (
