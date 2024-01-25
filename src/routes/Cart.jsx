@@ -90,10 +90,10 @@ export default function Cart() {
           </button>
         </div>
         <div className="buy-and-trash-buttons">
-          <Link to="/store-app/checkout/data" className="buy-product-anchor">
+          <Link title="Buy cart" to="/store-app/checkout/data" className="buy-product-anchor">
             <BiPurchaseTag />
           </Link>
-          <button className="trash-button" onClick={handleDelete}>
+          <button title="Remove product from cart" className="trash-button" onClick={handleDelete}>
             <FaRegTrashAlt />
           </button>
         </div>
