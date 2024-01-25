@@ -8,8 +8,8 @@ export default function Shipping() {
   return (
     <div className="confirmation-container">
       <ShippingInformation data={data} />
-      <Link to={"/checkout/payment"} cslassName="shipping-button">
-        Next{" "}
+      <Link to={"/checkout/payment"} className="shipping-button">
+        Next
         <span className="move-arrow">
           <FaLongArrowAltRight />
         </span>
