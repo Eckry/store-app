@@ -45,7 +45,7 @@ export default function Checkout() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!cart.length) navigate("/store-app/cart");
+    if (!cart.length) navigate("/cart");
   }, [cart]);
 
   const isOnData = /data/.test(location.pathname);
@@ -71,13 +71,13 @@ export default function Checkout() {
   return (
     <AddressProvider>
       <header className="checkout-header">
-        <Link className="continue-shopping" to={"/store-app/"}>
+        <Link className="continue-shopping" to={"/"}>
           <IoReturnUpBackOutline className="io-icon" /> Continue shopping
         </Link>
         <div className="link-wrapper">
           <Link
             className={`checkout-link ${isOnData ? "highlighted" : ""}`}
-            to={"/store-app/checkout/data"}
+            to={"/checkout/data"}
           >
             <span className={`checkout-check ${classNames.data}`}></span>
             Information
@@ -85,7 +85,7 @@ export default function Checkout() {
           <Link
             style={{ pointerEvents: isOnData ? "none" : "all" }}
             className={`checkout-link ${isOnShipping ? "highlighted" : ""}`}
-            to={"/store-app/checkout/shipping"}
+            to={"/checkout/shipping"}
           >
             <span className={`checkout-check ${classNames.shipping}`}></span>
             Confirmation
@@ -93,7 +93,7 @@ export default function Checkout() {
           <Link
             style={{ pointerEvents: isOnData ? "none" : "all" }}
             className={`checkout-link ${isOnPayment ? "highlighted" : ""}`}
-            to={"/store-app/checkout/payment"}
+            to={"/checkout/payment"}
           >
             <span className="checkout-check"></span>
             Payment

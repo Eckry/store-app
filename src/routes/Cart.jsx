@@ -47,7 +47,7 @@ export default function Cart() {
       <div className="cart-container-empty">
         <MdOutlineRemoveShoppingCart />
         <h1 className="empty-title">Your cart is empty!</h1>
-        <Link to="/store-app/" className="continue-shopping-empty">
+        <Link to="/" className="continue-shopping-empty">
           <IoReturnUpBackOutline className="io-icon"/> Continue shopping
         </Link>
       </div>
@@ -90,7 +90,7 @@ export default function Cart() {
           </button>
         </div>
         <div className="buy-and-trash-buttons">
-          <Link title="Buy cart" to="/store-app/checkout/data" className="buy-product-anchor">
+          <Link title="Buy cart" to="/checkout/data" className="buy-product-anchor">
             <BiPurchaseTag />
           </Link>
           <button title="Remove product from cart" className="trash-button" onClick={handleDelete}>
@@ -120,7 +120,7 @@ export default function Cart() {
           })
         )}
       </div>
-      <Link to="/store-app/" className="continue-shopping margin-top">
+      <Link to="/" className="continue-shopping margin-top">
         <IoReturnUpBackOutline className="io-icon"/> Continue shopping
       </Link>
     </div>

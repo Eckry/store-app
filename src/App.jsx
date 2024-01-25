@@ -14,27 +14,27 @@ import Root from "./routes/Root";
 
 const router = createBrowserRouter([
   {
-    path: `${path}`,
+    path: `/`,
     element: <Root />,
     children: [
-      { path: `${path}/`, element: <Home /> },
-      { path: `${path}/preview/:id`, element: <PreviewPage /> },
-      { path: `${path}cart`, element: <Cart /> },
+      { path: `/`, element: <Home /> },
+      { path: `/preview/:id`, element: <PreviewPage /> },
+      { path: `cart`, element: <Cart /> },
       {
-        path: `${path}/about`,
+        path: `/about`,
         element: <About />,
       },
       {
-        path: `${path}/contact`,
+        path: `/contact`,
         element: <Contact />,
       },
       {
-        path: `${path}/checkout`,
+        path: `/checkout`,
         element: <Checkout />,
         children: [
-          { path: `${path}/checkout/data`, element: <Address /> },
-          { path: `${path}/checkout/shipping`, element: <Shipping /> },
-          { path: `${path}/checkout/payment`, element: <Payment /> },
+          { path: `/checkout/data`, element: <Address /> },
+          { path: `/checkout/shipping`, element: <Shipping /> },
+          { path: `/checkout/payment`, element: <Payment /> },
         ],
       },
     ],

@@ -9,7 +9,7 @@ export default function ShippingInformation({ data }) {
         <h2 className="shipping-title">
           Check if your information is correct please
         </h2>
-        <Link to={"/store-app/checkout/data"} className="edit">
+        <Link to={"/checkout/data"} className="edit">
           Edit <FaEdit />
         </Link>
       </header>

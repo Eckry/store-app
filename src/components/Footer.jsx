@@ -13,17 +13,17 @@ export default function Footer() {
         </div>
         <ul className="footer-links">
           <li>
-            <Link to="/store-app/" className="footer-anchor">
+            <Link to="/" className="footer-anchor">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/store-app/about" className="footer-anchor">
+            <Link to="/about" className="footer-anchor">
               About
             </Link>
           </li>
           <li>
-            <Link to="/store-app/contact" className="footer-anchor">
+            <Link to="/contact" className="footer-anchor">
               Contact me
             </Link>
           </li>

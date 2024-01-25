@@ -19,7 +19,7 @@ export default function Product({ product }) {
         </div>
         <div className="buttons-container">
           <Link
-            to={`/store-app/preview/${product.id}`}
+            to={`/preview/${product.id}`}
             className="product-button"
           >
             See preview

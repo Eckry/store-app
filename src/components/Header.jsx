@@ -22,7 +22,7 @@ export default function Header({ interchangeShowCart, showCart }) {
 
   return (
     <header className="header">
-      <Link to="/store-app/cart" className="shopping-cart-container">
+      <Link to="/cart" className="shopping-cart-container">
         <FaShoppingCart />
         <span style={style} className="number-of-products-container">
           !

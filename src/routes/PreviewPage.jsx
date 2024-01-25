@@ -26,7 +26,7 @@ export default function PreviewPage() {
   return (
     <>
       <header className="preview-header">
-        <Link to={"/store-app/"} className="continue-shopping">
+        <Link to={"/"} className="continue-shopping">
           <IoReturnUpBackOutline className="io-icon" /> Continue shopping
         </Link>
       </header>
@@ -60,13 +60,13 @@ export default function PreviewPage() {
       </div>
       <div className="nav-buttons-container">
         <Link
-          to={`/store-app/preview/${prev?.id}`}
+          to={`/preview/${prev?.id}`}
           className={prev ? "nav-button" : "disabled"}
         >
           <FaLongArrowAltLeft />
         </Link>
         <Link
-          to={`/store-app/preview/${next?.id}`}
+          to={`/preview/${next?.id}`}
           className={next ? "nav-button" : "disabled"}
         >
           <FaLongArrowAltRight />
