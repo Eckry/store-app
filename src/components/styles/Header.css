@@ -99,8 +99,17 @@
 
 
 @media(max-width:600px){
-  .text-filter{
+  .text-filter {
+    padding: 0.5rem 0.7rem;
     width: 200px;
+  }
+
+  .text-filter-button {
+    padding: 3.4px;
+  }
+
+  .shopping-cart-container {
+    font-size: 2rem;
   }
 }
 
