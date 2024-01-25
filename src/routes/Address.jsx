@@ -30,7 +30,7 @@ export default function Address() {
       email: email.value,
     };
     updateData(newData);
-    return navigate("/store-app/checkout/shipping");
+    return navigate("/checkout/shipping");
   }
 
   return (
