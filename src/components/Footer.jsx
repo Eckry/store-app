@@ -12,7 +12,7 @@ export default function Footer() {
         </div>
         <ul className="footer-links">
           <li>
-            <Link to="/store-app/home?page=1" className="footer-anchor">
+            <Link to="/store-app/" className="footer-anchor">
               Home
             </Link>
           </li>
