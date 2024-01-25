@@ -1,5 +1,6 @@
 import "./styles/Footer.css";
 import { CiShoppingBasket } from "react-icons/ci";
+import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -29,17 +30,9 @@ export default function Footer() {
         </ul>
       </div>
       <hr />
-      <p className="footer-copyright">
-        © 2023{" "}
-        <a
-          href="https://github.com/Eckry"
-          target="_blank"
-          className="footer-copyright-anchor"
-        >
-          Erick Torres Aguirre
-        </a>
-        . All Rights Reserved.
-      </p>
+      <a target="_blank" className="footer-link" href="https://github.com/Eckry/store-app">
+        Source code - <FaGithub />
+      </a>
     </footer>
   );
 }

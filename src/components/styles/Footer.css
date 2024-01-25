@@ -44,24 +44,23 @@
   list-style: none;
 }
 
-.footer-copyright {
-  margin-top: 1rem;
-  text-align: center;
+.footer-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+  margin: 1rem auto 0 auto;
 }
 
-.footer-copyright-anchor {
-  color: white;
+.footer-link:hover {
+  color: var(--highlight-color-two);
 }
+
 
 @media (max-width: 600px) {
   .contact-information ,.footer-links {
     flex-direction: column;
     text-align: center;
-  }
-}
-
-@media(max-width: 500px){
-  .footer-copyright {
-    font-size: 12px;
   }
 }
