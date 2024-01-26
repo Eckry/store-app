@@ -14,11 +14,11 @@ export default function Payment() {
   useEffect(() => {
     setIsLoading(true);
     let timeId;
-    fetch("http://localhost:5050/api")
+    fetch("https://store-app-server-qyf4.vercel.app/api")
       .then((res) => res.json())
       .then((key) => {
         initMercadoPago(key);
-        return fetch("http://localhost:5050/create-preference", {
+        return fetch("https://store-app-server-qyf4.vercel.app/api/create-preference", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
