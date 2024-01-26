@@ -27,12 +27,12 @@ export default function PreviewPage() {
     addProduct(product);
   }
 
-  function handleGoPrevPreview(){
-    setSearchParams({id: prev.id});
+  function handleGoPrevPreview() {
+    setSearchParams({ id: prev.id });
   }
 
-  function handleGoNextPreview(){
-    setSearchParams({id: next.id});  
+  function handleGoNextPreview() {
+    setSearchParams({ id: next.id });
   }
 
   return (
@@ -46,7 +46,6 @@ export default function PreviewPage() {
         <div className="image-and-description-container">
           <img
             className="preview-image"
-            loading="lazy"
             src={`../${product.image}`}
             alt="product image"
           />
