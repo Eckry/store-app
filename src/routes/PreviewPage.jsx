@@ -34,6 +34,7 @@ export default function PreviewPage() {
         <div className="image-and-description-container">
           <img
             className="preview-image"
+            loading="lazy"
             src={`../${product.image}`}
             alt="product image"
           />

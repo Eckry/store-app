@@ -11,20 +11,20 @@ export default function Product({ product }) {
 
   return (
     <div className="product-container">
-      <img src={product.image} className="product-image" />
+      <img src={product.image} className="product-image" loading="lazy" />
       <div className="product-information">
         <div className="price-and-name-container">
           <p className="product-price">${product.price}</p>
           <p className="product-name">{product.title}</p>
         </div>
         <div className="buttons-container">
-          <Link
-            to={`/preview/${product.id}`}
-            className="product-button"
-          >
+          <Link to={`/preview/${product.id}`} className="product-button">
             See preview
           </Link>
-          <button className="product-button" onClick={handleOnClickToBuyProduct}>
+          <button
+            className="product-button"
+            onClick={handleOnClickToBuyProduct}
+          >
             Add to cart
           </button>
         </div>
