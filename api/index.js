@@ -12,7 +12,7 @@ const client = new MercadoPagoConfig({
   accessToken: ACCESS_TOKEN,
 });
 
-export const app = express();
+const app = express();
 
 app.use(express.json());
 app.use(cors());
@@ -58,3 +58,5 @@ app.get("/api", (req, res) => {
 
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
+
+export default app;
