@@ -13,6 +13,7 @@ export default function PageButton({ children, value }) {
 
   function handleClick(e) {
     const newPage = Number(e.target.value);
+    if(newPage === page) return;
     const numberOfPages = Math.ceil(
       filteredProducts.length / NUMBER_OF_PRODUCTS_PER_PAGE
     );
