@@ -6,11 +6,14 @@ import Stars from "../components/Stars";
 import { Link } from "react-router-dom";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import { IoReturnUpBackOutline } from "react-icons/io5";
+import { useSearchParams } from "react-router-dom";
 
 export default function PreviewPage() {
   const { filteredProducts } = useFilters();
   const { addProduct } = useCart();
-  const { id } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const id = searchParams.get("id");
 
   const previewIndex = filteredProducts.findIndex(
     (product) => product.id === Number(id)
@@ -23,6 +26,15 @@ export default function PreviewPage() {
   function handleAddProductToShoppingCart() {
     addProduct(product);
   }
+
+  function handleGoPrevPreview(){
+    setSearchParams({id: prev.id});
+  }
+
+  function handleGoNextPreview(){
+    setSearchParams({id: next.id});  
+  }
+
   return (
     <>
       <header className="preview-header">
@@ -60,18 +72,18 @@ export default function PreviewPage() {
         </button>
       </div>
       <div className="nav-buttons-container">
-        <Link
-          to={`/preview/${prev?.id}`}
+        <button
+          onClick={handleGoPrevPreview}
           className={prev ? "nav-button" : "disabled"}
         >
           <FaLongArrowAltLeft />
-        </Link>
-        <Link
-          to={`/preview/${next?.id}`}
+        </button>
+        <button
+          onClick={handleGoNextPreview}
           className={next ? "nav-button" : "disabled"}
         >
           <FaLongArrowAltRight />
-        </Link>
+        </button>
       </div>
     </>
   );

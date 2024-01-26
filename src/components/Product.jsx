@@ -18,7 +18,7 @@ export default function Product({ product }) {
           <p className="product-name">{product.title}</p>
         </div>
         <div className="buttons-container">
-          <Link to={`/preview/${product.id}`} className="product-button">
+          <Link to={`/preview/?id=${product.id}`} className="product-button">
             See preview
           </Link>
           <button
