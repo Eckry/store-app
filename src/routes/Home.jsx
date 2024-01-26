@@ -6,15 +6,21 @@ import Header from "../components/Header";
 import CarouselButtons from "../components/CarouselButtons";
 import useFilters from "../hooks/useFilters";
 import { useSearchParams } from "react-router-dom";
-import { useEffect } from "react";
 
 function MainContent() {
   const { filteredProducts } = useFilters();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   let page;
   if (!searchParams.get("page")) page = 0;
   else page = Number(searchParams.get("page")) - 1;
+
+  const numberOfPages = Math.ceil(
+    filteredProducts.length / NUMBER_OF_PRODUCTS_PER_PAGE
+  );
+
+  if (page >= numberOfPages && filteredProducts.length !== 0)
+    setSearchParams({ page: numberOfPages });
 
   if (!filteredProducts.length) {
     return (
@@ -40,11 +46,6 @@ function MainContent() {
 }
 
 export default function Home() {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  useEffect(() => {
-  }, []);
-
   return (
     <>
       <Header />
