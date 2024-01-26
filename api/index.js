@@ -17,7 +17,7 @@ export const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.post("/create-preference", (req, res) => {
+app.post("/api/create-preference", (req, res) => {
   const preference = new Preference(client);
   preference
     .create({
