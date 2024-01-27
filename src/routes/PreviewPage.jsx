@@ -1,7 +1,7 @@
 import "./styles/Preview.css";
-import { useParams } from "react-router-dom";
 import useFilters from "../hooks/useFilters";
 import useCart from "../hooks/useCart";
+import { useEffect } from "react";
 import Stars from "../components/Stars";
 import { Link } from "react-router-dom";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
@@ -34,6 +34,16 @@ export default function PreviewPage() {
   function handleGoNextPreview() {
     setSearchParams({ id: next.id });
   }
+
+  // useEffect(() => {
+  //   function preLoad(image) {
+  //     const img = new Image(image);
+  //     img.src = image;
+  //   }
+
+  //   preLoad(prev?.image);
+  //   preLoad(next?.image);
+  // }, [searchParams]);
 
   return (
     <>
