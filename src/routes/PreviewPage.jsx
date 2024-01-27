@@ -41,9 +41,10 @@ export default function PreviewPage() {
       img.src = image;
     }
 
-    preLoad(prev?.image);
-    preLoad(next?.image);
-  }, [searchParams]);
+    filteredProducts.forEach((product) => {
+      preLoad(product.image);
+    });
+  }, []);
 
   return (
     <>
