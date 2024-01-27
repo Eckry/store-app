@@ -1,0 +1,20 @@
+.contact-container {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  padding: 3rem 1rem 1rem;
+}
+
+.contact-area {
+  font-weight: bold;
+  resize: none;
+  border-radius: 2rem;
+}
+
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 3px solid var(--highlight-color-two);
+}
