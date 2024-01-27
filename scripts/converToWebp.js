@@ -9,7 +9,7 @@ fs.readdir("../public/images", (e, files) => {
     sharp(`../public/images/${file}`)
       .webp({
         lossless: false,
-        quality: 60
+        quality: 45
       })
       .toFile(`../public/imagesWebp/${file.split(".")[0]}.webp`);
   });

@@ -35,17 +35,6 @@ export default function PreviewPage() {
     setSearchParams({ id: next.id });
   }
 
-  useEffect(() => {
-    function preLoad(image) {
-      const img = new Image(image);
-      img.src = image;
-    }
-
-    filteredProducts.forEach((product) => {
-      preLoad(product.image);
-    });
-  }, []);
-
   return (
     <>
       <header className="preview-header">
@@ -59,6 +48,7 @@ export default function PreviewPage() {
             className="preview-image"
             src={`../${product.image}`}
             alt="product image"
+            crossOrigin="anonymous"
           />
           <div className="description-container">
             <h1 className="title" title={product.title}>

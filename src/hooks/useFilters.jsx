@@ -51,15 +51,6 @@ export default function useFilters() {
   }
 
   useEffect(() => {
-    function preLoad(image) {
-      const img = new Image(image);
-      img.src = image;
-    }
-
-    filteredProducts.forEach((product) => {
-      preLoad(product.image);
-    });
-
     updateFilteredProducts();
   }, [price, searchedCategories, query]);
 
