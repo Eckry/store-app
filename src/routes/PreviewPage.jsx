@@ -48,7 +48,6 @@ export default function PreviewPage() {
             className="preview-image"
             src={`../${product.image}`}
             alt="product image"
-            crossOrigin="anonymous"
           />
           <div className="description-container">
             <h1 className="title" title={product.title}>
