@@ -35,15 +35,15 @@ export default function PreviewPage() {
     setSearchParams({ id: next.id });
   }
 
-  // useEffect(() => {
-  //   function preLoad(image) {
-  //     const img = new Image(image);
-  //     img.src = image;
-  //   }
+  useEffect(() => {
+    function preLoad(image) {
+      const img = new Image(image);
+      img.src = image;
+    }
 
-  //   preLoad(prev?.image);
-  //   preLoad(next?.image);
-  // }, [searchParams]);
+    preLoad(prev?.image);
+    preLoad(next?.image);
+  }, [searchParams]);
 
   return (
     <>
