@@ -18,3 +18,43 @@
   gap: 1rem;
   border-bottom: 3px solid var(--highlight-color-two);
 }
+
+.relative {
+  position: relative;
+}
+
+.contact-sent::after {
+  right: -30px;
+  position: absolute;
+  content: "";
+  width: 7px;
+  height: 14px;
+  pointer-events: none;
+  border: 3px solid var(--highlight-color-two);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.contact-loading::after {
+  right: -20px;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  border-radius: 50%;
+  background-color: var(--highlight-color-two);
+  content: "";
+  animation: send-loading 0.9s ease-in-out infinite;
+}
+
+@keyframes send-loading {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
