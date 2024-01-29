@@ -34,6 +34,10 @@ export default function Filters() {
             />
           ))}
         </div>
+        <label htmlFor="theme" className="theme-label">
+          <input className="theme-checkbox" id="theme" type="checkbox"/>
+          <span className="theme-mark"></span>
+        </label>
       </div>
     </div>
   );

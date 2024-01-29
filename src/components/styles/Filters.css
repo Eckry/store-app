@@ -99,7 +99,36 @@
 }
 
 .hamburger-input:checked ~ .filters {
-  height: 270px;
+  height: 320px;
+}
+
+.theme-checkbox {
+  appearance: none;
+}
+
+.theme-label {
+  background-color: rgba(0, 0, 0, 0.292);
+  position: relative;
+  width: 55px;
+  margin-top: 1rem;
+  height: 30px;
+  border-radius: 25px;
+}
+
+.theme-mark {
+  position: absolute;
+  left: 2.5px;
+  top: 2.5px;
+  background-color: var(--tertiary-color);
+  width: 25px;
+  border-radius: 50%;
+  height: 25px;
+  transition: 0.4s ease-in-out;
+}
+
+.theme-checkbox:checked ~ .theme-mark {
+  transform: translateX(100%);
+  background-color: var(--tertiary-color);
 }
 
 @media (max-width: 1150px) {
