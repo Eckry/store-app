@@ -43,7 +43,7 @@ html.light-mode {
   --error-color: rgb(231, 114, 114);
   --text-color : black;
   --button-text-color: white;
-  --box-shadow: none;
+  --box-shadow: 0 0 5px 1px #7491c3;
 }
 
 body {
