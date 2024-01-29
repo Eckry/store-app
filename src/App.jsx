@@ -48,7 +48,11 @@ function App() {
 
   useEffect(() => {
     const $html = document.querySelector("html");
-    $html.classList.toggle("light-mode");
+    if (isLight) {
+      $html.classList.add("light-mode");
+    } else {
+      $html.classList.remove("light-mode");
+    }
   }, [isLight]);
   return <RouterProvider router={router} />;
 }
