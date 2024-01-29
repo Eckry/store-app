@@ -23,7 +23,7 @@
   background-color: var(--tertiary-color);
   padding: 0.7rem;
   border-radius: 5px;
-  color: var(--text-color);
+  color: var(--button-text-color);
   font-weight: bold;
   cursor: pointer;
   border: none;
@@ -54,6 +54,7 @@
   justify-content: center;
   gap: 5px;
   font-size: 1.2rem;
+  color: var(--text-color);
 }
 
 .edit:hover {
