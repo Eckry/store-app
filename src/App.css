@@ -22,29 +22,35 @@ html {
   --highlight-darker-color-two: rgb(168, 125, 44);
   --warning-container-color: #f6cd8231;
   --error-color: rgb(231, 114, 114);
+  --text-color: white;
+  --button-text-color: white;
+  --box-shadow: 0 0 5px 1px black;
 }
 
 html.light-mode {
-  --primary-color: #f9fbe7;
-  --secondary-color: #f0edd4;
-  --secondary-transparent-color: #f0edd484;
-  --tertiary-color: #eccdb4;
-  --tertiary-brighty-color: #e8d5c5;
-  --tertiary-transparent-color: #eccdb486;
-  --highlight-color: #8608d4;
-  --highlight-brighty-color: #ab61da;
-  --highlight-color-two: #fea1a1;
-  --highlight-brighty-color-two: #ffc4c4;
-  --highlight-darker-color-two: #c07a7a;
+  --primary-color: #DCF2F1;
+  --secondary-color: #c2e1e8;
+  --secondary-transparent-color: #c2e1e8b2;
+  --tertiary-color: #7491c3;
+  --tertiary-brighty-color: #91a3c3;
+  --tertiary-transparent-color: #7491c3a9;
+  --highlight-color: #383dc9;
+  --highlight-brighty-color: #7b7ec6;
+  --highlight-color-two: #ff6767;
+  --highlight-brighty-color-two: #ff9393;
+  --highlight-darker-color-two: #8f3a3a;
   --warning-container-color: #f6cd8231;
   --error-color: rgb(231, 114, 114);
+  --text-color : black;
+  --button-text-color: white;
+  --box-shadow: none;
 }
 
 body {
   position: relative;
   background-color: var(--primary-color);
   font-family: "Bitter", serif;
-  color: white;
+  color: var(--text-color);
   min-height: 100vh;
   padding-bottom: 150px;
 }

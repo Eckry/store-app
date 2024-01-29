@@ -26,7 +26,7 @@
   min-width: 200px;
   width: 200px;
   object-fit: contain;
-  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.502);
+  box-shadow: var(--box-shadow);
   cursor: pointer;
   border: 2px solid var(--tertiary-color);
   border-radius: 1rem;
@@ -48,7 +48,7 @@
   min-width: 388px;
   width: 388px;
   height: 388px;
-  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.502);
+  box-shadow: var(--box-shadow);
   object-fit: contain;
   user-select: none;
   background-color: var(--primary-color);
@@ -68,7 +68,7 @@
   padding: 1rem;
   border-radius: 1rem;
   border: 2px solid var(--tertiary-color);
-  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.502);
+  box-shadow: var(--box-shadow);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -118,7 +118,7 @@
 
 .sell-button,
 .buy-button {
-  box-shadow: 0 0 5px 1px black;
+  box-shadow: var(--box-shadow);
   border: none;
   outline: none;
   width: 40px;
@@ -144,20 +144,20 @@
   justify-content: center;
   align-items: center;
   background-color: var(--tertiary-color);
-  color: white;
-  box-shadow: 0 0 5px 1px black;
+  color: var(--button-text-color);
+  box-shadow: var(--box-shadow);
   font-size: 2.5rem;
   width: 100%;
 }
 
 .trash-button {
   display: flex;
-  box-shadow: 0 0 5px 1px black;
+  box-shadow: var(--box-shadow);
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  background-color: red;
-  color: white;
+  background-color: var(--tertiary-color);
+  color: var(--button-text-color);
   font-size: 2rem;
   outline: none;
   border: none;
@@ -207,7 +207,7 @@
   background-color: var(--secondary-color);
   border: 3px solid var(--tertiary-color);
   font-size: 2rem;
-  color: white;
+  color: var(--text-color);
   display: flex;
   justify-content: center;
   align-items: center;

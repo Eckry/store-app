@@ -5,7 +5,7 @@
   border: none;
   outline: none;
   cursor: pointer;
-  color: white;
+  color: var(--button-text-color);
   background-color: var(--tertiary-color);
   border-radius: 5px;
   display: flex;

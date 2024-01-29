@@ -14,7 +14,7 @@
   height: fit-content;
   position: relative;
   display: block;
-  box-shadow: 0 0 5px 1px black;
+  box-shadow: var(--box-shadow);
   border: 2px solid var(--tertiary-color);
 }
 
@@ -23,7 +23,7 @@
   background-color: var(--tertiary-color);
   padding: 0.7rem;
   border-radius: 5px;
-  color: white;
+  color: var(--text-color);
   font-weight: bold;
   cursor: pointer;
   border: none;

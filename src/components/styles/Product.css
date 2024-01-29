@@ -6,7 +6,7 @@
   border-radius: 1rem;
   background-color: var(--primary-color);
   border: 2px solid var(--tertiary-color);
-  box-shadow: 0 0 5px 1px black;
+  box-shadow: var(--box-shadow);
 }
 
 .product-image {
@@ -58,7 +58,7 @@
 }
 
 .product-button {
-  color: white;
+  color: var(--button-text-color);
   background-color: var(--tertiary-color);
   font-weight: bold;
   border-radius: 7px;
