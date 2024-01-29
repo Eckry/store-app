@@ -3,6 +3,7 @@ import CheckBox from "./CheckBox";
 import categories from "../categories.json";
 import useFilters from "../hooks/useFilters";
 import "./styles/Filters.css";
+import useTheme from "../hooks/useTheme";
 
 export default function Filters() {
   const {
@@ -11,6 +12,12 @@ export default function Filters() {
     searchedCategories,
     interchangeSearchedCategories,
   } = useFilters();
+
+  const { isLight, interchangeTheme } = useTheme();
+
+  function handleOnChange() {
+    interchangeTheme();
+  }
 
   return (
     <div className="show-filters">
@@ -35,7 +42,13 @@ export default function Filters() {
           ))}
         </div>
         <label htmlFor="theme" className="theme-label">
-          <input className="theme-checkbox" id="theme" type="checkbox"/>
+          <input
+            checked={isLight}
+            onChange={handleOnChange}
+            className="theme-checkbox"
+            id="theme"
+            type="checkbox"
+          />
           <span className="theme-mark"></span>
         </label>
       </div>

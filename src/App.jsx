@@ -11,6 +11,8 @@ import Payment from "./routes/Payment";
 import Cart from "./routes/Cart";
 import PreviewPage from "./routes/PreviewPage";
 import Root from "./routes/Root";
+import useTheme from "./hooks/useTheme";
+import { useEffect } from "react";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const { isLight } = useTheme();
+
+  useEffect(() => {
+    const $html = document.querySelector("html");
+    $html.classList.toggle("light-mode");
+  }, [isLight]);
   return <RouterProvider router={router} />;
 }
 
