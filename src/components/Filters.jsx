@@ -3,6 +3,8 @@ import CheckBox from "./CheckBox";
 import categories from "../categories.json";
 import useFilters from "../hooks/useFilters";
 import "./styles/Filters.css";
+import { PiSnowflake } from "react-icons/pi";
+import { FaMoon } from "react-icons/fa6";
 import useTheme from "../hooks/useTheme";
 
 export default function Filters() {
@@ -50,6 +52,8 @@ export default function Filters() {
             type="checkbox"
           />
           <span className="theme-mark"></span>
+          <PiSnowflake className="theme-icon" />
+          <FaMoon className="theme-icon"/>
         </label>
       </div>
     </div>

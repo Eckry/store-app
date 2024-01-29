@@ -99,11 +99,11 @@
 }
 
 .hamburger-input:checked ~ .filters {
-  height: 320px;
+  height: 310px;
 }
 
 .theme-checkbox {
-  appearance: none;
+  display: none;
 }
 
 .theme-label {
@@ -112,6 +112,9 @@
   width: 55px;
   margin-top: 1rem;
   height: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   border-radius: 25px;
 }
 
@@ -119,16 +122,22 @@
   position: absolute;
   left: 2.5px;
   top: 2.5px;
-  background-color: var(--tertiary-color);
+  background-color: var(--highlight-color-two);
   width: 25px;
   border-radius: 50%;
   height: 25px;
   transition: 0.2s ease-in-out;
+  z-index: 2;
 }
 
 .theme-checkbox:checked ~ .theme-mark {
   transform: translateX(100%);
-  background-color: var(--tertiary-color);
+}
+
+.theme-icon {
+  font-size: 1.5rem;
+  transition: 0.2s ease-in-out;
+  color: var(--highlight-color-two);
 }
 
 @media (max-width: 1150px) {
