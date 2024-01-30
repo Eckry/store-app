@@ -16,7 +16,7 @@ export default function Cart() {
     removeProduct,
     productSelected,
     deleteProduct,
-    setProductSelected,
+    selectProduct,
     setNotification,
   } = useCart();
 
@@ -25,7 +25,7 @@ export default function Cart() {
   }, []);
 
   function handleChangeProductSelectedInCart(product) {
-    setProductSelected(product);
+    selectProduct(product);
   }
 
   function handleBuyProduct() {

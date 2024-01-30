@@ -1,5 +1,5 @@
 import { CartContext } from "../context/CartContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 export default function useCart() {
   const {
@@ -22,11 +22,25 @@ export default function useCart() {
         ...cart[productIndex],
         quantity: cart[productIndex].quantity + 1,
       });
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      localStorage.setItem(
+        "productSelected",
+        JSON.stringify(newCart[productIndex])
+      );
       setCart(newCart);
       return setProductSelected(newCart[productIndex]);
     }
     setCart([...cart, { ...productToAdd, quantity: 1 }]);
     setProductSelected({ ...productToAdd, quantity: 1 });
+
+    localStorage.setItem(
+      "cart",
+      JSON.stringify([...cart, { ...productToAdd, quantity: 1 }])
+    );
+    localStorage.setItem(
+      "productSelected",
+      JSON.stringify({ ...productToAdd, quantity: 1 })
+    );
   }
 
   function removeProduct(productToRemove) {
@@ -38,25 +52,39 @@ export default function useCart() {
       }
       return product;
     });
-
+    localStorage.setItem(JSON.stringify(newCart));
     setCart(newCart);
   }
 
   function deleteProduct(productToDelete) {
     const newCart = cart.filter((product) => product.id !== productToDelete.id);
+    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("productSelected", JSON.stringify(newCart[0]));
     setCart(newCart);
     setProductSelected(newCart[0]);
   }
 
   function selectProduct(productToSelect) {
+    localStorage.setItem("productSelected", JSON.stringify(productToSelect));
     setProductSelected(productToSelect);
   }
+
+  useEffect(() => {
+    const prevCart = localStorage.getItem("cart");
+    if (prevCart) {
+      setCart(JSON.parse(prevCart));
+    }
+
+    const prevSelected = localStorage.getItem("productSelected");
+    if (prevSelected) {
+      setProductSelected(JSON.parse(prevSelected));
+    }
+  }, []);
 
   return {
     cart,
     setCart,
     productSelected,
-    setProductSelected,
     notification,
     selectProduct,
     deleteProduct,
