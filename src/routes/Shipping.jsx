@@ -6,7 +6,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 export default function Shipping() {
   const { data } = useAddress();
   return (
-    <div className="confirmation-container">
+    <section className="confirmation-container">
       <ShippingInformation data={data} />
       <Link to={"/checkout/payment"} className="shipping-button">
         Next
@@ -14,6 +14,6 @@ export default function Shipping() {
           <FaLongArrowAltRight />
         </span>
       </Link>
-    </div>
+    </section>
   );
 }

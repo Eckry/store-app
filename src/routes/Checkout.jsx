@@ -74,7 +74,7 @@ export default function Checkout() {
         <Link className="continue-shopping" to={"/"}>
           <IoReturnUpBackOutline className="io-icon" /> Continue shopping
         </Link>
-        <div className="link-wrapper">
+        <nav className="link-wrapper">
           <Link
             className={`checkout-link ${isOnData ? "highlighted" : ""}`}
             to={"/checkout/data"}
@@ -98,12 +98,12 @@ export default function Checkout() {
             <span className="checkout-check"></span>
             Payment
           </Link>
-        </div>
+        </nav>
       </header>
       <Warning />
       <main className="checkout-container">
         <Outlet />
-        <section className="checkout-cart">
+        <aside className="checkout-cart">
           <div className="checkout-cart-products" style={cartProductStyle}>
             {cart.map((product) => {
               return <CheckoutProduct key={product.id} product={product} />;
@@ -113,7 +113,7 @@ export default function Checkout() {
             Total:{" "}
             <span className="checkout-price">${totalPrice.toFixed(2)}</span>
           </p>
-        </section>
+        </aside>
       </main>
     </AddressProvider>
   );

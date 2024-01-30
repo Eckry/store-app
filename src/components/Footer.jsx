@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="contact-information">
+      <section className="contact-information">
         <div className="footer-icon">
           <CiShoppingBasket />
           <p>Ecommerce store</p>
@@ -28,7 +28,7 @@ export default function Footer() {
             </Link>
           </li>
         </ul>
-      </div>
+      </section>
       <hr />
       <a target="_blank" className="footer-link" href="https://github.com/Eckry/store-app">
         Source code - <FaGithub />

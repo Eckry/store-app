@@ -42,10 +42,10 @@ export default function Payment() {
   }, []);
 
   return (
-    <div className="confirmation-container">
+    <main className="confirmation-container">
       <ShippingInformation data={data} />
-      <div className="shipping-container payment-container">
-        <h2 className="address-title">Just one more step</h2>
+      <section className="shipping-container payment-container">
+        <h1 className="address-title">Just one more step</h1>
         <p className="payment-text">
           This works using mercadopago api, you will be redirected to their page
           and you will put your card there, i'm going to repeating it again,
@@ -57,7 +57,7 @@ export default function Payment() {
           <Pending error={error} isLoading={isLoading} />
           {preferenceId && <Wallet initialization={{ preferenceId }} />}
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

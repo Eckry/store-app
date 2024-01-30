@@ -16,48 +16,48 @@ export default function ShippingInformation({ data }) {
       <ul className="user-data-container">
         <li className="user-data">
           Name
-          <span
+          <p
             title={`${data.firstName} ${data.lastName}`}
             className="user-data-title"
           >
             {data.firstName} {data.lastName}
-          </span>
+          </p>
         </li>
         <li className="user-data">
           Address
-          <span title={data.address} className="user-data-title">
+          <p title={data.address} className="user-data-title">
             {data.address}
-          </span>
+          </p>
         </li>
         <li className="user-data">
           Zip Code
-          <span title={data.zipcode} className="user-data-title">
+          <p title={data.zipcode} className="user-data-title">
             {data.zipCode}
-          </span>
+          </p>
         </li>
         <li className="user-data">
           City
-          <span title={data.city} className="user-data-title">
+          <p title={data.city} className="user-data-title">
             {data.city}
-          </span>
+          </p>
         </li>
         <li className="user-data">
           Country
-          <span title={data.country} className="user-data-title">
+          <p title={data.country} className="user-data-title">
             {data.country}
-          </span>
+          </p>
         </li>
         <li className="user-data">
           Phone
-          <span title={data.phone} className="user-data-title">
+          <p title={data.phone} className="user-data-title">
             {data.phone}
-          </span>
+          </p>
         </li>
         <li className="user-data">
           Email
-          <span title={data.email} className="user-data-title">
+          <p title={data.email} className="user-data-title">
             {data.email}
-          </span>
+          </p>
         </li>
       </ul>
     </main>

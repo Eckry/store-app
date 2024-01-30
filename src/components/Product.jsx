@@ -10,9 +10,9 @@ export default function Product({ product }) {
   }
 
   return (
-    <div className="product-container">
+    <article className="product-container">
       <img src={product.image} className="product-image" />
-      <div className="product-information">
+      <section className="product-information">
         <div className="price-and-name-container">
           <p className="product-price">${product.price}</p>
           <p className="product-name">{product.title}</p>
@@ -28,7 +28,7 @@ export default function Product({ product }) {
             Add to cart
           </button>
         </div>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 }

@@ -53,32 +53,32 @@ export default function Cart() {
       </div>
     );
   return (
-    <div className="cart-container">
-      <div className="product-selected-container">
+    <main className="cart-container">
+      <article className="product-selected-container">
         <img
           draggable="false"
           className="product-selected-image"
           src={productSelected.image}
           alt={productSelected.title}
         />
-        <div className="product-selected-information">
+        <section className="product-selected-information">
           <h1 className="product-selected-title">{productSelected.title}</h1>
-          <div>
-            <h4 className="cart-description-title">Description</h4>
+          <section>
+            <h2 className="cart-description-title">Description</h2>
             <p className="product-selected-description">
               {productSelected.description}
             </p>
             <p className="category">{productSelected.category}</p>
-          </div>
-          <div className="cart-rating">
+          </section>
+          <section className="cart-rating">
             <p className="cart-price">{productSelected.price}$</p>
             <Stars
               stars={productSelected.rating.rate}
               count={productSelected.rating.count}
             />
-          </div>
-        </div>
-      </div>
+          </section>
+        </section>
+      </article>
       <div className="cart-buttons">
         <div className="cart-buttons-container">
           <button onClick={handleRemove} className="sell-button">
@@ -98,11 +98,11 @@ export default function Cart() {
           </button>
         </div>
       </div>
-      <div className="other-products">
+      <section className="other-products">
         {onlyOnProduct ? (
-          <span className="cart-placeholder">
+          <p className="cart-placeholder">
             If you buy other products, they will be shown here
-          </span>
+          </p>
         ) : (
           cart.map((product) => {
             if (product.id === productSelected.id) return;
@@ -119,10 +119,10 @@ export default function Cart() {
             );
           })
         )}
-      </div>
+      </section>
       <Link to="/" className="continue-shopping margin-top">
         <IoReturnUpBackOutline className="io-icon"/> Continue shopping
       </Link>
-    </div>
+    </main>
   );
 }

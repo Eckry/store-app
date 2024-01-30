@@ -22,7 +22,7 @@ export default function Filters() {
   }
 
   return (
-    <div className="show-filters">
+    <section className="show-filters">
       <input className="hamburger-input" type="checkbox" id="toggle-filters" />
       <label className="toggle-filters" htmlFor="toggle-filters">
         <span></span>
@@ -30,9 +30,9 @@ export default function Filters() {
         <span></span>
       </label>
       <div className="filters">
-        <h3 className="filters-title">Price range</h3>
+        <h1 className="filters-title">Price range</h1>
         <RangeInput onChange={setPriceFilter} price={price} />
-        <h3 className="filters-title">Categories</h3>
+        <h1 className="filters-title">Categories</h1>
         <div className="checkboxes-container">
           {categories.map((category) => (
             <CheckBox
@@ -56,6 +56,6 @@ export default function Filters() {
           <FaMoon className="theme-icon"/>
         </label>
       </div>
-    </div>
+    </section>
   );
 }

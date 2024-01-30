@@ -71,6 +71,7 @@
   padding: 5px 0;
   color: var(--text-color);
   border-bottom: 3px solid var(--highlight-color-two);
+  font-size: 1.5rem;
 }
 
 .move-arrow {

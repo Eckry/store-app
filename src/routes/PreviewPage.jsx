@@ -42,8 +42,8 @@ export default function PreviewPage() {
           <IoReturnUpBackOutline className="io-icon" /> Continue shopping
         </Link>
       </header>
-      <div className="preview-container">
-        <div className="image-and-description-container">
+      <article className="preview-container">
+        <section className="image-and-description-container">
           <img
             className="preview-image"
             src={product.image}
@@ -57,11 +57,11 @@ export default function PreviewPage() {
             <p className="description">{product.description}</p>
             <p className="category">{product.category}</p>
           </div>
-        </div>
-        <div className="rating-container">
+        </section>
+        <section className="rating-container">
           <h1 className="product-price">${product.price}</h1>
           <Stars stars={product.rating.rate} count={product.rating.count} />
-        </div>
+        </section>
 
         <button
           className="add-to-cart-button"
@@ -69,8 +69,8 @@ export default function PreviewPage() {
         >
           Add to cart
         </button>
-      </div>
-      <div className="nav-buttons-container">
+      </article>
+      <nav className="nav-buttons-container">
         <button
           onClick={handleGoPrevPreview}
           className={prev ? "nav-button" : "disabled"}
@@ -83,7 +83,7 @@ export default function PreviewPage() {
         >
           <FaLongArrowAltRight />
         </button>
-      </div>
+      </nav>
     </>
   );
 }
