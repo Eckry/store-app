@@ -39,7 +39,7 @@
 }
 
 .show-filters {
-  width: 20px;
+  width: 0;
   height: 400px;
   display: flex;
   flex-direction: column;
