@@ -1,11 +1,11 @@
 import RangeInput from "./RangeInput";
 import CheckBox from "./CheckBox";
 import categories from "../categories.json";
-import useFilters from "../hooks/useFilters";
+import useFilters from "../hooks/useFilters.js";
 import "./styles/Filters.css";
 import { PiSnowflake } from "react-icons/pi";
 import { FaMoon } from "react-icons/fa6";
-import useTheme from "../hooks/useTheme";
+import useTheme from "../hooks/useTheme.js";
 
 export default function Filters() {
   const {

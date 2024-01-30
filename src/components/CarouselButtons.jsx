@@ -1,4 +1,4 @@
-import useFilters from "../hooks/useFilters";
+import useFilters from "../hooks/useFilters.js";
 import PageButton from "./PageButton";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 import { NUMBER_OF_PRODUCTS_PER_PAGE } from "../constants.json";

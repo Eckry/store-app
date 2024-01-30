@@ -1,7 +1,6 @@
 import "./styles/Preview.css";
-import useFilters from "../hooks/useFilters";
-import useCart from "../hooks/useCart";
-import { useEffect } from "react";
+import useFilters from "../hooks/useFilters.js";
+import useCart from "../hooks/useCart.js";
 import Stars from "../components/Stars";
 import { Link } from "react-router-dom";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";

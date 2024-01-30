@@ -4,7 +4,7 @@ import { FaRegFaceSadCry } from "react-icons/fa6";
 import Product from "../components/Product";
 import Header from "../components/Header";
 import CarouselButtons from "../components/CarouselButtons";
-import useFilters from "../hooks/useFilters";
+import useFilters from "../hooks/useFilters.js";
 import { useSearchParams } from "react-router-dom";
 
 function MainContent() {

@@ -1,5 +1,5 @@
 import "./styles/Payment.css";
-import useAddress from "../hooks/useAddress";
+import useAddress from "../hooks/useAddress.js";
 import ShippingInformation from "../components/ShippingInformation";
 import Pending from "../components/Pending";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";

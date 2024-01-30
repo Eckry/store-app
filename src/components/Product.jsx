@@ -1,5 +1,5 @@
 import "./styles/Product.css";
-import useCart from "../hooks/useCart";
+import useCart from "../hooks/useCart.js";
 import { Link } from "react-router-dom";
 
 export default function Product({ product }) {

@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./routes/Home";
 import About from "./routes/About";
 import Contact from "./routes/Contact";
-import { path } from "./constants.json";
 import Checkout from "./routes/Checkout";
 import Address from "./routes/Address";
 import Shipping from "./routes/Shipping";
@@ -11,7 +10,7 @@ import Payment from "./routes/Payment";
 import Cart from "./routes/Cart";
 import PreviewPage from "./routes/PreviewPage";
 import Root from "./routes/Root";
-import useTheme from "./hooks/useTheme";
+import useTheme from "./hooks/useTheme.js";
 import { useEffect } from "react";
 
 const router = createBrowserRouter([

@@ -5,7 +5,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Stars from "../components/Stars";
 import { BiPurchaseTag } from "react-icons/bi";
 import { IoReturnUpBackOutline } from "react-icons/io5";
-import useCart from "../hooks/useCart";
+import useCart from "../hooks/useCart.js";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 

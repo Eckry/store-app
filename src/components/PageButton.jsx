@@ -1,5 +1,5 @@
 import "./styles/PageButton.css";
-import useFilters from "../hooks/useFilters";
+import useFilters from "../hooks/useFilters.js";
 import { NUMBER_OF_PRODUCTS_PER_PAGE } from "../constants.json";
 import { useSearchParams } from "react-router-dom";
 

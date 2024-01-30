@@ -1,17 +1,13 @@
 import "./styles/Header.css";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import Filters from "./Filters";
-import useFilters from "../hooks/useFilters";
-import useCart from "../hooks/useCart";
+import useFilters from "../hooks/useFilters.js";
+import useCart from "../hooks/useCart.js";
 import { Link } from "react-router-dom";
 
-export default function Header({ interchangeShowCart, showCart }) {
+export default function Header() {
   const { setQuery } = useFilters();
   const { notification } = useCart();
-
-  function handleOnClick() {
-    interchangeShowCart();
-  }
 
   function handleSubmit(event) {
     event.preventDefault();

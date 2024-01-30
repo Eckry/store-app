@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import useAddress from "../hooks/useAddress";
+import useAddress from "../hooks/useAddress.js";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import "./styles/Address.css";
 

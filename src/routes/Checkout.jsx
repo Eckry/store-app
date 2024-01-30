@@ -3,7 +3,7 @@ import Warning from "../components/Warning";
 import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { AddressProvider } from "../context/AddressContext";
-import useCart from "../hooks/useCart";
+import useCart from "../hooks/useCart.js";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import { FaLink } from "react-icons/fa";
 import { useEffect } from "react";

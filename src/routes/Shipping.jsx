@@ -1,4 +1,4 @@
-import useAddress from "../hooks/useAddress";
+import useAddress from "../hooks/useAddress.js";
 import { Link } from "react-router-dom";
 import ShippingInformation from "../components/ShippingInformation";
 import { FaLongArrowAltRight } from "react-icons/fa";
