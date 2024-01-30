@@ -87,7 +87,7 @@
   font-size: 1rem;
 }
 
-.checkout-product-link{
+.checkout-product-link {
   color: var(--highlight-color-two);
 }
 
@@ -160,5 +160,25 @@
 @media (max-width: 850px) {
   .checkout-cart-products {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 450px) {
+  .checkout-title {
+    max-width: 200px;
+  }
+
+  .link-wrapper {
+    gap: 2rem;
+  }
+
+  .checkout-link {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 390px){
+  .checkout-title {
+    max-width: 150px;
   }
 }
