@@ -59,8 +59,10 @@ export default function useCart() {
   function deleteProduct(productToDelete) {
     const newCart = cart.filter((product) => product.id !== productToDelete.id);
     localStorage.setItem("cart", JSON.stringify(newCart));
-    localStorage.setItem("productSelected", JSON.stringify(newCart[0]));
-    setCart(newCart);
+    if (newCart.length !== 0)
+      localStorage.setItem("productSelected", JSON.stringify(newCart[0]));
+    else localStorage.removeItem("productSelected");
+      setCart(newCart);
     setProductSelected(newCart[0]);
   }
 
