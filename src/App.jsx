@@ -10,6 +10,7 @@ import Payment from "./routes/Payment";
 import Cart from "./routes/Cart";
 import PreviewPage from "./routes/PreviewPage";
 import Root from "./routes/Root";
+import Error from "./routes/Error.jsx";
 import useTheme from "./hooks/useTheme.js";
 import { useEffect } from "react";
 
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
   {
     path: `/`,
     element: <Root />,
+    errorElement: <Error />,
     children: [
       { path: `/`, element: <Home /> },
       { path: `/preview`, element: <PreviewPage /> },
