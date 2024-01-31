@@ -46,7 +46,7 @@ export default function PreviewPage() {
           <img
             className="preview-image"
             src={product.image}
-            alt="product image"
+            alt={product.title}
           />
           <div className="description-container">
             <h1 className="title" title={product.title}>

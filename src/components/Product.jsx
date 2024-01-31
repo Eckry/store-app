@@ -11,7 +11,7 @@ export default function Product({ product }) {
 
   return (
     <article className="product-container">
-      <img src={product.image} className="product-image" />
+      <img alt={product.title} src={product.image} className="product-image" />
       <section className="product-information">
         <div className="price-and-name-container">
           <p className="product-price">${product.price}</p>
