@@ -9,7 +9,7 @@ import { FaLink } from "react-icons/fa";
 import { useEffect } from "react";
 
 function CheckoutProduct({ product }) {
-  const { image, title, price, quantity } = product;
+  const { image, title, price, quantity, link } = product;
   const { deleteProduct } = useCart();
 
   function handleOnClick() {
@@ -31,7 +31,7 @@ function CheckoutProduct({ product }) {
         <button onClick={handleOnClick} className="checkout-product-trash">
           <FaRegTrashAlt />
         </button>
-        <a className="checkout-product-link" href="">
+        <a className="checkout-product-link" target="_blank" href={link}>
           <FaLink />
         </a>
       </div>

@@ -82,7 +82,7 @@
   border: none;
   outline: none;
   background-color: transparent;
-  color: red;
+  color: var(--highlight-color-two);
   cursor: pointer;
   font-size: 1rem;
 }

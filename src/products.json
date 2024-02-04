@@ -9,11 +9,12 @@
     "rating": {
       "rate": 3.9,
       "count": 120
-    }
+    },
+    "link": "https://www.fjallraven.com/uk/en-gb/bags-gear/backpacks-bags/laptop-bags/foldsack-no-1"
   },
   {
     "id": 2,
-    "title": "Mens Casual Premium Slim Fit T-Shirts ",
+    "title": "Mens Casual Premium Slim Fit T-Shirts",
     "price": 22.3,
     "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
     "category": "men's clothing",
@@ -21,7 +22,8 @@
     "rating": {
       "rate": 4.1,
       "count": 259
-    }
+    },
+    "link": "https://www.ebay.com/itm/314198163811"
   },
   {
     "id": 3,
@@ -33,7 +35,8 @@
     "rating": {
       "rate": 4.7,
       "count": 500
-    }
+    },
+    "link": "https://www.amazon.com/-/es/Chaqueta-WenVen-solapa-militar-algod%C3%B3n/dp/B071FJQ6L9/ref=sr_1_31?c=ts&keywords=Chamarras+Ligeras+de+Algod%C3%B3n+para+Hombre&qid=1707085110&s=apparel&sr=1-31&ts_id=7132374011"
   },
   {
     "id": 4,
@@ -45,7 +48,8 @@
     "rating": {
       "rate": 2.1,
       "count": 430
-    }
+    },
+    "link": "https://www.konga.com/product/mens-casual-slim-fit-stylish-wash-denim-long-sleeves-shirt-6059813"
   },
   {
     "id": 5,
@@ -57,11 +61,12 @@
     "rating": {
       "rate": 4.6,
       "count": 400
-    }
+    },
+    "link": "https://www.amazon.com/John-Hardy-Legends-Station-Bracelet/dp/B07BYRBBZD?th=1"
   },
   {
     "id": 6,
-    "title": "Solid Gold Petite Micropave ",
+    "title": "Solid Gold Petite Micropave",
     "price": 168,
     "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
     "category": "jewelery",
@@ -69,7 +74,8 @@
     "rating": {
       "rate": 3.9,
       "count": 70
-    }
+    },
+    "link": "https://www.amazon.ae/HAFEEZ-CENTER-Micropave-Moissanite-Rose-Gold/dp/B076T3M7TP"
   },
   {
     "id": 7,
@@ -81,7 +87,8 @@
     "rating": {
       "rate": 3,
       "count": 400
-    }
+    },
+    "link": "https://demo.hyperce.io/products/white-gold-plated-princess"
   },
   {
     "id": 8,
@@ -93,11 +100,12 @@
     "rating": {
       "rate": 1.9,
       "count": 100
-    }
+    },
+    "link": "https://www.amazon.com/Pierced-Owl-Plated-Stainless-Earrings/dp/B0B3SHSXWT"
   },
   {
     "id": 9,
-    "title": "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
+    "title": "WD 2TB Elements Portable External Hard Drive - USB 3.0",
     "price": 64,
     "description": "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system",
     "category": "electronics",
@@ -105,7 +113,8 @@
     "rating": {
       "rate": 3.3,
       "count": 203
-    }
+    },
+    "link": "https://www.amazon.com.mx/Western-Digital-WDBU6Y0020BBK-Disco-Externo/dp/B06W55K9N6"
   },
   {
     "id": 10,
@@ -117,7 +126,8 @@
     "rating": {
       "rate": 2.9,
       "count": 470
-    }
+    },
+    "link": "https://www.amazon.com.mx/SanDisk-SSD-Plus-Disco-Interno/dp/B07YFFJK2Q"
   },
   {
     "id": 11,
@@ -129,7 +139,8 @@
     "rating": {
       "rate": 4.8,
       "count": 319
-    }
+    },
+    "link": "https://www.amazon.com.mx/Silicon-Power-Ace-256GB-Serial/dp/B075RJS55D"
   },
   {
     "id": 12,
@@ -141,7 +152,8 @@
     "rating": {
       "rate": 4.8,
       "count": 400
-    }
+    },
+    "link": "https://www.westerndigital.com/en-gb/products/outlet/portable-drives/wd-gaming-drive-usb-3-0-hdd?sku=WDBDFF0020BBK-WESN"
   },
   {
     "id": 13,
@@ -153,11 +165,12 @@
     "rating": {
       "rate": 2.9,
       "count": 250
-    }
+    },
+    "link": "https://www.amazon.com.mx/Acer-SB220Q-Bi-21-5-Monitor-Puerto/dp/B07CVL2D2S"
   },
   {
     "id": 14,
-    "title": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
+    "title": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED",
     "price": 999.99,
     "description": "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag",
     "category": "electronics",
@@ -165,7 +178,8 @@
     "rating": {
       "rate": 2.2,
       "count": 140
-    }
+    },
+    "link": "https://www.samsung.com/us/computing/monitors/gaming/49--chg90-qled-gaming-monitor-lc49hg90dmnxza/"
   },
   {
     "id": 15,
@@ -177,7 +191,8 @@
     "rating": {
       "rate": 2.6,
       "count": 235
-    }
+    },
+    "link": "https://contentv2-nuxt3.behonbaker.com/merch/15"
   },
   {
     "id": 16,
@@ -189,7 +204,8 @@
     "rating": {
       "rate": 2.9,
       "count": 340
-    }
+    },
+    "link": "https://www.ebay.co.uk/itm/203864423557"
   },
   {
     "id": 17,
@@ -201,11 +217,12 @@
     "rating": {
       "rate": 3.8,
       "count": 679
-    }
+    },
+    "link": "https://www.tiendamia.cr/product/amz/B07TY3W6ZP?pName=Womens-Raincoats-Windbreaker-Rain-Jacket-Waterproof"
   },
   {
     "id": 18,
-    "title": "MBJ Women's Solid Short Sleeve Boat Neck V ",
+    "title": "MBJ Women's Solid Short Sleeve Boat Neck V",
     "price": 9.85,
     "description": "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem",
     "category": "women's clothing",
@@ -213,7 +230,8 @@
     "rating": {
       "rate": 4.7,
       "count": 130
-    }
+    },
+    "link": "https://www.desertcart.co.th/products/35014675-mbj-womens-solid-short-sleeve-boat-neck-v-neck-dolman-top-with-side-shirring-made-in-u-s-a"
   },
   {
     "id": 19,
@@ -225,7 +243,8 @@
     "rating": {
       "rate": 4.5,
       "count": 146
-    }
+    },
+    "link": "https://www.amazon.sa/-/en/Opna-Womens-Moisture-Wicking-Athletic/dp/B015TC8Y6A"
   },
   {
     "id": 20,
@@ -237,7 +256,8 @@
     "rating": {
       "rate": 3.6,
       "count": 145
-    }
+    },
+    "link": "https://www.amazon.com/DANVOUY-Womens-Casual-Graphic-T-Shirt/dp/B07TBD2JWX?th=1"
   },
   {
     "id": 21,
@@ -249,6 +269,7 @@
     "rating": {
       "rate": 4,
       "count": 5
-    }
+    },
+    "link": "https://www.ralphlauren.com/men-footwear-shoes/r/orange"
   }
 ]
