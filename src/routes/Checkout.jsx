@@ -31,7 +31,7 @@ function CheckoutProduct({ product }) {
         <button onClick={handleOnClick} className="checkout-product-trash">
           <FaRegTrashAlt />
         </button>
-        <a className="checkout-product-link" target="_blank" href={link}>
+        <a className="checkout-product-link" href={link}>
           <FaLink />
         </a>
       </div>
