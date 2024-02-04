@@ -5,6 +5,7 @@ export default function(){
   const {isLight, setIsLight} = useContext(ThemeContext);
 
   function interchangeTheme(){
+    localStorage.setItem("theme", JSON.stringify(!isLight));
     setIsLight(prev => !prev);
   }
 

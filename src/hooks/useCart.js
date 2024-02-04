@@ -1,5 +1,5 @@
 import { CartContext } from "../context/CartContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 export default function useCart() {
   const {
@@ -62,7 +62,7 @@ export default function useCart() {
     if (newCart.length !== 0)
       localStorage.setItem("productSelected", JSON.stringify(newCart[0]));
     else localStorage.removeItem("productSelected");
-      setCart(newCart);
+    setCart(newCart);
     setProductSelected(newCart[0]);
   }
 
@@ -70,18 +70,6 @@ export default function useCart() {
     localStorage.setItem("productSelected", JSON.stringify(productToSelect));
     setProductSelected(productToSelect);
   }
-
-  useEffect(() => {
-    const prevCart = localStorage.getItem("cart");
-    if (prevCart) {
-      setCart(JSON.parse(prevCart));
-    }
-
-    const prevSelected = localStorage.getItem("productSelected");
-    if (prevSelected) {
-      setProductSelected(JSON.parse(prevSelected));
-    }
-  }, []);
 
   return {
     cart,
