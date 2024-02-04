@@ -10,7 +10,7 @@ export default function CheckBox({
 
   return (
     <div className="checkbox-container">
-      <label className="checkbox-label">
+      <label role="category-filter" className="checkbox-label">
         <input
           onChange={handleOnChange}
           type="checkbox"
