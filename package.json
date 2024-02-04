@@ -28,6 +28,7 @@
     "sharp": "^0.33.2"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.2.1",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@vitejs/plugin-react": "^4.2.0",
@@ -35,6 +36,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
+    "happy-dom": "^13.3.8",
     "vite": "^5.0.0",
     "vitest": "^1.2.2"
   }
