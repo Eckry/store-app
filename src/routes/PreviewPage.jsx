@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function PreviewPage() {
   const { filteredProducts } = useFilters();
@@ -33,6 +34,16 @@ export default function PreviewPage() {
   function handleGoNextPreview() {
     setSearchParams({ id: next.id });
   }
+
+  useEffect(() => {
+    function preload(image){
+      const img = new Image();
+      img.src = image;
+    }
+
+    preload(prev?.image);
+    preload(next?.image);
+  }, [searchParams])
 
   return (
     <>
