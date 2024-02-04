@@ -11,7 +11,7 @@
 .other-products {
   display: flex;
   justify-content: flex-start;
-  overflow-x: scroll;
+  overflow-x: auto;
   gap: 0.5rem;
   padding: 1rem;
   height: 210px;
@@ -77,7 +77,7 @@
 }
 
 .product-selected-description {
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-right: 10px;
   text-wrap: pretty;
   line-height: 1.6rem;
