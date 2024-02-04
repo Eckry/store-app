@@ -23,7 +23,7 @@ export default function Filters() {
 
   return (
     <section className="show-filters">
-      <input className="hamburger-input" type="checkbox" id="toggle-filters" />
+      <input className="hamburger-input" role="show-filters" type="checkbox" id="toggle-filters" />
       <label className="toggle-filters" htmlFor="toggle-filters">
         <span></span>
         <span></span>
