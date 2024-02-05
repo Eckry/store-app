@@ -53,7 +53,7 @@ export default function PreviewPage() {
             <h1 className="title" title={product.title}>
               {product.title}
             </h1>
-            <h4 className="subtitle">Description</h4>
+            <h2 className="subtitle">Description</h2>
             <p className="description">{product.description}</p>
             <p className="category">{product.category}</p>
           </div>
@@ -73,11 +73,13 @@ export default function PreviewPage() {
       <nav className="nav-buttons-container">
         <button
           onClick={handleGoPrevPreview}
+          aria-label="prev"
           className={prev ? "nav-button" : "disabled"}
         >
           <FaLongArrowAltLeft />
         </button>
         <button
+          aria-label="next"
           onClick={handleGoNextPreview}
           className={next ? "nav-button" : "disabled"}
         >
