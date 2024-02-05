@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <Link to="/cart" className="shopping-cart-container">
+      <Link to="/cart" className="shopping-cart-container" aria-label="Go to cart">
         <FaShoppingCart />
         <span style={style} className="number-of-products-container">
           !
@@ -31,7 +31,7 @@ export default function Header() {
           type="text"
           name="input"
         />
-        <button className="text-filter-button" type="submit">
+        <button name="search" className="text-filter-button" type="submit">
           <FaSearch />
         </button>
       </form>

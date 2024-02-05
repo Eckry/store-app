@@ -6,14 +6,14 @@ import { useSearchParams } from "react-router-dom";
 export default function PageButton({ children, value }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const { filteredProducts } = useFilters();
-  
+
   let page;
-  if(!searchParams.get("page")) page = 0;
+  if (!searchParams.get("page")) page = 0;
   else page = Number(searchParams.get("page")) - 1;
 
   function handleClick(e) {
     const newPage = Number(e.target.value);
-    if(newPage === page) return;
+    if (newPage === page) return;
     const numberOfPages = Math.ceil(
       filteredProducts.length / NUMBER_OF_PRODUCTS_PER_PAGE
     );
@@ -30,6 +30,7 @@ export default function PageButton({ children, value }) {
 
   return (
     <button
+      name={value}
       value={value}
       onClick={handleClick}
       className={page === value ? "page-button-selected" : "page-button"}
