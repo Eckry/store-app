@@ -35,16 +35,6 @@ export default function PreviewPage() {
     setSearchParams({ id: next.id });
   }
 
-  useEffect(() => {
-    function preload(image){
-      const img = new Image();
-      img.src = image;
-    }
-
-    preload(prev?.image);
-    preload(next?.image);
-  }, [searchParams])
-
   return (
     <>
       <header className="preview-header">
