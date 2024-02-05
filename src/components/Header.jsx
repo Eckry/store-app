@@ -31,7 +31,7 @@ export default function Header() {
           type="text"
           name="input"
         />
-        <button name="search" className="text-filter-button" type="submit">
+        <button aria-label="search" className="text-filter-button" type="submit">
           <FaSearch />
         </button>
       </form>

@@ -30,7 +30,7 @@ export default function PageButton({ children, value }) {
 
   return (
     <button
-      name={value}
+      aria-label={value}
       value={value}
       onClick={handleClick}
       className={page === value ? "page-button-selected" : "page-button"}
