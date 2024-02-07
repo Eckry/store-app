@@ -21,6 +21,7 @@ export default function Image({ image, alt, className, route, onClick }) {
         style={{ display: isLoading ? "none" : "block" }}
         src={image}
         alt={alt}
+        onLoad={handleLoad}
         onClick={handleOnClick}
         className={className}
       />
