@@ -1,6 +1,7 @@
 import "./styles/Product.css";
 import useCart from "../hooks/useCart.js";
 import { Link } from "react-router-dom";
+import Image from "./Image.jsx";
 
 export default function Product({ product }) {
   const { addProduct } = useCart();
@@ -11,13 +12,11 @@ export default function Product({ product }) {
 
   return (
     <article className="product-container">
-      <img alt={product.title} src={product.image} className="product-image" />
+      <Image image={product.image} alt={product.title} />
       <section className="product-information">
         <div className="price-and-name-container">
           <p className="product-price">${product.price}</p>
-          <p className="product-name">
-            {product.title}
-          </p>
+          <p className="product-name">{product.title}</p>
         </div>
         <div className="buttons-container">
           <Link to={`/preview/?id=${product.id}`} className="product-button">
