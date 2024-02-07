@@ -8,6 +8,7 @@ import { IoReturnUpBackOutline } from "react-icons/io5";
 import useCart from "../hooks/useCart.js";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import Image from "../components/Image.jsx";
 
 export default function Cart() {
   const {
@@ -48,18 +49,18 @@ export default function Cart() {
         <MdOutlineRemoveShoppingCart />
         <h1 className="empty-title">Your cart is empty!</h1>
         <Link to="/" className="continue-shopping-empty">
-          <IoReturnUpBackOutline className="io-icon"/> Continue shopping
+          <IoReturnUpBackOutline className="io-icon" /> Continue shopping
         </Link>
       </div>
     );
   return (
     <main className="cart-container">
       <article className="product-selected-container">
-        <img
-          draggable="false"
-          className="product-selected-image"
-          src={productSelected.image}
+        <Image
+          image={productSelected.image}
           alt={productSelected.title}
+          className="product-selected-image"
+          route="cartImage"
         />
         <section className="product-selected-information">
           <h1 className="product-selected-title">{productSelected.title}</h1>
@@ -90,10 +91,18 @@ export default function Cart() {
           </button>
         </div>
         <div className="buy-and-trash-buttons">
-          <Link title="Buy cart" to="/checkout/data" className="buy-product-anchor">
+          <Link
+            title="Buy cart"
+            to="/checkout/data"
+            className="buy-product-anchor"
+          >
             <BiPurchaseTag />
           </Link>
-          <button title="Remove product from cart" className="trash-button" onClick={handleDelete}>
+          <button
+            title="Remove product from cart"
+            className="trash-button"
+            onClick={handleDelete}
+          >
             <FaRegTrashAlt />
           </button>
         </div>
@@ -107,21 +116,20 @@ export default function Cart() {
           cart.map((product) => {
             if (product.id === productSelected.id) return;
             return (
-              <img
-                draggable="false"
-                id={product.id}
-                onClick={() => handleChangeProductSelectedInCart(product)}
-                src={product.image}
-                className="other-products-image"
-                key={product.id}
+              <Image
+                route="otherImage"
+                image={product.image}
                 alt={product.title}
+                key={product.id}
+                className="other-products-image"
+                onClick={() => handleChangeProductSelectedInCart(product)}
               />
             );
           })
         )}
       </section>
       <Link to="/" className="continue-shopping margin-top">
-        <IoReturnUpBackOutline className="io-icon"/> Continue shopping
+        <IoReturnUpBackOutline className="io-icon" /> Continue shopping
       </Link>
     </main>
   );

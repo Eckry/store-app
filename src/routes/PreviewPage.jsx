@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import { useSearchParams } from "react-router-dom";
-import { useEffect } from "react";
+import Image from "../components/Image.jsx";
 
 export default function PreviewPage() {
   const { filteredProducts } = useFilters();
@@ -44,10 +44,11 @@ export default function PreviewPage() {
       </header>
       <article className="preview-container">
         <section className="image-and-description-container">
-          <img
-            className="preview-image"
-            src={product.image}
+          <Image
+            image={product.image}
             alt={product.title}
+            className="preview-image"
+            route="previewImage"
           />
           <div className="description-container">
             <h1 className="title" title={product.title}>

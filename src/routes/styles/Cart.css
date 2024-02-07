@@ -30,7 +30,6 @@
   cursor: pointer;
   border: 2px solid var(--tertiary-color);
   border-radius: 1rem;
-  user-select: none;
   padding: 10px;
 }
 

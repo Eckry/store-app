@@ -12,7 +12,12 @@ export default function Product({ product }) {
 
   return (
     <article className="product-container">
-      <Image image={product.image} alt={product.title} />
+      <Image
+        image={product.image}
+        alt={product.title}
+        className="product-image"
+        route="productImage"
+      />
       <section className="product-information">
         <div className="price-and-name-container">
           <p className="product-price">${product.price}</p>
