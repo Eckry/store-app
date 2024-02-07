@@ -31,13 +31,13 @@ describe("Everything", () => {
 
   it("should render initial products", () => {
     render(<RenderHome />);
-    const screenProducts = screen.getAllByRole("product");
+    const screenProducts = document.querySelectorAll(".product-container");
     expect(screenProducts.length).toBe(NUMBER_OF_PRODUCTS_PER_PAGE);
   });
 
   it("should filter products if checkbox from filters is clicked", () => {
     render(<RenderHome />);
-    const showFilters = screen.getByRole("show-filters");
+    const showFilters = document.querySelector(".hamburger-input");
     expect(showFilters).toBeDefined();
     fireEvent.click(showFilters);
 
@@ -46,7 +46,7 @@ describe("Everything", () => {
     fireEvent.click(electronics);
     expect(electronics.checked).toBe(true);
 
-    const screenProducts = screen.getAllByRole("product-title");
+    const screenProducts = document.querySelectorAll(".product-name");
     expect(screenProducts).toBeDefined();
     const productsExpected = filterProducts(products, "electronics");
 

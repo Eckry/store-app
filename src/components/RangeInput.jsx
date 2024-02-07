@@ -22,7 +22,7 @@ export default function RangeInput({ price, onChange }) {
           type="range"
           min={0}
           max={1000}
-          role="range-min"
+          id="range-min"
         />
         <input
           className="input"
@@ -31,7 +31,7 @@ export default function RangeInput({ price, onChange }) {
           type="range"
           min={0}
           max={1000}
-          role="range-max"
+          id="range-max"
         />
       </div>
       <div className="control-wrapper">

@@ -25,17 +25,17 @@ describe("Filters", () => {
   it("should render both range input", () => {
     render(<RenderFilters />);
 
-    const rangeInputMin = screen.getByRole("range-min");
+    const rangeInputMin = document.querySelector("#range-min");
     expect(rangeInputMin).toBeDefined();
 
-    const rangeInputMax = screen.getByRole("range-max");
+    const rangeInputMax = document.querySelector("#range-max");
     expect(rangeInputMax).toBeDefined();
   })
 
   it("should change range input value", () => {
     render(<RenderFilters />);
 
-    const rangeInputMin = screen.getByRole("range-min");
+    const rangeInputMin = document.querySelector("#range-min");
 
     fireEvent.change(rangeInputMin, {target: { value: 170 }})
     expect(rangeInputMin.value).toBe("170");
@@ -43,7 +43,7 @@ describe("Filters", () => {
 
   it("should show 4 categories", () => {
     render(<RenderFilters />);
-    const screenCategories = screen.getAllByRole("category-filter");
+    const screenCategories = document.querySelectorAll("#category-filter");
     expect(screenCategories.length).toBe(categories.length);
   });
 
@@ -60,7 +60,7 @@ describe("Filters", () => {
 
   it("should toggle when user clicks on several categories", () => {
     render(<RenderFilters />);
-    const screenCategories = screen.getAllByRole("category-filter");
+    const screenCategories = document.querySelectorAll("#category-filter");
     expect(screenCategories).toBeDefined();
 
     screenCategories.forEach((category) => {
