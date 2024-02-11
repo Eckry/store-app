@@ -5,12 +5,14 @@ import Product from "../components/Product";
 import Header from "../components/Header";
 import CarouselButtons from "../components/CarouselButtons";
 import useFilters from "../hooks/useFilters.js";
+import useCart from "../hooks/useCart.js";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
 
 function MainContent() {
   const { filteredProducts } = useFilters();
   const [searchParams, setSearchParams] = useSearchParams();
+  const { addProduct } = useCart();
 
   let page;
   if (!searchParams.get("page")) page = 0;
@@ -42,7 +44,7 @@ function MainContent() {
           NUMBER_OF_PRODUCTS_PER_PAGE * (page + 1)
         )
         .map((product) => (
-          <Product key={product.id} product={product} />
+          <Product addProduct={addProduct} key={product.id} product={product} />
         ))}
     </main>
   );

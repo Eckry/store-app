@@ -1,10 +1,8 @@
 import "./styles/Product.css";
-import useCart from "../hooks/useCart.js";
 import { Link } from "react-router-dom";
 import Image from "./Image.jsx";
 
-export default function Product({ product }) {
-  const { addProduct } = useCart();
+export default function Product({ product, addProduct }) {
 
   function handleOnClickToBuyProduct() {
     addProduct(product);
