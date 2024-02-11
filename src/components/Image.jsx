@@ -1,12 +1,11 @@
 import { useState } from "react";
 import ImageLoading from "./ImageLoading";
-import "./styles/Image.css";
 
 export default function Image({ image, alt, className, route, onClick }) {
   const [isLoading, setIsLoading] = useState(true);
 
   function handleLoad() {
-    setIsLoading(false);
+    setTimeout(() => setIsLoading(false), 1000);
   }
 
   function handleOnClick(){

@@ -7,6 +7,7 @@ import useCart from "../hooks/useCart.js";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import { FaLink } from "react-icons/fa";
 import { useEffect } from "react";
+import Image from "../components/Image.jsx";
 
 function CheckoutProduct({ product }) {
   const { image, title, price, quantity, link } = product;
@@ -18,7 +19,12 @@ function CheckoutProduct({ product }) {
 
   return (
     <article className="checkout-product">
-      <img className="checkout-image" src={image} alt={title} />
+      <Image
+        className="checkout-image"
+        alt={title}
+        image={image}
+        route="checkoutImage"
+      />
       <div className="checkout-information">
         <p title={title} className="checkout-title">
           {title}

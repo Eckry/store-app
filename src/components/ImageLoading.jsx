@@ -5,9 +5,10 @@ export default function ImageLoading({ isLoading, route }) {
     productImage: "product-loading",
     previewImage: "preview-loading",
     cartImage: "cart-loading",
-    otherImage: "other-loading"
+    otherImage: "other-loading",
+    checkoutImage: "checkout-loading",
   };
-  
+
   return (
     <div
       style={{ display: isLoading ? "block" : "none" }}
