@@ -33,6 +33,7 @@ export default function Contact() {
       )
       .finally(() => {
         setIsLoading(false);
+        setSent(true);
         localStorage.setItem("sent", true);
       });
   }
