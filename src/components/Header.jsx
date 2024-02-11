@@ -6,7 +6,7 @@ import useCart from "../hooks/useCart.js";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  const { setQuery, ...filters } = useFilters();
+  const { setQuery, query,  ...filters } = useFilters();
   const { notification } = useCart();
 
   function handleSubmit(event) {
@@ -30,6 +30,7 @@ export default function Header() {
           className="text-filter"
           type="text"
           name="input"
+          defaultValue={query}
         />
         <button aria-label="search" className="text-filter-button" type="submit">
           <FaSearch />
