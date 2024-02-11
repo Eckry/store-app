@@ -68,7 +68,6 @@
   cursor: pointer;
   outline: none;
   border: none;
-  transition: 0.1s ease-in-out;
   width: 100%;
   font-size: 0.9rem;
   display: flex;
@@ -78,13 +77,10 @@
 
 .product-button:hover {
   background-color: var(--tertiary-brighty-color);
-  transform: scale(1.05);
-  transition: 0.1s ease-in-out;
 }
 
 .product-button:active {
-  transform: scale(0.95);
-  transition: 0.1s ease-in-out;
+  background-color: var(--tertiary-color);
 }
 
 @media (max-width: 1500px) {
