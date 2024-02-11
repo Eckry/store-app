@@ -29,3 +29,11 @@ Start development:
 ```
 npm run dev
 ```
+You can see it here: https://store-app-pink.vercel.app/
+<details>
+  <summary><b style="color: blue;">Click here to view the project</b></summary>
+  <a href="https://store-app-pink.vercel.app/">
+    <img src="https://store-app-pink.vercel.app/" alt="Project Preview" width="500px">
+  </a>
+</details>
+
