@@ -75,7 +75,13 @@
 }
 
 .product-price {
+  color: var(--highlight-color-two);
   font-size: 1.5rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 120px;
+  text-overflow: ellipsis;
 }
 
 .preview-image {

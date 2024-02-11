@@ -36,10 +36,6 @@
 }
 
 
-.product-price {
-  color: var(--highlight-color-two);
-}
-
 .product-name {
   width: 130px;
   text-overflow: ellipsis;

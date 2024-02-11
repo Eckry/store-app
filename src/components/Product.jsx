@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Image from "./Image.jsx";
 
 export default function Product({ product, addProduct }) {
-
   function handleOnClickToBuyProduct() {
     addProduct(product);
   }
@@ -18,8 +17,12 @@ export default function Product({ product, addProduct }) {
       />
       <section className="product-information">
         <div className="price-and-name-container">
-          <p className="product-price">${product.price}</p>
-          <p className="product-name" title={product.title} >{product.title}</p>
+          <p title={product.price} className="product-price">
+            ${product.price}
+          </p>
+          <p className="product-name" title={product.title}>
+            {product.title}
+          </p>
         </div>
         <div className="buttons-container">
           <Link to={`/preview/?id=${product.id}`} className="product-button">
