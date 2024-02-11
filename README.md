@@ -1,8 +1,31 @@
-# React + Vite
+# REACT Ecommerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An ecommerce built with react.
 
-Currently, two official plugins are available:
+## Technologies
+* React
+* React Router and React Router DOM
+* EmailJS
+* Express
+* Mercadopago api
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+* Filters: Find what you're looking for effortlessly with an intuitive filtering system.
+* Pagination: Enjoy seamless navigation through product listings with automatic pagination.
+* Shopping Cart: Keep track of your selections with a convenient shopping cart.
+* Preview: Get a closer look at each product with detailed previews.
+* Contact: Reach out directly through the contact page.
+* Payment: Complete purchases securely with Mercadopago integration.
+
+## Installation
+Clone the repository and install dependecies: 
+```
+git clone https://github.com/Eckry/store-app.git
+cd project
+npm install
+```
+
+Start development:
+```
+npm run dev
+```
