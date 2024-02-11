@@ -9,9 +9,8 @@ import { FaLink } from "react-icons/fa";
 import { useEffect } from "react";
 import Image from "../components/Image.jsx";
 
-function CheckoutProduct({ product }) {
+function CheckoutProduct({ product, deleteProduct }) {
   const { image, title, price, quantity, link } = product;
-  const { deleteProduct } = useCart();
 
   function handleOnClick() {
     deleteProduct(product);
@@ -47,7 +46,7 @@ function CheckoutProduct({ product }) {
 
 export default function Checkout() {
   const location = useLocation();
-  const { cart } = useCart();
+  const { cart, deleteProduct } = useCart();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -112,7 +111,13 @@ export default function Checkout() {
         <aside className="checkout-cart">
           <div className="checkout-cart-products" style={cartProductStyle}>
             {cart.map((product) => {
-              return <CheckoutProduct key={product.id} product={product} />;
+              return (
+                <CheckoutProduct
+                  deleteProduct={deleteProduct}
+                  key={product.id}
+                  product={product}
+                />
+              );
             })}
           </div>
           <p>
