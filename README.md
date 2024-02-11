@@ -1,15 +1,15 @@
-# REACT Ecommerce
+# $\color{#36078d}{REACT\space Ecommerce}$
 
 An ecommerce built with react.
 
-## Technologies
+## $\color{#ffbc40}{Technologies}$
 * React
 * React Router and React Router DOM
 * EmailJS
 * Express
 * Mercadopago api
 
-## Features
+## $\color{#ffbc40}{Features}$
 * Filters: Find what you're looking for effortlessly with an intuitive filtering system.
 * Pagination: Enjoy seamless navigation through product listings with automatic pagination.
 * Shopping Cart: Keep track of your selections with a convenient shopping cart.
@@ -20,20 +20,13 @@ An ecommerce built with react.
 ## Installation
 Clone the repository and install dependecies: 
 ```
-git clone https://github.com/Eckry/store-app.git
-cd project
-npm install
+$ git clone https://github.com/Eckry/store-app.git
+$ cd project
+$ npm install
 ```
 
 Start development:
 ```
-npm run dev
+$ npm run dev
 ```
 You can see it here: https://store-app-pink.vercel.app/
-<details>
-  <summary><b style="color: blue;">Click here to view the project</b></summary>
-  <a href="https://store-app-pink.vercel.app/">
-    <img src="https://store-app-pink.vercel.app/" alt="Project Preview" width="500px">
-  </a>
-</details>
-
