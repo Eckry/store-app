@@ -8,7 +8,10 @@ const SERVICE_ID = "service_qw94oim"; //! use it for spam
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState(false);
-  const [sent, setSent] = useState(false);
+  const [sent, setSent] = useState(() => {
+    if (localStorage.getItem("sent")) return true;
+    return false;
+  });
   const form = useRef();
 
   function handleSubmit(e) {
@@ -33,12 +36,6 @@ export default function Contact() {
         localStorage.setItem("sent", true);
       });
   }
-
-  useEffect(() => {
-    if (localStorage.getItem("sent")) {
-      setSent(true);
-    }
-  }, []);
 
   return (
     <main className="contact-container">
