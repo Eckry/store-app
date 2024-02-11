@@ -5,11 +5,11 @@ export default function Image({ image, alt, className, route, onClick }) {
   const [isLoading, setIsLoading] = useState(true);
 
   function handleLoad() {
-    setTimeout(() => setIsLoading(false), 1000);
+    setIsLoading(false);
   }
 
-  function handleOnClick(){
-    if(typeof onClick !== "function") return;
+  function handleOnClick() {
+    if (typeof onClick !== "function") return;
     onClick();
   }
 
