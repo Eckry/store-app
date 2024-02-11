@@ -19,7 +19,7 @@ export default function Product({ product, addProduct }) {
       <section className="product-information">
         <div className="price-and-name-container">
           <p className="product-price">${product.price}</p>
-          <p className="product-name">{product.title}</p>
+          <p className="product-name" title={product.title} >{product.title}</p>
         </div>
         <div className="buttons-container">
           <Link to={`/preview/?id=${product.id}`} className="product-button">
