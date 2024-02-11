@@ -2,8 +2,10 @@ import "./styles/CheckBox.css";
 
 export default function CheckBox({
   category,
-  interchangeSearchedCategories
+  interchangeSearchedCategories,
+  searchedCategories,
 }) {
+
   function handleOnChange(event) {
     interchangeSearchedCategories(event.target.value);
   }
@@ -15,6 +17,7 @@ export default function CheckBox({
           onChange={handleOnChange}
           type="checkbox"
           value={category}
+          checked={searchedCategories[category] || false}
         />
         <span></span>
         {category}

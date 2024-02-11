@@ -6,7 +6,7 @@ import useCart from "../hooks/useCart.js";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  const { setQuery } = useFilters();
+  const { setQuery, ...filters } = useFilters();
   const { notification } = useCart();
 
   function handleSubmit(event) {
@@ -35,7 +35,7 @@ export default function Header() {
           <FaSearch />
         </button>
       </form>
-      <Filters />
+      <Filters filters={filters}/>
     </header>
   );
 }

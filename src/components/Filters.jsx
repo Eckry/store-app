@@ -7,13 +7,13 @@ import { PiSnowflake } from "react-icons/pi";
 import { FaMoon } from "react-icons/fa6";
 import useTheme from "../hooks/useTheme.js";
 
-export default function Filters() {
+export default function Filters({ filters }) {
   const {
     price,
     setPriceFilter,
     searchedCategories,
     interchangeSearchedCategories,
-  } = useFilters();
+  } = filters;
 
   const { isLight, interchangeTheme } = useTheme();
 
@@ -53,7 +53,7 @@ export default function Filters() {
           />
           <span className="theme-mark"></span>
           <PiSnowflake className="theme-icon" />
-          <FaMoon className="theme-icon"/>
+          <FaMoon className="theme-icon" />
         </label>
       </div>
     </section>
