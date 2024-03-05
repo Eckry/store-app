@@ -55,7 +55,7 @@
 .description {
   font-size: 0.8rem;
   line-height: 1.5em;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-right: 10px;
   letter-spacing: 0.1px;
   max-height: 150px;
