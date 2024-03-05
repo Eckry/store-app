@@ -1,5 +1,5 @@
 import { CartContext } from "../context/CartContext";
-import { useContext} from "react";
+import { useContext } from "react";
 
 export default function useCart() {
   const {
@@ -52,7 +52,7 @@ export default function useCart() {
       }
       return product;
     });
-    localStorage.setItem(JSON.stringify(newCart));
+    localStorage.setItem("cart", JSON.stringify(newCart));
     setCart(newCart);
   }
 
