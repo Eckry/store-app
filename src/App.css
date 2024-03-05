@@ -9,6 +9,7 @@
 }
 
 html {
+  color-scheme: dark;
   --primary-color: #161a30;
   --secondary-color: #31304d;
   --secondary-transparent-color: #31304d8d;
@@ -28,7 +29,8 @@ html {
 }
 
 html.light-mode {
-  --primary-color: #DCF2F1;
+  color-scheme: light;
+  --primary-color: #dcf2f1;
   --secondary-color: #c2e1e8;
   --secondary-transparent-color: #c2e1e8b2;
   --tertiary-color: #7491c3;
@@ -41,7 +43,7 @@ html.light-mode {
   --highlight-darker-color-two: #8f3a3a;
   --warning-container-color: #f6cd8231;
   --error-color: rgb(231, 114, 114);
-  --text-color : black;
+  --text-color: black;
   --button-text-color: white;
   --box-shadow: 0 0 5px 1px #7491c3;
 }
