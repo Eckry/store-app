@@ -19,7 +19,7 @@
 Clone the repository and install dependecies: 
 ```bash
 $ git clone https://github.com/Eckry/store-app.git
-$ cd project
+$ cd store-app
 $ npm install
 ```
 
