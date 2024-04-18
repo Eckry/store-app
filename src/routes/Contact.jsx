@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import "./styles/Contact.css";
 import emailjs from "@emailjs/browser";
 
-const TEMPLATE_ID = "template_knx28fs"; //! It doesn't matter if i show this, this is only to
-const PUBLIC_KEY = "rkt9jX6zxrEIBi31q"; //! send emails to an account i created, so you can't
-const SERVICE_ID = "service_qw94oim"; //! use it for spam
+const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
+const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState(false);
